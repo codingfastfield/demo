@@ -1,0 +1,315 @@
+---
+// GavelAnimation.astro
+export interface Props {
+  className?: string;
+  animationDelay?: number; // Delay between animations in seconds (random range)
+}
+
+const { className = "", animationDelay = 6 } = Astro.props;
+---
+
+<div class={`gavel-container ${className}`} id="gavel-animation">
+  <!-- <div class="sound-block">
+    <img src="/soundblock.png" alt="Gavel sound block" />
+  </div> -->
+  <div class="gavel">
+    <img src="gavel.png" alt="Judge's gavel" />
+  </div>
+</div>
+
+<style>
+  .gavel-container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sound-block {
+    position: absolute;
+    bottom: 20px;
+    z-index: 1;
+    will-change: transform;
+  }
+
+  .sound-block img {
+    width: 120px;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transition: all 0.3s ease;
+  }
+
+  /* Sound block impact reaction - linear */
+  .sound-block.impact {
+    animation: blockImpact 3s linear forwards;
+  }
+
+  @keyframes blockImpact {
+    0%,
+    65% {
+      transform: translateY(0) scale(1);
+    }
+    66% {
+      transform: translateY(3px) scale(1.03, 0.97);
+    }
+    72% {
+      transform: translateY(1px) scale(1.01, 0.99);
+    }
+    78% {
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .gavel {
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    z-index: 2;
+    transform-origin: 85% 95%; /* More precise pivot point */
+    transform: rotate(-25deg) translateY(0);
+    will-change: transform; /* Optimize for animations */
+  }
+
+  .gavel img {
+    width: 100px;
+    height: auto;
+    filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.4));
+    transition: filter 0.3s ease;
+  }
+
+  .gavel.hitting {
+    animation: gavelStrike 3s linear forwards;
+  }
+
+  @keyframes gavelStrike {
+    0% {
+      transform: rotate(-25deg) translateY(0) translateX(0);
+      filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.4));
+    }
+
+    /* Smooth even lift */
+    33% {
+      transform: rotate(-50deg) translateY(-20px) translateX(-10px);
+      filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.3));
+    }
+
+    /* Even transition to impact */
+    66% {
+      transform: rotate(8deg) translateY(28px) translateX(8px);
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+    }
+
+    /* Even return to rest */
+    100% {
+      transform: rotate(-25deg) translateY(0) translateX(0);
+      filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.4));
+    }
+  }
+
+  /* Enhanced impact effects */
+  .gavel-container::before {
+    content: "";
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 3px;
+    background: radial-gradient(ellipse, rgba(139, 69, 19, 0.8), transparent);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+
+  .gavel-container.impact::before {
+    animation: impactWave 2s linear forwards;
+  }
+
+  /* Multiple impact waves */
+  .gavel-container::after {
+    content: "";
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 2px;
+    background: radial-gradient(ellipse, rgba(101, 67, 33, 0.6), transparent);
+    border-radius: 50%;
+    opacity: 0;
+  }
+
+  .gavel-container.impact::after {
+    animation: secondaryWave 2.5s linear 0.3s forwards;
+  }
+
+  @keyframes impactWave {
+    0% {
+      width: 10px;
+      height: 3px;
+      opacity: 1;
+    }
+    30% {
+      width: 80px;
+      height: 8px;
+      opacity: 0.8;
+    }
+    60% {
+      width: 140px;
+      height: 12px;
+      opacity: 0.4;
+    }
+    100% {
+      width: 200px;
+      height: 15px;
+      opacity: 0;
+    }
+  }
+
+  @keyframes secondaryWave {
+    0% {
+      width: 5px;
+      height: 2px;
+      opacity: 0.6;
+    }
+    40% {
+      width: 100px;
+      height: 6px;
+      opacity: 0.4;
+    }
+    100% {
+      width: 160px;
+      height: 8px;
+      opacity: 0;
+    }
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .gavel-container {
+      width: 250px;
+      height: 160px;
+    }
+
+    .sound-block img {
+      width: 100px;
+    }
+
+    .gavel img {
+      width: 80px;
+    }
+  }
+</style>
+
+<script define:vars={{ animationDelay }}>
+  class GavelAnimation {
+    constructor(baseDelay = 6) {
+      this.container = document.getElementById("gavel-animation");
+      this.gavel = this.container?.querySelector(".gavel");
+      this.soundBlock = this.container?.querySelector(".sound-block");
+      this.isAnimating = false;
+      this.animationTimeout = null;
+      this.baseAnimationDelay = baseDelay * 1000; // Convert to milliseconds
+
+      this.init();
+    }
+
+    init() {
+      if (!this.container || !this.gavel) return;
+
+      // Start the natural animation cycle with initial random delay
+      this.scheduleNextAnimation(this.getRandomDelay(2000, 4000)); // 2-4 seconds initial delay
+
+      // Optional: Add click trigger for manual triggering
+      this.container.addEventListener("click", () => {
+        if (!this.isAnimating) {
+          this.triggerAnimation();
+        }
+      });
+    }
+
+    getRandomDelay(min = null, max = null) {
+      // If no range specified, use base delay ± 50% for natural variation
+      if (min === null || max === null) {
+        const variance = this.baseAnimationDelay * 0.5; // 50% variance
+        min = this.baseAnimationDelay - variance;
+        max = this.baseAnimationDelay + variance;
+      }
+
+      return Math.random() * (max - min) + min;
+    }
+
+    scheduleNextAnimation(delay = null) {
+      if (delay === null) {
+        delay = this.getRandomDelay();
+      }
+
+      this.animationTimeout = setTimeout(() => {
+        if (!this.isAnimating) {
+          this.triggerAnimation();
+        }
+      }, delay);
+    }
+
+    triggerAnimation() {
+      if (this.isAnimating || !this.gavel || !this.container) return;
+
+      this.isAnimating = true;
+
+      const impactDelay = 2000; // Exactly at 66% of 3s - no variation for perfectly even timing
+      const cleanupDelay = 3000; // Exactly 3s - no variation
+
+      // Add hitting animation to gavel
+      this.gavel.classList.add("hitting");
+
+      // Add impact effect to container at the moment of strike
+      setTimeout(() => {
+        if (this.container) this.container.classList.add("impact");
+        if (this.soundBlock) this.soundBlock.classList.add("impact");
+      }, impactDelay);
+
+      // Clean up after animation completes
+      setTimeout(() => {
+        if (this.gavel) this.gavel.classList.remove("hitting");
+        if (this.container) this.container.classList.remove("impact");
+        if (this.soundBlock) this.soundBlock.classList.remove("impact");
+        this.isAnimating = false;
+
+        // Schedule the next animation with random delay
+        this.scheduleNextAnimation();
+      }, cleanupDelay);
+    }
+
+    // Method to stop continuous animation
+    stopAnimation() {
+      if (this.animationTimeout) {
+        clearTimeout(this.animationTimeout);
+        this.animationTimeout = null;
+      }
+    }
+
+    // Method to restart continuous animation
+    restartAnimation() {
+      this.stopAnimation();
+      this.scheduleNextAnimation(this.getRandomDelay(1000, 3000)); // 1-3 seconds delay before restart
+    }
+
+    // Clean up method
+    destroy() {
+      this.stopAnimation();
+    }
+  }
+
+  // Initialize when DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    new GavelAnimation(animationDelay);
+  });
+
+  // Clean up on page unload
+  window.addEventListener("beforeunload", () => {
+    // Cleanup handled by destroy method
+  });
+</script>

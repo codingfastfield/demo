@@ -1,22 +1,48 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Koceyo & Co. Advovate</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  :root {
+    --hero-bg: radial-gradient(
+        1200px 600px at 10% 10%,
+        hsl(220 80% 56% / 0.15),
+        transparent
+      ),
+      radial-gradient(
+        900px 500px at 90% 20%,
+        hsl(265 80% 63% / 0.18),
+        transparent
+      ),
+      linear-gradient(180deg, hsl(222 15% 10%), hsl(222 15% 8%));
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--hero-bg);
+    }
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
 </style>

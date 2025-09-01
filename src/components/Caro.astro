@@ -1,0 +1,597 @@
+---
+// AdvocateCarousel.astro - Plain JavaScript version
+const { 
+  advocates = [
+    {
+      title: "Climate Action Advocate",
+      blurb: "Leading grassroots movements for environmental justice and sustainable policy reform. Fighting for our planet's future through community organizing.",
+      cta: "Learn More"
+    },
+    {
+      title: "Education Equity Champion", 
+      blurb: "Ensuring every child has access to quality education regardless of zip code. Bridging gaps in educational opportunities across communities.",
+      cta: "Get Involved"
+    },
+    {
+      title: "Healthcare Access Defender",
+      blurb: "Advocating for universal healthcare and mental health support. Breaking down barriers to medical care for underserved populations.", 
+      cta: "Support Now"
+    },
+    {
+      title: "Workers' Rights Organizer",
+      blurb: "Standing with workers for fair wages, safe conditions, and dignity on the job. Building solidarity across industries and communities.",
+      cta: "Join Us"
+    },
+    {
+      title: "Digital Rights Activist",
+      blurb: "Protecting privacy, fighting surveillance, and ensuring technology serves humanity. Advocating for ethical AI and digital freedom.",
+      cta: "Take Action"
+    },
+    {
+      title: "Housing Justice Advocate", 
+      blurb: "Fighting for affordable housing and tenant rights. Working to end homelessness and ensure everyone has a safe place to call home.",
+      cta: "Help Now"
+    },
+    {
+      title: "Criminal Justice Reformer",
+      blurb: "Transforming the justice system to prioritize rehabilitation and equity. Advocating for fair sentencing and police accountability.",
+      cta: "Learn More"
+    },
+    {
+      title: "Immigration Rights Defender",
+      blurb: "Supporting immigrant families and fighting for comprehensive immigration reform. Protecting the rights and dignity of all people.",
+      cta: "Get Involved"
+    },
+    {
+      title: "Disability Rights Champion",
+      blurb: "Ensuring accessibility and inclusion for people with disabilities. Breaking down barriers and advocating for equal opportunities.",
+      cta: "Support"
+    },
+    {
+      title: "Youth Empowerment Leader",
+      blurb: "Amplifying young voices in democracy and social change. Mentoring the next generation of activists and community leaders.",
+      cta: "Join Movement"
+    }
+  ],
+  autoplayDelay = 4000 
+} = Astro.props;
+---
+
+<div class="advocate-carousel" data-carousel>
+  <div class="carousel-container">
+    <button
+      class="carousel-btn carousel-btn--prev"
+      data-prev-btn
+      aria-label="Previous advocates"
+      type="button"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 18L9 12L15 6"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </button>
+
+    <div class="carousel-viewport" data-viewport>
+      <div class="carousel-track" data-track>
+        {advocates.map((advocate) => (
+          <div class="advocate-card" data-card>
+            <h3 class="card-title">{advocate.title}</h3>
+            <p class="card-blurb">{advocate.blurb}</p>
+            <button class="card-cta" type="button">{advocate.cta}</button>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <button
+      class="carousel-btn carousel-btn--next"
+      data-next-btn
+      aria-label="Next advocates"
+      type="button"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M9 18L15 12L9 6"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .advocate-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+
+  .carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .carousel-viewport {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .advocate-card {
+    flex: 0 0 auto;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  .advocate-card:hover,
+  .advocate-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -3px rgb(0 0 0 / 0.1);
+  }
+
+  .card-title {
+    color: #111827;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.4;
+    font-size: 1.125rem;
+  }
+
+  .card-blurb {
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+    flex-grow: 1;
+    font-size: 0.875rem;
+  }
+
+  .card-cta {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    align-self: flex-start;
+    font-size: 0.875rem;
+  }
+
+  .card-cta:hover {
+    background: #2563eb;
+  }
+
+  .carousel-btn {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #111827;
+    z-index: 2;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    flex-shrink: 0;
+  }
+
+  .carousel-btn:hover {
+    background: #3b82f6;
+    color: white;
+    transform: scale(1.1);
+  }
+
+  /* Responsive breakpoints with fixed card widths */
+  @media (max-width: 479px) {
+    .advocate-card {
+      width: 280px;
+      margin-right: 12px;
+      min-height: 160px;
+    }
+    
+    .advocate-card:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media (min-width: 480px) and (max-width: 767px) {
+    .advocate-card {
+      width: 300px;
+      margin-right: 16px;
+      min-height: 180px;
+    }
+    
+    .advocate-card:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .advocate-card {
+      width: 320px;
+      margin-right: 16px;
+      min-height: 200px;
+    }
+    
+    .advocate-card:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .advocate-card {
+      width: 340px;
+      margin-right: 20px;
+      min-height: 220px;
+    }
+    
+    .advocate-card:last-child {
+      margin-right: 0;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-track {
+      transition: none;
+    }
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .advocate-card {
+      background: #1f2937;
+      border-color: #374151;
+    }
+    
+    .carousel-btn {
+      background: #1f2937;
+      border-color: #374151;
+    }
+    
+    .card-title {
+      color: #f9fafb;
+    }
+    
+    .card-blurb {
+      color: #d1d5db;
+    }
+  }
+</style>
+
+<script define:vars={{ autoplayDelay, totalCards: advocates.length }}>
+  class AdvocateCarousel {
+    constructor() {
+      this.currentIndex = 0;
+      this.totalCards = totalCards;
+      this.cardWidth = 0;
+      this.cardMargin = 0;
+      this.autoplayTimer = null;
+      this.autoplayDelay = autoplayDelay;
+      this.isTransitioning = false;
+      
+      this.init();
+    }
+
+    init() {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => this.setup());
+      } else {
+        this.setup();
+      }
+    }
+
+    setup() {
+      this.carousel = document.querySelector('[data-carousel]');
+      this.track = document.querySelector('[data-track]');
+      this.viewport = document.querySelector('[data-viewport]');
+      this.prevBtn = document.querySelector('[data-prev-btn]');
+      this.nextBtn = document.querySelector('[data-next-btn]');
+      this.cards = document.querySelectorAll('[data-card]');
+
+      if (!this.carousel || !this.track || !this.viewport || !this.prevBtn || !this.nextBtn || !this.cards.length) {
+        console.error('Carousel elements not found');
+        return;
+      }
+
+      this.createClones();
+      this.calculateDimensions();
+      this.setupEventListeners();
+      this.setupResizeObserver();
+      
+      // Start at first original card (after clones)
+      this.currentIndex = this.totalCards;
+      this.updatePosition(false);
+      this.startAutoplay();
+    }
+
+    createClones() {
+      // Clone all cards twice for seamless infinite scroll
+      const fragment = document.createDocumentFragment();
+      
+      // Add clones at the beginning (for backward scrolling)
+      this.cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute('data-clone', 'start');
+        fragment.appendChild(clone);
+      });
+      
+      // Insert before original cards
+      this.track.insertBefore(fragment, this.track.firstChild);
+      
+      // Add clones at the end (for forward scrolling)
+      const endFragment = document.createDocumentFragment();
+      this.cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute('data-clone', 'end');
+        endFragment.appendChild(clone);
+      });
+      
+      this.track.appendChild(endFragment);
+    }
+
+    calculateDimensions() {
+      const firstCard = this.track.querySelector('.advocate-card');
+      if (!firstCard) return;
+
+      const computedStyle = getComputedStyle(firstCard);
+      this.cardWidth = parseFloat(computedStyle.width);
+      this.cardMargin = parseFloat(computedStyle.marginRight);
+    }
+
+    setupEventListeners() {
+      this.prevBtn.addEventListener('click', () => this.prev());
+      this.nextBtn.addEventListener('click', () => this.next());
+
+      // Keyboard navigation
+      this.carousel.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          this.prev();
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          this.next();
+        }
+      });
+
+      // Pause autoplay on hover/focus
+      this.carousel.addEventListener('mouseenter', () => this.pauseAutoplay());
+      this.carousel.addEventListener('mouseleave', () => this.resumeAutoplay());
+      this.carousel.addEventListener('focusin', () => this.pauseAutoplay());
+      this.carousel.addEventListener('focusout', () => this.resumeAutoplay());
+
+      // Touch/drag support
+      let startX = 0;
+      let currentX = 0;
+      let isDragging = false;
+      let startTransform = 0;
+
+      const handleStart = (clientX) => {
+        if (this.isTransitioning) return;
+        isDragging = true;
+        startX = clientX;
+        currentX = clientX;
+        startTransform = this.getCurrentTransform();
+        this.pauseAutoplay();
+        this.track.style.transition = 'none';
+      };
+
+      const handleMove = (clientX) => {
+        if (!isDragging) return;
+        currentX = clientX;
+        const deltaX = currentX - startX;
+        const newTransform = startTransform + deltaX;
+        this.track.style.transform = `translateX(${newTransform}px)`;
+      };
+
+      const handleEnd = () => {
+        if (!isDragging) return;
+        isDragging = false;
+        this.track.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+
+        const deltaX = currentX - startX;
+        const threshold = this.cardWidth * 0.3;
+
+        if (Math.abs(deltaX) > threshold) {
+          if (deltaX > 0) {
+            this.prev();
+          } else {
+            this.next();
+          }
+        } else {
+          this.updatePosition();
+        }
+
+        this.resumeAutoplay();
+      };
+
+      // Mouse events
+      this.track.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        handleStart(e.clientX);
+      });
+
+      document.addEventListener('mousemove', (e) => handleMove(e.clientX));
+      document.addEventListener('mouseup', handleEnd);
+
+      // Touch events
+      this.track.addEventListener('touchstart', (e) => {
+        handleStart(e.touches[0].clientX);
+      }, { passive: true });
+
+      this.track.addEventListener('touchmove', (e) => {
+        if (isDragging) {
+          e.preventDefault();
+          handleMove(e.touches[0].clientX);
+        }
+      });
+
+      this.track.addEventListener('touchend', handleEnd);
+    }
+
+    setupResizeObserver() {
+      if (window.ResizeObserver) {
+        const resizeObserver = new ResizeObserver(() => {
+          this.calculateDimensions();
+          this.updatePosition(false);
+        });
+        resizeObserver.observe(this.viewport);
+      } else {
+        // Fallback for browsers without ResizeObserver
+        window.addEventListener('resize', () => {
+          setTimeout(() => {
+            this.calculateDimensions();
+            this.updatePosition(false);
+          }, 100);
+        });
+      }
+    }
+
+    getCurrentTransform() {
+      const style = getComputedStyle(this.track);
+      const matrix = style.transform;
+      if (matrix === 'none') return 0;
+      
+      const values = matrix.match(/matrix.*\((.+)\)/)[1].split(', ');
+      return parseFloat(values[4]) || 0;
+    }
+
+    updatePosition(animate = true) {
+      const scrollDistance = this.cardWidth + this.cardMargin;
+      const offset = -this.currentIndex * scrollDistance;
+
+      if (animate) {
+        this.track.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        this.isTransitioning = true;
+        
+        // Handle infinite loop after transition
+        const handleTransitionEnd = () => {
+          this.isTransitioning = false;
+          this.handleInfiniteLoop();
+          this.track.removeEventListener('transitionend', handleTransitionEnd);
+        };
+        
+        this.track.addEventListener('transitionend', handleTransitionEnd, { once: true });
+      } else {
+        this.track.style.transition = 'none';
+        this.isTransitioning = false;
+      }
+
+      this.track.style.transform = `translateX(${offset}px)`;
+    }
+
+    handleInfiniteLoop() {
+      // Reset position for seamless infinite loop
+      if (this.currentIndex >= this.totalCards * 2) {
+        // At end clones, jump to original cards
+        this.currentIndex = this.totalCards;
+        this.resetPosition();
+      } else if (this.currentIndex < this.totalCards) {
+        // At start clones, jump to end of original cards
+        this.currentIndex = this.totalCards * 2 - 1;
+        this.resetPosition();
+      }
+    }
+
+    resetPosition() {
+      this.track.style.transition = 'none';
+      const scrollDistance = this.cardWidth + this.cardMargin;
+      const offset = -this.currentIndex * scrollDistance;
+      this.track.style.transform = `translateX(${offset}px)`;
+      
+      // Force reflow to ensure the position is set
+      this.track.offsetHeight;
+      
+      // Restore transition
+      requestAnimationFrame(() => {
+        this.track.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+      });
+    }
+
+    next() {
+      if (this.isTransitioning) return;
+      this.currentIndex++;
+      this.updatePosition();
+    }
+
+    prev() {
+      if (this.isTransitioning) return;
+      this.currentIndex--;
+      this.updatePosition();
+    }
+
+    startAutoplay() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      
+      this.autoplayTimer = setTimeout(() => {
+        this.next();
+        this.startAutoplay();
+      }, this.autoplayDelay);
+    }
+
+    pauseAutoplay() {
+      if (this.autoplayTimer) {
+        clearTimeout(this.autoplayTimer);
+        this.autoplayTimer = null;
+      }
+    }
+
+    resumeAutoplay() {
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        this.startAutoplay();
+      }
+    }
+
+    destroy() {
+      this.pauseAutoplay();
+    }
+  }
+
+  // Initialize carousel
+  new AdvocateCarousel();
+</script>

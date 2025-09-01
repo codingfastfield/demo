@@ -1,0 +1,487 @@
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .about-description {
+    color: white !important;
+  }
+
+  .about-section {
+    padding: 8rem 0;
+    /* background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); */
+    /* background: rgba(255, 255, 255, 0.3); */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    min-height: 70vh;
+  }
+
+  .about-content {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInLeft 1s ease-out forwards;
+  }
+
+  .about-content.visible {
+    animation-delay: 0.2s;
+  }
+
+  @keyframes slideInLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .section-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    /* color: #1e293b; */
+    color: rgba(255, 255, 255, 0.692);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .about-title .highlight {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .about-description {
+    font-size: 1.2rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .about-features {
+    list-style: none;
+    margin-bottom: 3rem;
+  }
+
+  .about-features li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    /* color: #475569; */
+    color: lightblue;
+  }
+
+  .feature-icon {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .feature-icon::after {
+    content: "✓";
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  }
+
+  .arrow-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-button:hover .arrow-icon {
+    transform: translateX(5px);
+  }
+
+  .about-image {
+    position: relative;
+    height: 600px;
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInRight 1s ease-out forwards;
+  }
+
+  .about-image.visible {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes slideInRight {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .image-container {
+    position: relative;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    /* background: linear-gradient(135deg, #667eea, #764ba2); */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    /* background: rgba(255, 255, 255, 0.1); */
+  }
+
+  .animated-scales {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    top: 20%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    animation: float 4s ease-in-out infinite;
+    border-radius: 20px;
+    overflow: hidden;
+    /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); */
+  }
+  .animated-scales img {
+    width: 350px;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate(-50%, -50%) rotateY(0deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) rotateY(10deg) translateY(-10px);
+    }
+  }
+
+  .animated-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .animated-scales:hover .animated-image {
+    transform: scale(1.05);
+  }
+
+  .floating-icons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .floating-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    animation: floatIcon 6s ease-in-out infinite;
+  }
+
+  .floating-icon:nth-child(1) {
+    top: 15%;
+    left: 15%;
+    animation-delay: 0s;
+  }
+
+  .floating-icon:nth-child(2) {
+    top: 20%;
+    right: 20%;
+    animation-delay: -2s;
+  }
+
+  .floating-icon:nth-child(3) {
+    bottom: 25%;
+    left: 20%;
+    animation-delay: -4s;
+  }
+
+  .floating-icon:nth-child(4) {
+    bottom: 20%;
+    right: 15%;
+    animation-delay: -1s;
+  }
+
+  @keyframes floatIcon {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateY(-15px) rotate(5deg);
+      opacity: 1;
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .about-grid {
+      gap: 4rem;
+    }
+
+    .about-image {
+      height: 500px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-section {
+      padding: 4rem 0;
+    }
+
+    .container {
+      padding: 0 1rem;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .about-image {
+      height: 400px;
+      order: -1;
+    }
+
+    .about-content {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .about-features li {
+      font-size: 1rem;
+    }
+
+    .about-image {
+      height: 350px;
+    }
+  }
+</style>
+
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content">
+        <span class="section-tag">About Us</span>
+        <h2 class="about-title">
+          Dedicated to <span class="highlight">Justice</span> and Your Rights
+        </h2>
+        <p class="about-description">
+          With over two decades of unwavering commitment to justice, we have
+          built our reputation on integrity, expertise, and results that matter
+          to our clients.
+        </p>
+
+        <ul class="about-features">
+          <li>
+            <div class="feature-icon"></div>
+            <span
+              >Personalized legal strategies tailored to your unique situation</span
+            >
+          </li>
+          <li>
+            <div class="feature-icon"></div>
+            <span>24/7 availability for urgent legal matters</span>
+          </li>
+          <li>
+            <div class="feature-icon"></div>
+            <span>Proven track record with 500+ successful cases</span>
+          </li>
+          <li>
+            <div class="feature-icon"></div>
+            <span>Transparent communication throughout your case</span>
+          </li>
+        </ul>
+
+        <a href="#contact" class="cta-button">
+          <span>Schedule Consultation</span>
+          <span class="arrow-icon">→</span>
+        </a>
+      </div>
+
+      <div class="about-image">
+        <div class="image-container">
+          <div class="floating-icons">
+            <div class="floating-icon">⚖️</div>
+            <div class="floating-icon">📋</div>
+            <div class="floating-icon">🛡️</div>
+            <div class="floating-icon">⭐</div>
+          </div>
+
+          <div class="animated-scales">
+            <img
+              src="/gavelblock.png"
+              alt="Professional lawyer in office setting"
+              class="animated-image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Intersection Observer for animations with proper TypeScript types
+  const observerOptions: IntersectionObserverInit = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -100px 0px",
+  };
+
+  const observer = new IntersectionObserver(
+    (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        if (entry.isIntersecting) {
+          const target = entry.target as HTMLElement;
+          target.classList.add("visible");
+        }
+      });
+    },
+    observerOptions
+  );
+
+  // Observe elements for animation
+  document.addEventListener("DOMContentLoaded", () => {
+    const animatedElements = document.querySelectorAll(
+      ".about-content, .about-image"
+    );
+    animatedElements.forEach((element: Element) => {
+      observer.observe(element);
+    });
+  });
+
+  // Smooth scrolling for CTA button
+  document.querySelectorAll('a[href^="#"]').forEach((anchor: Element) => {
+    anchor.addEventListener(
+      "click",
+      function (this: HTMLAnchorElement, e: Event) {
+        e.preventDefault();
+        const href = this.getAttribute("href");
+        if (href) {
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        }
+      }
+    );
+  });
+
+  // Parallax effect on scroll
+  window.addEventListener("scroll", () => {
+    const scrolled = window.pageYOffset;
+    const aboutSection = document.querySelector(
+      ".about-section"
+    ) as HTMLElement;
+
+    if (aboutSection) {
+      const sectionTop = aboutSection.offsetTop;
+      const sectionHeight = aboutSection.offsetHeight;
+      const windowHeight = window.innerHeight;
+
+      // Check if section is in viewport
+      if (
+        scrolled + windowHeight > sectionTop &&
+        scrolled < sectionTop + sectionHeight
+      ) {
+        const floatingIcons = document.querySelectorAll(".floating-icon");
+        const parallaxSpeed = 0.3;
+
+        floatingIcons.forEach((icon: Element, index: number) => {
+          const htmlIcon = icon as HTMLElement;
+          const yPos =
+            (scrolled - sectionTop) *
+            parallaxSpeed *
+            (index % 2 === 0 ? 1 : -1);
+          htmlIcon.style.transform += ` translateY(${yPos * 0.1}px)`;
+        });
+      }
+    }
+  });
+
+  // Add dynamic hover effects to features
+  document
+    .querySelectorAll(".about-features li")
+    .forEach((feature: Element) => {
+      const htmlFeature = feature as HTMLElement;
+
+      htmlFeature.addEventListener("mouseenter", function (this: HTMLElement) {
+        this.style.transform = "translateX(10px)";
+        this.style.transition = "transform 0.3s ease";
+      });
+
+      htmlFeature.addEventListener("mouseleave", function (this: HTMLElement) {
+        this.style.transform = "translateX(0)";
+      });
+    });
+</script>

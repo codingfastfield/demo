@@ -1,11 +1,36 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Nav from "../components/Nav.astro";
+import UpperNav from "../components/UpperNav.astro";
+import ConsultB from "../components/ConsultB.astro";
+import Hero from "../components/Hero.astro";
+import Welcome from "../components/Welcome.astro";
+import About from "../components/About.astro";
+import Layout from "../layouts/Layout.astro";
+import Times from "../components/Times.astro";
+import Gravel from "../components/Gravel.astro";
+import Fqa from "../components/Fqa.astro";
+import Services from "../components/Services.astro";
+import Footer from "../components/Footer.astro";
+import Caro from "../components/Caro.astro";
+import Herosection from "../components/Herosection.astro";
+// import Herosection fron "../components/Herosection.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <UpperNav />
+  <Nav />
+  <Herosection />
+  <Hero />
+  <About />
+
+  <Caro />
+
+  <!-- <Gravel /> -->
+  <Times />
+  <Services />
+  <Fqa />
+  <Footer />
 </Layout>

@@ -1,0 +1,532 @@
+<title>Koceyo & Co. Advocates - Modern Navigation</title>
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .nav-container {
+    /* max-width: 1400px; */
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    height: 50px;
+    display: flex;
+  }
+
+  .nav-component {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    padding: 0.4rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 15px 30px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 42px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-component::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.03),
+      transparent
+    );
+    transition: left 3s ease-in-out;
+    animation: shimmer 6s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    50% {
+      left: 100%;
+    }
+    100% {
+      left: -100%;
+    }
+  }
+
+  .nav-component:hover {
+    /* transform: translateY(-2px); */
+    box-shadow:
+      0 35px 70px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-color: rgba(100, 200, 255, 0.2);
+  }
+
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .brand-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: white;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .brand-icon:hover {
+    transform: rotate(5deg) scale(1.05);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  }
+
+  .brand-text {
+    font-size: 0.95rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #64c8ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 10rem;
+    flex: 2;
+    justify-content: center;
+    min-width: 0;
+    /* background: red; */
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    font-size: 0.8rem;
+    height: 28px;
+    white-space: nowrap;
+  }
+
+  .contact-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+
+  .contact-item:hover::before {
+    left: 100%;
+  }
+
+  .contact-item:hover {
+    transform: translateY(-2px) scale(1.02);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(100, 200, 255, 0.3);
+    color: #64c8ff;
+    box-shadow: 0 8px 25px rgba(100, 200, 255, 0.2);
+  }
+
+  .contact-item i {
+    font-size: 0.9rem;
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-end;
+    min-width: 0;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    flex-shrink: 0;
+  }
+
+  .social-link::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translate(-50%, -50%);
+  }
+
+  .social-link:hover::before {
+    width: 120%;
+    height: 120%;
+  }
+
+  .social-link i {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+  }
+
+  /* Individual social media colors */
+  .social-link:nth-child(1) {
+    color: rgba(66, 103, 178, 0.8);
+  }
+  .social-link:nth-child(1):hover::before {
+    background: linear-gradient(135deg, #4267b2, #5578c4);
+  }
+  .social-link:nth-child(1):hover {
+    color: white;
+    transform: translateY(-3px) rotate(-5deg);
+    box-shadow: 0 12px 30px rgba(66, 103, 178, 0.4);
+  }
+
+  .social-link:nth-child(2) {
+    color: rgba(29, 161, 242, 0.8);
+  }
+  .social-link:nth-child(2):hover::before {
+    background: linear-gradient(135deg, #1da1f2, #4ab3f4);
+  }
+  .social-link:nth-child(2):hover {
+    color: white;
+    transform: translateY(-3px) rotate(5deg);
+    box-shadow: 0 12px 30px rgba(29, 161, 242, 0.4);
+  }
+
+  .social-link:nth-child(3) {
+    color: rgba(0, 119, 181, 0.8);
+  }
+  .social-link:nth-child(3):hover::before {
+    background: linear-gradient(135deg, #0077b5, #0e8cc7);
+  }
+  .social-link:nth-child(3):hover {
+    color: white;
+    transform: translateY(-3px) rotate(-5deg);
+    box-shadow: 0 12px 30px rgba(0, 119, 181, 0.4);
+  }
+
+  .social-link:nth-child(4) {
+    color: rgba(225, 48, 108, 0.8);
+  }
+  .social-link:nth-child(4):hover::before {
+    background: linear-gradient(135deg, #e1306c, #fd5478, #f77737);
+  }
+  .social-link:nth-child(4):hover {
+    color: white;
+    transform: translateY(-3px) rotate(5deg);
+    box-shadow: 0 12px 30px rgba(225, 48, 108, 0.4);
+  }
+
+  /* Responsive Design */
+
+  @media screen and (min-width: 1024px) and (max-width: 3000px) {
+    .nav-component {
+      /* background: red; */
+      width:100%;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .nav-component {
+      padding: 1.25rem 2rem;
+    }
+
+    .contact-info {
+      gap: 1.5rem;
+    }
+
+    .brand-text {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media screen and (min-width: 480px) and (max-width: 768px) {
+    .nav-container {
+      padding: 0 1rem;
+      /* background: blue; */
+      margin: 0 auto;
+      /* height: 100px; */
+    }
+
+    .nav-component {
+      /* padding: 0.8rem 1.5rem; */
+
+      border-radius: 12px;
+    }
+
+    .nav-content {
+      flex-direction: row;
+      gap: 15rem;
+      justify-content: space-between;
+    }
+
+    .brand {
+      flex: 1;
+      justify-content: flex-start;
+    }
+
+    .brand-text {
+      font-size: 1.1rem;
+    }
+
+    .brand-icon {
+      width: 30px;
+      height: 30px;
+      font-size: 0.9rem;
+    }
+
+    .contact-info {
+      flex: none;
+      justify-content: flex-end;
+    }
+
+    .contact-item:not(:first-child),
+    .social-links {
+      display: none;
+    }
+
+    .contact-item {
+      padding: 0.5rem 0.8rem;
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  @media screen and (min-width: 0px) and (max-width: 480px) {
+    .nav-component {
+      padding: 0.6rem 1rem;
+      /* background: red; */
+    }
+
+    .contact-item:not(:first-child),
+    .social-links {
+      display: none;
+    }
+
+    .brand-text {
+      font-size: 1rem;
+    }
+
+    .brand-icon {
+      width: 28px;
+      height: 28px;
+      font-size: 0.8rem;
+    }
+
+    .contact-item {
+      padding: 0.4rem 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    .contact-item i {
+      font-size: 1rem;
+    }
+    .nav-content {
+      gap: 60px;
+    }
+  }
+
+  /* Animation on load */
+  .nav-component {
+    animation: slideInFade 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes slideInFade {
+    from {
+      opacity: 0;
+      transform: translateY(-40px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Micro-interactions */
+  .nav-content > * {
+    animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: both;
+  }
+
+  .brand {
+    animation-delay: 0.1s;
+  }
+
+  .contact-info {
+    animation-delay: 0.2s;
+  }
+
+  .social-links {
+    animation-delay: 0.3s;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Accessibility improvements */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    .nav-component::before {
+      animation: none;
+    }
+  }
+
+  /* Focus states for accessibility */
+  .contact-item:focus,
+  .social-link:focus {
+    outline: 2px solid #64c8ff;
+    outline-offset: 2px;
+  }
+</style>
+
+<div class="nav-container">
+  <nav class="nav-component" role="navigation" aria-label="Main navigation">
+    <div class="nav-content">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          <i class="fas fa-balance-scale"></i>
+        </div>
+        <h1 class="brand-text">Koceyo & Co. Advocates</h1>
+      </div>
+
+      <div class="contact-info">
+        <a
+          href="tel:+254794164116"
+          class="contact-item"
+          aria-label="Call us at +1 234 567 890"
+        >
+          <i class="fas fa-phone" aria-hidden="true"></i>
+          <span>+254794 164116</span>
+        </a>
+        <a
+          href="mailto:hello@koceyoadvocate.com"
+          class="contact-item"
+          aria-label="Email us at hello@koceyoadvocate.com"
+        >
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          <span>hello@koceyoadvocate.com</span>
+        </a>
+      </div>
+
+      <div class="social-links" role="list" aria-label="Social media links">
+        <a
+          href="https://www.facebook.com/p/Koceyo-Company-Advocates-100064807711173/"
+          class="social-link"
+          role="listitem"
+          aria-label="Follow us on Facebook"
+        >
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a
+          href="#"
+          class="social-link"
+          role="listitem"
+          aria-label="Follow us on Twitter"
+        >
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a
+          href="https://ke.linkedin.com/in/titus-koceyo-524a0532"
+          class="social-link"
+          role="listitem"
+          aria-label="Connect with us on LinkedIn"
+        >
+          <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+        </a>
+        <a
+          href="#"
+          class="social-link"
+          role="listitem"
+          aria-label="Follow us on Instagram"
+        >
+          <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
