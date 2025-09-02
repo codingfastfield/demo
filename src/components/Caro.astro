@@ -1,59 +1,69 @@
 ---
 // AdvocateCarousel.astro - Plain JavaScript version
-const { 
+const {
   advocates = [
     {
       title: "Climate Action Advocate",
-      blurb: "Leading grassroots movements for environmental justice and sustainable policy reform. Fighting for our planet's future through community organizing.",
-      cta: "Learn More"
+      blurb:
+        "Leading grassroots movements for environmental justice and sustainable policy reform. Fighting for our planet's future through community organizing.",
+      cta: "Learn More",
     },
     {
-      title: "Education Equity Champion", 
-      blurb: "Ensuring every child has access to quality education regardless of zip code. Bridging gaps in educational opportunities across communities.",
-      cta: "Get Involved"
+      title: "Education Equity Champion",
+      blurb:
+        "Ensuring every child has access to quality education regardless of zip code. Bridging gaps in educational opportunities across communities.",
+      cta: "Get Involved",
     },
     {
       title: "Healthcare Access Defender",
-      blurb: "Advocating for universal healthcare and mental health support. Breaking down barriers to medical care for underserved populations.", 
-      cta: "Support Now"
+      blurb:
+        "Advocating for universal healthcare and mental health support. Breaking down barriers to medical care for underserved populations.",
+      cta: "Support Now",
     },
     {
       title: "Workers' Rights Organizer",
-      blurb: "Standing with workers for fair wages, safe conditions, and dignity on the job. Building solidarity across industries and communities.",
-      cta: "Join Us"
+      blurb:
+        "Standing with workers for fair wages, safe conditions, and dignity on the job. Building solidarity across industries and communities.",
+      cta: "Join Us",
     },
     {
       title: "Digital Rights Activist",
-      blurb: "Protecting privacy, fighting surveillance, and ensuring technology serves humanity. Advocating for ethical AI and digital freedom.",
-      cta: "Take Action"
+      blurb:
+        "Protecting privacy, fighting surveillance, and ensuring technology serves humanity. Advocating for ethical AI and digital freedom.",
+      cta: "Take Action",
     },
     {
-      title: "Housing Justice Advocate", 
-      blurb: "Fighting for affordable housing and tenant rights. Working to end homelessness and ensure everyone has a safe place to call home.",
-      cta: "Help Now"
+      title: "Housing Justice Advocate",
+      blurb:
+        "Fighting for affordable housing and tenant rights. Working to end homelessness and ensure everyone has a safe place to call home.",
+      cta: "Help Now",
     },
     {
       title: "Criminal Justice Reformer",
-      blurb: "Transforming the justice system to prioritize rehabilitation and equity. Advocating for fair sentencing and police accountability.",
-      cta: "Learn More"
+      blurb:
+        "Transforming the justice system to prioritize rehabilitation and equity. Advocating for fair sentencing and police accountability.",
+      cta: "Learn More",
     },
     {
       title: "Immigration Rights Defender",
-      blurb: "Supporting immigrant families and fighting for comprehensive immigration reform. Protecting the rights and dignity of all people.",
-      cta: "Get Involved"
+      blurb:
+        "Supporting immigrant families and fighting for comprehensive immigration reform. Protecting the rights and dignity of all people.",
+      cta: "Get Involved",
     },
     {
       title: "Disability Rights Champion",
-      blurb: "Ensuring accessibility and inclusion for people with disabilities. Breaking down barriers and advocating for equal opportunities.",
-      cta: "Support"
+      blurb:
+        "Ensuring accessibility and inclusion for people with disabilities. Breaking down barriers and advocating for equal opportunities.",
+      cta: "Support",
     },
     {
       title: "Youth Empowerment Leader",
-      blurb: "Amplifying young voices in democracy and social change. Mentoring the next generation of activists and community leaders.",
-      cta: "Join Movement"
-    }
+      blurb:
+        "Amplifying young voices in democracy and social change. Mentoring the next generation of activists and community leaders.",
+      cta: "Join Movement",
+    },
   ],
-  autoplayDelay = 4000 
+  autoplayDelay = 4000,
 } = Astro.props;
 ---
 
@@ -83,13 +93,17 @@ const {
 
     <div class="carousel-viewport" data-viewport>
       <div class="carousel-track" data-track>
-        {advocates.map((advocate) => (
-          <div class="advocate-card" data-card>
-            <h3 class="card-title">{advocate.title}</h3>
-            <p class="card-blurb">{advocate.blurb}</p>
-            <button class="card-cta" type="button">{advocate.cta}</button>
-          </div>
-        ))}
+        {
+          advocates.map((advocate) => (
+            <div class="advocate-card" data-card>
+              <h3 class="card-title">{advocate.title}</h3>
+              <p class="card-blurb">{advocate.blurb}</p>
+              <button class="card-cta" type="button">
+                {advocate.cta}
+              </button>
+            </div>
+          ))
+        }
       </div>
     </div>
 
@@ -151,12 +165,14 @@ const {
 
   .advocate-card {
     flex: 0 0 auto;
-    background: white;
-    border: 1px solid #e5e7eb;
+    background: #1f2937;
+    border: 1px solid #374151;
     border-radius: 12px;
     padding: 1.5rem;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
     cursor: pointer;
     outline: none;
     display: flex;
@@ -171,7 +187,7 @@ const {
   }
 
   .card-title {
-    color: #111827;
+    color: #f9fafb;
     font-weight: 600;
     margin: 0 0 0.75rem 0;
     line-height: 1.4;
@@ -179,7 +195,7 @@ const {
   }
 
   .card-blurb {
-    color: #6b7280;
+    color: #d1d5db;
     line-height: 1.5;
     margin: 0 0 1rem 0;
     flex-grow: 1;
@@ -204,8 +220,8 @@ const {
   }
 
   .carousel-btn {
-    background: white;
-    border: 1px solid #e5e7eb;
+    background: #1f2937;
+    border: 1px solid #374151;
     border-radius: 50%;
     width: 3rem;
     height: 3rem;
@@ -214,7 +230,7 @@ const {
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    color: #111827;
+    color: #f9fafb;
     z-index: 2;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
     flex-shrink: 0;
@@ -233,7 +249,7 @@ const {
       margin-right: 12px;
       min-height: 160px;
     }
-    
+
     .advocate-card:last-child {
       margin-right: 0;
     }
@@ -245,7 +261,7 @@ const {
       margin-right: 16px;
       min-height: 180px;
     }
-    
+
     .advocate-card:last-child {
       margin-right: 0;
     }
@@ -257,7 +273,7 @@ const {
       margin-right: 16px;
       min-height: 200px;
     }
-    
+
     .advocate-card:last-child {
       margin-right: 0;
     }
@@ -269,7 +285,7 @@ const {
       margin-right: 20px;
       min-height: 220px;
     }
-    
+
     .advocate-card:last-child {
       margin-right: 0;
     }
@@ -279,27 +295,6 @@ const {
   @media (prefers-reduced-motion: reduce) {
     .carousel-track {
       transition: none;
-    }
-  }
-
-  /* Dark mode support */
-  @media (prefers-color-scheme: dark) {
-    .advocate-card {
-      background: #1f2937;
-      border-color: #374151;
-    }
-    
-    .carousel-btn {
-      background: #1f2937;
-      border-color: #374151;
-    }
-    
-    .card-title {
-      color: #f9fafb;
-    }
-    
-    .card-blurb {
-      color: #d1d5db;
     }
   }
 </style>
@@ -314,28 +309,35 @@ const {
       this.autoplayTimer = null;
       this.autoplayDelay = autoplayDelay;
       this.isTransitioning = false;
-      
+
       this.init();
     }
 
     init() {
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => this.setup());
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () => this.setup());
       } else {
         this.setup();
       }
     }
 
     setup() {
-      this.carousel = document.querySelector('[data-carousel]');
-      this.track = document.querySelector('[data-track]');
-      this.viewport = document.querySelector('[data-viewport]');
-      this.prevBtn = document.querySelector('[data-prev-btn]');
-      this.nextBtn = document.querySelector('[data-next-btn]');
-      this.cards = document.querySelectorAll('[data-card]');
+      this.carousel = document.querySelector("[data-carousel]");
+      this.track = document.querySelector("[data-track]");
+      this.viewport = document.querySelector("[data-viewport]");
+      this.prevBtn = document.querySelector("[data-prev-btn]");
+      this.nextBtn = document.querySelector("[data-next-btn]");
+      this.cards = document.querySelectorAll("[data-card]");
 
-      if (!this.carousel || !this.track || !this.viewport || !this.prevBtn || !this.nextBtn || !this.cards.length) {
-        console.error('Carousel elements not found');
+      if (
+        !this.carousel ||
+        !this.track ||
+        !this.viewport ||
+        !this.prevBtn ||
+        !this.nextBtn ||
+        !this.cards.length
+      ) {
+        console.error("Carousel elements not found");
         return;
       }
 
@@ -343,7 +345,7 @@ const {
       this.calculateDimensions();
       this.setupEventListeners();
       this.setupResizeObserver();
-      
+
       // Start at first original card (after clones)
       this.currentIndex = this.totalCards;
       this.updatePosition(false);
@@ -353,30 +355,30 @@ const {
     createClones() {
       // Clone all cards twice for seamless infinite scroll
       const fragment = document.createDocumentFragment();
-      
+
       // Add clones at the beginning (for backward scrolling)
-      this.cards.forEach(card => {
+      this.cards.forEach((card) => {
         const clone = card.cloneNode(true);
-        clone.setAttribute('data-clone', 'start');
+        clone.setAttribute("data-clone", "start");
         fragment.appendChild(clone);
       });
-      
+
       // Insert before original cards
       this.track.insertBefore(fragment, this.track.firstChild);
-      
+
       // Add clones at the end (for forward scrolling)
       const endFragment = document.createDocumentFragment();
-      this.cards.forEach(card => {
+      this.cards.forEach((card) => {
         const clone = card.cloneNode(true);
-        clone.setAttribute('data-clone', 'end');
+        clone.setAttribute("data-clone", "end");
         endFragment.appendChild(clone);
       });
-      
+
       this.track.appendChild(endFragment);
     }
 
     calculateDimensions() {
-      const firstCard = this.track.querySelector('.advocate-card');
+      const firstCard = this.track.querySelector(".advocate-card");
       if (!firstCard) return;
 
       const computedStyle = getComputedStyle(firstCard);
@@ -385,25 +387,25 @@ const {
     }
 
     setupEventListeners() {
-      this.prevBtn.addEventListener('click', () => this.prev());
-      this.nextBtn.addEventListener('click', () => this.next());
+      this.prevBtn.addEventListener("click", () => this.prev());
+      this.nextBtn.addEventListener("click", () => this.next());
 
       // Keyboard navigation
-      this.carousel.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
+      this.carousel.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") {
           e.preventDefault();
           this.prev();
-        } else if (e.key === 'ArrowRight') {
+        } else if (e.key === "ArrowRight") {
           e.preventDefault();
           this.next();
         }
       });
 
       // Pause autoplay on hover/focus
-      this.carousel.addEventListener('mouseenter', () => this.pauseAutoplay());
-      this.carousel.addEventListener('mouseleave', () => this.resumeAutoplay());
-      this.carousel.addEventListener('focusin', () => this.pauseAutoplay());
-      this.carousel.addEventListener('focusout', () => this.resumeAutoplay());
+      this.carousel.addEventListener("mouseenter", () => this.pauseAutoplay());
+      this.carousel.addEventListener("mouseleave", () => this.resumeAutoplay());
+      this.carousel.addEventListener("focusin", () => this.pauseAutoplay());
+      this.carousel.addEventListener("focusout", () => this.resumeAutoplay());
 
       // Touch/drag support
       let startX = 0;
@@ -418,7 +420,7 @@ const {
         currentX = clientX;
         startTransform = this.getCurrentTransform();
         this.pauseAutoplay();
-        this.track.style.transition = 'none';
+        this.track.style.transition = "none";
       };
 
       const handleMove = (clientX) => {
@@ -432,7 +434,8 @@ const {
       const handleEnd = () => {
         if (!isDragging) return;
         isDragging = false;
-        this.track.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        this.track.style.transition =
+          "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)";
 
         const deltaX = currentX - startX;
         const threshold = this.cardWidth * 0.3;
@@ -451,27 +454,31 @@ const {
       };
 
       // Mouse events
-      this.track.addEventListener('mousedown', (e) => {
+      this.track.addEventListener("mousedown", (e) => {
         e.preventDefault();
         handleStart(e.clientX);
       });
 
-      document.addEventListener('mousemove', (e) => handleMove(e.clientX));
-      document.addEventListener('mouseup', handleEnd);
+      document.addEventListener("mousemove", (e) => handleMove(e.clientX));
+      document.addEventListener("mouseup", handleEnd);
 
       // Touch events
-      this.track.addEventListener('touchstart', (e) => {
-        handleStart(e.touches[0].clientX);
-      }, { passive: true });
+      this.track.addEventListener(
+        "touchstart",
+        (e) => {
+          handleStart(e.touches[0].clientX);
+        },
+        { passive: true }
+      );
 
-      this.track.addEventListener('touchmove', (e) => {
+      this.track.addEventListener("touchmove", (e) => {
         if (isDragging) {
           e.preventDefault();
           handleMove(e.touches[0].clientX);
         }
       });
 
-      this.track.addEventListener('touchend', handleEnd);
+      this.track.addEventListener("touchend", handleEnd);
     }
 
     setupResizeObserver() {
@@ -483,7 +490,7 @@ const {
         resizeObserver.observe(this.viewport);
       } else {
         // Fallback for browsers without ResizeObserver
-        window.addEventListener('resize', () => {
+        window.addEventListener("resize", () => {
           setTimeout(() => {
             this.calculateDimensions();
             this.updatePosition(false);
@@ -495,9 +502,9 @@ const {
     getCurrentTransform() {
       const style = getComputedStyle(this.track);
       const matrix = style.transform;
-      if (matrix === 'none') return 0;
-      
-      const values = matrix.match(/matrix.*\((.+)\)/)[1].split(', ');
+      if (matrix === "none") return 0;
+
+      const values = matrix.match(/matrix.*\((.+)\)/)[1].split(", ");
       return parseFloat(values[4]) || 0;
     }
 
@@ -506,19 +513,22 @@ const {
       const offset = -this.currentIndex * scrollDistance;
 
       if (animate) {
-        this.track.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        this.track.style.transition =
+          "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)";
         this.isTransitioning = true;
-        
+
         // Handle infinite loop after transition
         const handleTransitionEnd = () => {
           this.isTransitioning = false;
           this.handleInfiniteLoop();
-          this.track.removeEventListener('transitionend', handleTransitionEnd);
+          this.track.removeEventListener("transitionend", handleTransitionEnd);
         };
-        
-        this.track.addEventListener('transitionend', handleTransitionEnd, { once: true });
+
+        this.track.addEventListener("transitionend", handleTransitionEnd, {
+          once: true,
+        });
       } else {
-        this.track.style.transition = 'none';
+        this.track.style.transition = "none";
         this.isTransitioning = false;
       }
 
@@ -539,17 +549,18 @@ const {
     }
 
     resetPosition() {
-      this.track.style.transition = 'none';
+      this.track.style.transition = "none";
       const scrollDistance = this.cardWidth + this.cardMargin;
       const offset = -this.currentIndex * scrollDistance;
       this.track.style.transform = `translateX(${offset}px)`;
-      
+
       // Force reflow to ensure the position is set
       this.track.offsetHeight;
-      
+
       // Restore transition
       requestAnimationFrame(() => {
-        this.track.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        this.track.style.transition =
+          "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)";
       });
     }
 
@@ -566,8 +577,8 @@ const {
     }
 
     startAutoplay() {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
       this.autoplayTimer = setTimeout(() => {
         this.next();
         this.startAutoplay();
@@ -582,7 +593,7 @@ const {
     }
 
     resumeAutoplay() {
-      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         this.startAutoplay();
       }
     }
