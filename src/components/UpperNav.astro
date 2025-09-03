@@ -1,3 +1,9 @@
+---
+const { firm, number, email, address } = Astro.props;
+---
+
+---
+
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   rel="stylesheet"
@@ -470,25 +476,25 @@
         <div class="brand-icon" aria-hidden="true">
           <i class="fas fa-balance-scale"></i>
         </div>
-        <h1 class="brand-text">Ko*~~ & P. Advocates**</h1>
+        <h1 class="brand-text">{firm}*~~ & H. Advocates**</h1>
       </div>
 
       <div class="contact-info">
         <a
-          href="tel:+25479****16****"
+          href="tel:+254722****07*"
           class="contact-item"
           aria-label="Call us at +1 234 567 890"
         >
           <i class="fas fa-phone" aria-hidden="true"></i>
-          <span>+25479****16****</span>
+          <span>{number}</span>
         </a>
         <a
-          href="mailto:hello@koceyoadvocate.com"
+          href="mailto:hello@advocate.com"
           class="contact-item"
-          aria-label="Email us at hello@koceyoadvocate.com"
+          aria-label="Email us at hello@advocate.com"
         >
           <i class="fas fa-envelope" aria-hidden="true"></i>
-          <span>koc*@gmail.com**</span>
+          <span>{email}</span>
         </a>
       </div>
 
@@ -510,7 +516,7 @@
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
         <a
-          href="https://ke.linkedin.com/in/titus-koceyo-524a0532"
+          href="#"
           class="social-link"
           role="listitem"
           aria-label="Connect with us on LinkedIn"
