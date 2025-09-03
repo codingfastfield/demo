@@ -1,5 +1,5 @@
 ---
-import type { string } from 'astro:schema';
+import type { string } from "astro:schema";
 
 interface Props {
   id?: number;
@@ -12,12 +12,10 @@ interface Props {
   secondaryCtaHref?: string;
   imageSrc?: string;
   imageAlt?: string;
-  number?:string;
-  email?:string;
-  address?:string;
+  number?: string;
+  email?: string;
+  address?: string;
 }
-
-
 
 const {
   title = "Trusted Legal Counsel",
@@ -28,7 +26,10 @@ const {
   secondaryCtaHref = "tel:+25479****16***",
   imageSrc = "/assets/hero-justice.jpg", // Place a real image in /public/assets or /src/assets and adjust path
   imageAlt = "Advocate at a desk with law books",
-  firm,email,number,address
+  firm,
+  email,
+  number,
+  address,
 } = Astro.props as Props;
 ---
 
@@ -50,7 +51,7 @@ const {
             stroke-width="1.5"
             stroke-linecap="round"></path>
         </svg>
-        <span>{firm}*~~ & H. Advocates**</span>
+        <span>{firm}*~~ & *. Advocates**</span>
       </div>
 
       <h1 class="title">{title}</h1>
