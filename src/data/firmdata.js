@@ -127,9 +127,18 @@ export const firms = [
    {
     id: 14,
     firm: "Ombet",
-    number:"020 2251725",
+    number:"020 225***",
     email:"Ombet*@gmail.com****",
      address:"** House, Standard St, Nairobi",
+
+  },
+
+     {
+    id: 15,
+    firm: "CmOngot",
+    number:"020 331****",
+    email:"Ombet*@gmail.com****",
+     address:"** Sellasia, Laptrust St***, Nairobi",
 
   },
 
