@@ -64,9 +64,9 @@ export const firms = [
      {
     id: 8,
     firm: "kiok",
-    number:"+254710 51**++==*",
+    number:"+2547024 35**++==*",
     email:"kiok*@gmail.com****",
-     address:"Consolidated ===__-- Bank House***++++++======_____-----",
+     address:"Jubilee ===__-- Exchange, * Flr,Rm *****++++++======_____-----",
 
   },
 
