@@ -490,7 +490,7 @@ const { firm, number, email, address } = Astro.props;
           <span>{number}</span>
         </a>
         <a
-          href="mailto:reservations@bistro.com"
+          href=`mailto:${email}`
           class="contact-item"
           aria-label="Email us for reservations"
         >

@@ -480,7 +480,7 @@ const { firm, number, email, address } = Astro.props;
 
       <div class="contact-info">
         <a
-          href="tel:+254722****07*"
+          href= `tel:${number}`
           class="contact-item"
           aria-label="Call us at +1 234 567 890"
         >
@@ -488,7 +488,7 @@ const { firm, number, email, address } = Astro.props;
           <span>{number}</span>
         </a>
         <a
-          href="mailto:hello@advocate.com"
+          href= `mailto:${email}`
           class="contact-item"
           aria-label="Email us at hello@advocate.com"
         >
