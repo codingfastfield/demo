@@ -36,24 +36,21 @@ const { title, backgroundColor } = Astro.props;
         transparent
       ),
       linear-gradient(180deg, hsl(222 15% 10%), hsl(222 15% 8%));
-    html,
-    body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      body:not([style*="background-color"]) {
-    background: var(--hero-bg);
-  
-      /* background: var(--hero-bg); */
-    }
   }
 
   html,
   body {
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
     max-width: 100vw;
     overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  body:not([style*="background-color"]) {
+    background: var(--hero-bg);
   }
 
   * {
