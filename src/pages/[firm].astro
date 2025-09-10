@@ -14,6 +14,8 @@ import Footer from "../components/Footer.astro";
 import Caro from "../components/Caro.astro";
 import Herosection from "../components/Herosection.astro";
 import { firms } from "../data/firmdata";
+import UpperNavRestaurant from "../components/UpperNavRestaurant.astro";
+import Disclaimer from "../components/Disclaimer.astro";
 // import Herosection fron "../components/Herosection.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -46,8 +48,9 @@ if (!firmData) {
 // }
 ---
 
-<Layout>
+<Layout title="Home" backgroundColor="#f3f4f6">
   <UpperNav {...firmData} />
+  <!-- <UpperNavRestaurant {...firmData} /> -->
   <Nav />
   <Herosection {...firmData} />
   <Hero />
@@ -60,4 +63,6 @@ if (!firmData) {
   <Services />
   <Fqa />
   <Footer {...firmData} />
+
+  <Disclaimer />
 </Layout>

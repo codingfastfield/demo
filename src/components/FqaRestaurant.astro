@@ -1,0 +1,448 @@
+---
+// FAQ.astro
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+const faqItems: FAQItem[] = [
+  {
+    question: "What are your operating hours?",
+    answer:
+      "We're open Monday through Thursday from 11 AM to 10 PM, Friday and Saturday from 11 AM to 11 PM, and Sunday from 10 AM to 9 PM. Our kitchen closes 30 minutes before closing time.",
+  },
+  {
+    question: "Do you accept reservations?",
+    answer:
+      "Yes! We highly recommend reservations, especially for dinner service and weekends. You can book online through our website, call us directly, or use popular reservation platforms like OpenTable.",
+  },
+  {
+    question: "What dietary restrictions can you accommodate?",
+    answer:
+      "We cater to various dietary needs including vegetarian, vegan, gluten-free, and allergen-free options. Please inform us of any dietary restrictions when making your reservation or upon arrival.",
+  },
+  {
+    question: "Do you offer private dining or event hosting?",
+    answer:
+      "Absolutely! We have private dining rooms available for special events, business meetings, and celebrations. Our events team can customize menus and arrangements to make your occasion memorable.",
+  },
+  {
+    question: "What is your cancellation policy?",
+    answer:
+      "Reservations can be cancelled up to 2 hours before your scheduled time without charge. For large parties (8+ guests) or private events, we require 24-hour notice to avoid cancellation fees.",
+  },
+];
+---
+
+<section class="faq">
+  <div class="faq-header">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <p class="faq-subtitle">Everything you need to know about dining with us</p>
+  </div>
+
+  <div class="faq-container">
+    {
+      faqItems.map((item, index) => (
+        <div class="faq-item" data-index={index}>
+          <button class="faq-question">
+            <span class="question-text">{item.question}</span>
+            <div class="icon-wrapper">
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            <div class="answer-content">
+              <p>{item.answer}</p>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .faq {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    margin: 80px auto;
+  }
+
+  .faq::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.02)
+    );
+    border-radius: 3rem;
+    z-index: -1;
+    backdrop-filter: blur(10px);
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+  }
+
+  .faq-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #e2e8f0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.02em;
+  }
+
+  .faq-subtitle {
+    font-size: 1.2rem;
+    color: #a0aec0;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  .faq-container {
+    display: grid;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .faq-item {
+    background: rgba(26, 32, 44, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+
+  .faq-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b6b, #ffa726);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .faq-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .faq-item:hover::before {
+    opacity: 1;
+  }
+
+  .faq-item.active {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  }
+
+  .faq-item.active::before {
+    opacity: 1;
+  }
+
+  .faq-question {
+    width: 100%;
+    padding: 2rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: #e2e8f0;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .question-text {
+    flex: 1;
+    margin-right: 1rem;
+  }
+
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b6b, #ffa726);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .icon-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #ffa726, #ff6b6b);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .faq-item:hover .icon-wrapper::before {
+    opacity: 1;
+  }
+
+  .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    color: white;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
+    stroke-width: 2.5;
+  }
+
+  .faq-item.active .icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 107, 107, 0.05),
+      rgba(255, 167, 38, 0.05)
+    );
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 300px;
+  }
+
+  .answer-content {
+    padding: 0 2.5rem 2rem 2.5rem;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-item.active .answer-content {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.1s;
+  }
+
+  .faq-answer p {
+    margin: 0;
+    color: #a0aec0;
+    line-height: 1.7;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  /* Modern focus styles for accessibility */
+  .faq-question:focus-visible {
+    outline: 3px solid rgba(255, 107, 107, 0.5);
+    outline-offset: 2px;
+  }
+
+  /* Enhanced mobile responsiveness */
+  @media (max-width: 768px) {
+    .faq-title {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .faq-container {
+      padding: 0 0.5rem;
+      gap: 1rem;
+    }
+
+    .faq-question {
+      padding: 1.5rem 1.5rem;
+      font-size: 1rem;
+    }
+
+    .question-text {
+      margin-right: 0.75rem;
+    }
+
+    .icon-wrapper {
+      width: 2rem;
+      height: 2rem;
+      flex-shrink: 0;
+    }
+
+    .icon {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .answer-content {
+      padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+
+    .faq-answer p {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .faq-title {
+      font-size: 2rem;
+    }
+
+    .faq-question {
+      padding: 1.25rem 1rem;
+    }
+
+    .answer-content {
+      padding: 0 1rem 1.25rem 1rem;
+    }
+  }
+
+  /* Smooth animations for modern feel */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .faq-item {
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .faq-item:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .faq-item:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .faq-item:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+
+  .faq-item:nth-child(5) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes ripple {
+    to {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const faqItems = document.querySelectorAll<HTMLElement>(".faq-item");
+
+    faqItems.forEach((item: HTMLElement, index: number) => {
+      const btn = item.querySelector<HTMLButtonElement>(".faq-question");
+      if (!btn) return;
+
+      // Add staggered animation delay
+      item.style.animationDelay = `${index * 0.1}s`;
+
+      btn.addEventListener("click", (event: MouseEvent) => {
+        const isActive = item.classList.contains("active");
+
+        // Close all other items for accordion behavior
+        faqItems.forEach((otherItem: HTMLElement) => {
+          if (otherItem !== item) {
+            otherItem.classList.remove("active");
+          }
+        });
+
+        // Toggle current item
+        item.classList.toggle("active", !isActive);
+
+        // Add ripple effect
+        createRipple(btn, event);
+      });
+
+      // Add keyboard navigation
+      btn.addEventListener("keydown", (e: KeyboardEvent) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    });
+
+    // Ripple effect function
+    function createRipple(button: HTMLButtonElement, event: MouseEvent): void {
+      const ripple = document.createElement("span");
+      const rect = button.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = event.clientX - rect.left - size / 2;
+      const y = event.clientY - rect.top - size / 2;
+
+      ripple.style.cssText = `
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 107, 107, 0.3);
+        transform: scale(0);
+        animation: ripple 0.6s ease-out;
+        left: ${x}px;
+        top: ${y}px;
+        width: ${size}px;
+        height: ${size}px;
+        pointer-events: none;
+      `;
+
+      button.style.position = "relative";
+      button.style.overflow = "hidden";
+      button.appendChild(ripple);
+
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    }
+
+    // Add smooth scroll behavior for better UX
+    if (document.documentElement) {
+      document.documentElement.style.scrollBehavior = "smooth";
+    }
+  });
+</script>

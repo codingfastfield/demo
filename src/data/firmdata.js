@@ -137,10 +137,141 @@ export const firms = [
     id: 15,
     firm: "CmOngot",
     number:"020 331****",
-    email:"Ombet*@gmail.com****",
+    email:"CmOngot*@gmail.com****",
      address:"** Sellasia, Laptrust St***, Nairobi",
 
   },
+
+      {
+    id: 15,
+    firm: "GoldenStar",
+    brand: "Golden Star",
+    number:"+254702099927",
+    email:"info@goldenstar.co.ke",
+     address:"Banda Streets, Nairobi Kenya",
+
+  },
+
+  {
+    id: 16,
+    firm: "Urban Eatery",
+    brand: "Urban",
+    number:"+254790999149",
+    email:"contact@urbaneatery.co.ke",
+     address:"PwC Tower, Ground Floor Delta Corner Estate, Chiromo Road, Nairobi",
+
+  },
+
+    {
+    id: 17,
+    firm: "CRAVE KENYA- KILIMANI",
+    brand: "Crave Kenya",
+    number:"+254756600600",
+    email:"contact@cravekenya.co.ke",
+    address:"Zarafa Towers Ring Road Kilimani",
+
+  },
+
+  {
+    id: 18,
+    firm: "Harvest Restaurant",
+    brand: "Harvest",
+    number:"+254732186215",
+    email:"contact@harvestrestaurant.co.ke",
+    address:"Village Market Limuru Kenya",
+
+  },
+
+    {
+    id: 19,
+    firm: "Golden Stool Kitchen and Bar",
+    brand: "Golden Stool",
+    number:"+254714118112",
+    email:"contact@goldenstool.co.ke",
+    address:"Village Market Village Road Nairobi",
+
+  },
+
+   {
+    id: 20,
+    firm: "Oliveira Restaurant",
+    brand: "Oliveira",
+    number:"+254731850427",
+    email:"contact@oliveira.co.ke",
+    address:"Biashara Street Nairobi",
+
+  },
+
+  {
+    id: 21,
+    firm: "Cultiva Farm Kenya",
+    brand: "Cultiva",
+    number:"+254701579902",
+    email:"contact@cultiva.co.ke",
+    address:"Pofu Road Nairobi",
+
+  },
+
+  {
+    id: 22,
+    firm: "Kilimanjaro Jamia ",
+    brand: "Kilimanjaro",
+    number:"+254796766808",
+    email:"contact@kilimanjarojamia.co.ke",
+    address:"Kimathi Street Nairobi",
+
+  },
+
+  {
+    id: 23,
+    firm: "Sikia Restaurant ",
+    brand: "Sikia",
+    number:"+254202746000",
+    email:"contact@kilimanjarojamia.co.ke",
+    address:"Crowne Plaza Kanya Road Nairobi",
+
+  },
+
+  {
+    id: 24,
+    firm: "La Terrazza Italin Restaurant",
+    brand: "La Terrazza",
+    number:"+254748101503",
+    email:"contact@laterrazza.co.ke",
+    address:"Ground Floor, The Rhapta Road Nairobi",
+
+  },
+
+  {
+    id: 25,
+    firm: "Trattoria Restaurant",
+    brand: "Trattoria",
+    number:"+254799739639",
+    email:"contact@trattoria.co.ke",
+    address:"Town House, Kaunda Street",
+
+  },
+
+  {
+    id: 26,
+    firm: "Mama Oliech Restaurant",
+    brand: "Mama Oliech",
+    number:"+254701707070",
+    email:"contact@mamaoliech.co.ke",
+    address:"Marcus Garvey Road, North",
+
+  },
+
+  {
+    id: 27,
+    firm: "Top Rise Restaurant",
+    brand: "Top Rise",
+    number:"+254715551234",
+    email:"toprise22@gmail.com",
+    address:"Kimathi Street,Nairobi,Kenya",
+
+  },
+
 
 
 

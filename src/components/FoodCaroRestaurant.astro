@@ -1,0 +1,957 @@
+---
+// RestaurantCarousel.astro
+interface Slide {
+  id: number;
+  title: string;
+  discount: string;
+  description: string;
+  deposit: string;
+  buttonText: string;
+  image: string;
+  alt: string;
+  badgeText: string;
+}
+
+export interface Props {
+  slides?: Slide[];
+}
+
+const {
+  slides = [
+    {
+      id: 1,
+      title: "Grilled Salmon Special",
+      discount: "30% Off Today",
+      description: "FRESH ATLANTIC SALMON WITH HERBS",
+      deposit: "Ksh 1,850",
+      buttonText: "ORDER NOW",
+      image: "/salmon.jpg",
+      alt: "Grilled Salmon",
+      badgeText: "CHEF'S SPECIAL",
+    },
+    {
+      id: 2,
+      title: "Wagyu Beef Burger",
+      discount: "Buy 2 Get 1 Free",
+      description: "PREMIUM WAGYU WITH TRUFFLE FRIES",
+      deposit: "Ksh 2,200",
+      buttonText: "ORDER NOW",
+      image: "/burger.jpg",
+      alt: "Wagyu Burger",
+      badgeText: "SIGNATURE DISH",
+    },
+    {
+      id: 3,
+      title: "Lobster Thermidor",
+      discount: "Limited Time",
+      description: "FRESH MAINE LOBSTER SPECIAL",
+      deposit: "Ksh 3,500",
+      buttonText: "RESERVE NOW",
+      image: "/lobster.jpg",
+      alt: "Lobster Thermidor",
+      badgeText: "PREMIUM SPECIAL",
+    },
+  ] as Slide[],
+} = Astro.props;
+---
+
+<div class="card-container">
+  <div class="card-content slide-1">
+    <!-- Floating background elements -->
+    <div class="floating-elements">
+      <div class="floating-circle"></div>
+      <div class="floating-circle"></div>
+      <div class="floating-circle"></div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-bar"></div>
+
+    <div class="left">
+      {
+        slides.map((slide, index) => (
+          <div
+            class={`hero-content ${index === 0 ? "active" : ""}`}
+            id={`hero${slide.id}`}
+          >
+            <div class="big">
+              <h1>{slide.badgeText}</h1>
+            </div>
+            <h1 class="ai">{slide.title}</h1>
+            <h1 class="ai">{slide.discount}</h1>
+            <h3>{slide.description}</h3>
+            <div class="from">
+              <h3>STARTING FROM</h3>
+              <h1 class="seesaw">{slide.deposit}</h1>
+            </div>
+            <button data-product={slide.title}>{slide.buttonText}</button>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="right">
+      <div class="img-container">
+        {
+          slides.map((slide, index) => (
+            <img
+              src={slide.image}
+              alt={slide.alt}
+              id={`img${slide.id}`}
+              class={index === 0 ? "active" : ""}
+            />
+          ))
+        }
+      </div>
+
+      <!-- Navigation arrows -->
+      <button class="navigation-arrows prev-arrow" id="prevBtn" type="button"
+        >‹</button
+      >
+      <button class="navigation-arrows next-arrow" id="nextBtn" type="button"
+        >›</button
+      >
+    </div>
+
+    <!-- State Indicators -->
+    <div class="state-indicators">
+      {
+        slides.map((_, index) => (
+          <div
+            class={`state-dot ${index === 0 ? "active" : ""}`}
+            data-slide={index}
+            role="button"
+            tabindex="0"
+          />
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  :root {
+    --tilt: 6deg;
+    --speed: 0.9s;
+    --cycle-duration: 30s;
+    --primary-orange: hsl(25, 85%, 45%);
+    --secondary-orange: hsl(30, 80%, 50%);
+    --accent-red: hsl(15, 90%, 55%);
+  }
+
+  .card-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 450px;
+
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px hsla(25, 85%, 45%, 0.3);
+    margin: 0 auto;
+    margin-top: 10px;
+    border: 2px solid hsla(25, 85%, 45%, 0.2);
+   
+  }
+
+  h1,
+  h3 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    margin: 0;
+  }
+
+  .card-content {
+    width: 100%;
+    height: 100%;
+    background: var(--primary-orange);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    background: yellow !important;
+  }
+  .slide-1 {
+    /* margin-top: 100px; */
+  }
+
+  .card-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      hsla(25, 85%, 70%, 0.1) 0%,
+      hsla(25, 85%, 60%, 0.05) 100%
+    );
+    pointer-events: none;
+  }
+
+  .card-content.slide-1 {
+    background: linear-gradient(
+      135deg,
+      var(--primary-orange) 0%,
+      hsl(20, 80%, 50%) 100%
+    );
+  }
+
+  .card-content.slide-2 {
+    background: linear-gradient(
+      135deg,
+      var(--accent-red) 0%,
+      hsl(25, 85%, 55%) 100%
+    );
+  }
+
+  .card-content.slide-3 {
+    background: linear-gradient(
+      135deg,
+      var(--secondary-orange) 0%,
+      hsl(35, 75%, 55%) 100%
+    );
+  }
+
+  .card-container {
+    /* background: red; */
+  }
+
+  .floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .floating-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: hsla(25, 85%, 70%, 0.15);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-circle:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .floating-circle:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    top: 60%;
+    left: 5%;
+    animation-delay: 2s;
+  }
+
+  .floating-circle:nth-child(3) {
+    width: 100px;
+    height: 100px;
+    top: 10%;
+    right: 15%;
+    animation-delay: 4s;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+      opacity: 0.3;
+    }
+    50% {
+      transform: translateY(-20px) rotate(180deg);
+      opacity: 0.6;
+    }
+  }
+
+  .progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: hsla(25, 85%, 70%, 0.4);
+    z-index: 10;
+    animation: progressBar 10s linear infinite;
+  }
+
+  @keyframes progressBar {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+  .state-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    z-index: 10;
+    background: hsla(25, 85%, 20%, 0.3);
+    padding: 10px 20px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid hsla(25, 85%, 70%, 0.2);
+  }
+
+  .state-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: hsla(25, 85%, 80%, 0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .state-dot:hover {
+    transform: scale(1.1);
+    background: hsla(25, 85%, 85%, 0.7);
+  }
+
+  .state-dot.active {
+    background: white;
+    box-shadow: 0 0 20px hsla(25, 85%, 70%, 0.8);
+    transform: scale(1.3);
+  }
+
+  .state-dot.active::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    background: hsla(25, 85%, 70%, 0.3);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(0.8);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+
+  .big {
+    width: 140px;
+    height: 35px;
+    background: linear-gradient(
+      45deg,
+      hsla(25, 85%, 20%, 0.4),
+      hsla(25, 85%, 15%, 0.6)
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid hsla(25, 85%, 70%, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .big::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsla(25, 85%, 80%, 0.4),
+      transparent
+    );
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  .big h1 {
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  button {
+    width: 170px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 15px;
+    background: linear-gradient(
+      45deg,
+      hsla(25, 85%, 95%, 0.95),
+      hsla(25, 85%, 85%, 0.8)
+    );
+    color: hsl(25, 85%, 25%);
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    border: 2px solid hsla(25, 85%, 70%, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px hsla(25, 85%, 30%, 0.3);
+  }
+
+  button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsla(25, 85%, 80%, 0.6),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 35px hsla(25, 85%, 30%, 0.4);
+    background: linear-gradient(
+      45deg,
+      hsla(25, 85%, 98%, 0.98),
+      hsla(25, 85%, 90%, 0.9)
+    );
+  }
+
+  button:hover::before {
+    left: 100%;
+  }
+
+  button:active {
+    transform: translateY(-1px) scale(1.02);
+  }
+
+  .ai {
+    color: white;
+    font-size: 32px;
+    font-weight: 900;
+    text-shadow: 2px 2px 4px hsla(25, 85%, 20%, 0.4);
+    margin: 5px 0;
+  }
+
+  h3 {
+    color: hsla(25, 85%, 95%, 0.9);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin: 10px 0;
+  }
+
+  .from {
+    display: flex;
+    gap: 15px;
+    height: 60px;
+    align-items: center;
+    margin: 15px 0;
+  }
+
+  .from h3 {
+    margin: 0;
+    font-size: 12px;
+    opacity: 0.8;
+  }
+
+  .left {
+    overflow: hidden;
+    position: relative;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    z-index: 5;
+  }
+
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    width: calc(100% - 80px);
+    opacity: 0;
+    transform: translateY(-50%) translateX(-100px) rotateY(-15deg);
+    filter: blur(10px);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hero-content.active {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0) rotateY(0deg);
+    filter: blur(0px);
+  }
+
+  .hero-content.exit {
+    opacity: 0;
+    transform: translateY(-50%) translateX(100px) rotateY(15deg);
+    filter: blur(10px);
+  }
+
+  .img-container {
+    width: 350px;
+    height: 320px;
+    margin: auto;
+    margin-top: 20px;
+    overflow: visible;
+    perspective: 1000px;
+    position: relative;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 100px;
+  }
+
+  .card-content.slide-1 .img-container {
+    width: 320px;
+    height: 280px;
+  }
+
+  .card-content.slide-2 .img-container {
+    width: 300px;
+    height: 340px;
+  }
+
+  .card-content.slide-3 .img-container {
+    width: 280px;
+    height: 300px;
+  }
+
+  .img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateZ(-300px) rotateX(45deg) scale(0.8);
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 15px;
+    box-shadow: 0 25px 50px hsla(25, 85%, 20%, 0.4);
+    filter: drop-shadow(0 10px 20px hsla(25, 85%, 30%, 0.3));
+  }
+
+  .img-container img.active {
+    opacity: 1;
+    transform: translateZ(0) rotateX(0deg) scale(1);
+    animation: dishFloat 4s ease-in-out infinite;
+  }
+
+  @keyframes dishFloat {
+    0%,
+    100% {
+      transform: translateZ(0) rotateX(0deg) scale(1) translateY(0px);
+    }
+    50% {
+      transform: translateZ(0) rotateX(0deg) scale(1) translateY(-10px);
+    }
+  }
+
+  .img-container img.exit {
+    opacity: 0;
+    transform: translateZ(-300px) rotateX(-45deg) scale(0.8);
+  }
+
+  .img-container #img2.active {
+    animation:
+      dishFloat 4s ease-in-out infinite,
+      dishRotate 8s linear infinite;
+  }
+
+  @keyframes dishRotate {
+    0% {
+      transform: translateZ(0) rotateY(0deg) scale(1) translateY(0px);
+    }
+    25% {
+      transform: translateZ(0) rotateY(5deg) scale(1) translateY(-5px);
+    }
+    50% {
+      transform: translateZ(0) rotateY(0deg) scale(1) translateY(-10px);
+    }
+    75% {
+      transform: translateZ(0) rotateY(-5deg) scale(1) translateY(-5px);
+    }
+    100% {
+      transform: translateZ(0) rotateY(0deg) scale(1) translateY(0px);
+    }
+  }
+
+  .img-container #img2.exit {
+    transform: translateX(-400px) translateZ(-200px) rotateY(-45deg) scale(0.8);
+  }
+
+  .seesaw {
+    display: inline-block;
+    transform-origin: 50% 50%;
+    animation: seesaw var(--speed) ease-in-out infinite;
+    will-change: transform;
+    margin-top: -4px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px hsla(25, 85%, 20%, 0.4);
+  }
+
+  @keyframes seesaw {
+    0% {
+      transform: rotate(-var(--tilt)) scale(1);
+    }
+    50% {
+      transform: rotate(var(--tilt)) scale(1.1);
+    }
+    100% {
+      transform: rotate(-var(--tilt)) scale(1);
+    }
+  }
+
+  .right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .navigation-arrows {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 15;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .navigation-arrows:hover {
+    background: rgba(0, 0, 0, 0.5);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .prev-arrow {
+    left: 20px;
+  }
+
+  .next-arrow {
+    right: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .card-content {
+      grid-template-columns: 1fr;
+      height: 100%;
+    }
+    .left {
+      height: 340px;
+    }
+    .card-container {
+      margin: 0 auto;
+      margin-top: -50px;
+      width: 87%;
+      border-radius: 10px !important;
+    }
+    .big {
+      /* margin-top: 140px; */
+    }
+
+    .card-container {
+      height: 100vh;
+      border-radius: 0;
+    }
+
+    .left {
+      padding: 20px;
+    }
+
+    .ai {
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .from {
+      justify-content: center;
+      width: 100%;
+    }
+
+    button {
+      margin: 20px auto;
+      display: block;
+    }
+
+    h3 {
+      text-align: center;
+    }
+
+    .img-container {
+      margin-top: 10px;
+    }
+
+    .navigation-arrows {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  interface CustomEvent<T = any> extends Event {
+    detail: T;
+  }
+
+  class RestaurantCarousel {
+    private currentIndex: number = 0;
+    private totalSlides: number = 3;
+    private slideInterval: number = 10000;
+    private autoSlideTimer: number | null = null;
+
+    constructor() {
+      this.init();
+    }
+
+    private init(): void {
+      this.bindEvents();
+      this.showSlide(this.currentIndex);
+      this.updateStateIndicators(this.currentIndex);
+      this.updateProgressBar();
+      this.startAutoSlide();
+    }
+
+    private bindEvents(): void {
+      // Navigation arrows
+      const prevBtn = document.getElementById(
+        "prevBtn"
+      ) as HTMLButtonElement | null;
+      const nextBtn = document.getElementById(
+        "nextBtn"
+      ) as HTMLButtonElement | null;
+
+      if (prevBtn)
+        prevBtn.addEventListener("click", () => this.previousSlide());
+      if (nextBtn) nextBtn.addEventListener("click", () => this.nextSlide());
+
+      // State indicators
+      document.querySelectorAll(".state-dot").forEach((dot, index) => {
+        dot.addEventListener("click", () => this.goToSlide(index));
+        dot.addEventListener("keydown", (e: Event) => {
+          const keyEvent = e as KeyboardEvent;
+          if (keyEvent.key === "Enter" || keyEvent.key === " ") {
+            this.goToSlide(index);
+          }
+        });
+      });
+
+      // Product buttons
+      document.querySelectorAll("button[data-product]").forEach((button) => {
+        button.addEventListener("click", (e: Event) => {
+          const target = e.target as HTMLButtonElement;
+          const dishName = target.getAttribute("data-product");
+          if (dishName) {
+            this.orderDish(dishName, target);
+          }
+        });
+      });
+
+      // Hover pause/resume
+      const container = document.querySelector(
+        ".card-container"
+      ) as HTMLElement | null;
+      if (container) {
+        container.addEventListener("mouseenter", () => this.pauseAutoSlide());
+        container.addEventListener("mouseleave", () => this.startAutoSlide());
+      }
+
+      // Keyboard navigation
+      document.addEventListener("keydown", (e: KeyboardEvent) => {
+        if (e.key === "ArrowLeft") this.previousSlide();
+        if (e.key === "ArrowRight") this.nextSlide();
+      });
+
+      // Touch/swipe support
+      this.setupTouchEvents();
+    }
+
+    private setupTouchEvents(): void {
+      let startX = 0;
+      let endX = 0;
+      const container = document.querySelector(
+        ".card-container"
+      ) as HTMLElement | null;
+
+      if (container) {
+        container.addEventListener("touchstart", (e: TouchEvent) => {
+          startX = e.touches[0].clientX;
+        });
+
+        container.addEventListener("touchend", (e: TouchEvent) => {
+          endX = e.changedTouches[0].clientX;
+          this.handleSwipe(startX, endX);
+        });
+      }
+    }
+
+    private handleSwipe(startX: number, endX: number): void {
+      const swipeThreshold = 50;
+      const diff = startX - endX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          this.nextSlide();
+        } else {
+          this.previousSlide();
+        }
+      }
+    }
+
+    private updateStateIndicators(index: number): void {
+      document.querySelectorAll(".state-dot").forEach((dot, i) => {
+        dot.classList.toggle("active", i === index);
+      });
+    }
+
+    private updateProgressBar(): void {
+      const progressBar = document.querySelector(
+        ".progress-bar"
+      ) as HTMLElement | null;
+      if (progressBar) {
+        progressBar.style.animation = "none";
+        progressBar.offsetHeight; // Trigger reflow
+        progressBar.style.animation = "progressBar 10s linear forwards";
+      }
+    }
+
+    private showSlide(index: number): void {
+      document.querySelectorAll(".hero-content").forEach((hero) => {
+        hero.classList.remove("active", "exit");
+      });
+      document.querySelectorAll(".img-container img").forEach((img) => {
+        img.classList.remove("active", "exit");
+      });
+
+      const heroElement = document.getElementById(
+        `hero${index + 1}`
+      ) as HTMLElement | null;
+      const imgElement = document.getElementById(
+        `img${index + 1}`
+      ) as HTMLImageElement | null;
+
+      if (heroElement) heroElement.classList.add("active");
+      if (imgElement) imgElement.classList.add("active");
+    }
+
+    private hideSlide(index: number): void {
+      const heroElement = document.getElementById(
+        `hero${index + 1}`
+      ) as HTMLElement | null;
+      const imgElement = document.getElementById(
+        `img${index + 1}`
+      ) as HTMLImageElement | null;
+
+      if (heroElement) heroElement.classList.add("exit");
+      if (imgElement) imgElement.classList.add("exit");
+    }
+
+    private goToSlide(index: number): void {
+      if (index === this.currentIndex) return;
+
+      this.pauseAutoSlide();
+      this.hideSlide(this.currentIndex);
+
+      const cardContent = document.querySelector(
+        ".card-content"
+      ) as HTMLElement | null;
+      if (cardContent) {
+        cardContent.classList.remove("slide-1", "slide-2", "slide-3");
+        cardContent.classList.add(`slide-${index + 1}`);
+      }
+
+      this.updateStateIndicators(index);
+      this.updateProgressBar();
+
+      setTimeout(() => {
+        this.currentIndex = index;
+        this.showSlide(this.currentIndex);
+      }, 500);
+
+      this.startAutoSlide();
+    }
+
+    private nextSlide(): void {
+      const nextIndex = (this.currentIndex + 1) % this.totalSlides;
+      this.goToSlide(nextIndex);
+    }
+
+    private previousSlide(): void {
+      const prevIndex =
+        (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+      this.goToSlide(prevIndex);
+    }
+
+    private startAutoSlide(): void {
+      this.pauseAutoSlide();
+      this.autoSlideTimer = window.setInterval(
+        () => this.nextSlide(),
+        this.slideInterval
+      );
+    }
+
+    private pauseAutoSlide(): void {
+      if (this.autoSlideTimer) {
+        clearInterval(this.autoSlideTimer);
+        this.autoSlideTimer = null;
+      }
+    }
+
+    private orderDish(dishName: string, button: HTMLButtonElement): void {
+      // Add haptic feedback effect
+      button.style.transform = "scale(0.95)";
+      setTimeout(() => {
+        button.style.transform = "";
+      }, 150);
+
+      // Dispatch custom event for order integration
+      const event = new CustomEvent("orderDish", {
+        detail: { dishName, slideIndex: this.currentIndex },
+      });
+      document.dispatchEvent(event);
+
+      // Optional: Show notification or handle order logic here
+      console.log(`${dishName} order placed!`);
+    }
+  }
+
+  // Initialize carousel when DOM is loaded
+  document.addEventListener("DOMContentLoaded", () => {
+    new RestaurantCarousel();
+  });
+</script>

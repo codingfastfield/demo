@@ -1,0 +1,1168 @@
+---
+const { firm, number, email, address, brand } = Astro.props;
+---
+
+<section class="hero-section">
+  <div class="hero-background">
+    <div class="food-imagery">
+      <div class="dish-silhouette dish-1"></div>
+      <div class="dish-silhouette dish-2"></div>
+      <div class="steam-lines">
+        <div class="steam-line"></div>
+        <div class="steam-line"></div>
+        <div class="steam-line"></div>
+      </div>
+    </div>
+    <div class="texture-overlay"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <div class="hero-text">
+          <div class="brand-header">
+            <div class="brand-logo">
+              <div class="star-icon">⭐</div>
+              <div class="brand-text">
+                <span class="brand-name">{brand}</span>
+                <span class="brand-type">HOTEL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sensory-trigger">
+            <span class="aroma-indicator">The aroma hits you first</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="title-word">Perfectly</span>
+            <span class="title-word signature">Seared</span>
+            <span class="title-word">Tonight</span>
+          </h1>
+
+          <div class="hunger-description">
+            <p class="main-description">
+              <strong>That golden crust.</strong> The tender center that melts on
+              your tongue. Fresh herbs crackling in hot butter. Every bite crafted
+              to perfection and served at exactly <span class="temperature"
+                >165°F</span
+              >.
+            </p>
+
+            <p class="craving-text">
+              Your table is waiting. The grill is already heated.
+            </p>
+          </div>
+
+          <div class="availability-pressure">
+            <div class="pressure-item">
+              <span class="metric">Tonight only</span>
+              <span class="detail">Chef's special menu</span>
+            </div>
+            <div class="pressure-item urgent">
+              <span class="metric">4 tables</span>
+              <span class="detail">remaining for 8pm</span>
+            </div>
+            <div class="pressure-item">
+              <span class="metric">Fresh daily</span>
+              <span class="detail">Market ingredients</span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="cta-primary">
+              Reserve Your Table
+              <span class="cta-subtitle">Available in 20 minutes</span>
+            </button>
+            <button class="cta-secondary"> Tonight's Menu </button>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="food-gallery">
+            <!-- Main Featured Dish -->
+            <div class="featured-dish">
+              <div class="dish-container">
+                <img
+                  src="/f6.png"
+                  alt="Perfectly grilled steak"
+                  class="dish-image main-dish-img"
+                />
+                <div class="dish-steam-overlay">
+                  <div class="steam-particle"></div>
+                  <div class="steam-particle"></div>
+                  <div class="steam-particle"></div>
+                </div>
+                <div class="dish-glow-ring"></div>
+                <div class="temperature-badge">165°F</div>
+              </div>
+            </div>
+
+            <!-- Side Dishes -->
+            <div class="side-dishes-gallery">
+              <div
+                class="side-dish-item"
+                style="--delay: 0s; --orbit-radius: 200px; --orbit-radius-mobile: 80px;"
+              >
+                <img
+                  src="/f5.png"
+                  alt="Golden crispy fries"
+                  class="side-dish-img"
+                />
+                <div class="sizzle-overlay"></div>
+              </div>
+
+              <div
+                class="side-dish-item"
+                style="--delay: 4s; --orbit-radius: 180px; --orbit-radius-mobile: 70px;"
+              >
+                <img
+                  src="/f4.png"
+                  alt="Fresh garden salad"
+                  class="side-dish-img"
+                />
+                <div class="fresh-overlay"></div>
+              </div>
+
+              <div
+                class="side-dish-item"
+                style="--delay: 8s; --orbit-radius: 220px; --orbit-radius-mobile: 90px;"
+              >
+                <img
+                  src="/f3.png"
+                  alt="Delicious pasta"
+                  class="side-dish-img"
+                />
+                <div class="steam-overlay"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sensory-details">
+            <div class="detail-card temperature-card">
+              <div class="card-icon">🔥</div>
+              <span class="card-text">Seared to perfection</span>
+            </div>
+            <div class="detail-card freshness-card">
+              <div class="card-icon">🌿</div>
+              <span class="card-text">Garden fresh herbs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="urgency-banner">
+    <div class="banner-content">
+      <span class="banner-text"
+        >⏰ Prime dinner slots filling fast - secure yours before 6pm today</span
+      >
+      <button class="banner-cta">Book Now</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 40%, #3d2414 100%);
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .food-imagery {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+  }
+
+  .dish-silhouette {
+    position: absolute;
+    border: 2px solid rgba(218, 165, 32, 0.3);
+    border-radius: 50%;
+  }
+
+  .dish-1 {
+    width: 300px;
+    height: 300px;
+    top: 15%;
+    right: 10%;
+    animation: plateFloat 6s ease-in-out infinite;
+  }
+
+  .dish-2 {
+    width: 150px;
+    height: 150px;
+    bottom: 25%;
+    left: 15%;
+    animation: plateFloat 8s ease-in-out infinite reverse;
+  }
+
+  .steam-lines {
+    position: absolute;
+    top: 30%;
+    right: 20%;
+  }
+
+  .steam-line {
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.4), transparent);
+    margin: 0 8px;
+    display: inline-block;
+    animation: steamRise 3s ease-in-out infinite;
+  }
+
+  .steam-line:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .steam-line:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+  .steam-line:nth-child(3) {
+    animation-delay: 1s;
+  }
+
+  .texture-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(218, 165, 32, 0.05) 0%,
+      transparent 70%
+    );
+    animation: aromaGlow 4s ease-in-out infinite alternate;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .brand-header {
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.2s forwards;
+    /* background: red; */
+    margin-top: 30px;
+  }
+
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .star-icon {
+    font-size: 2.5rem;
+    color: #daa520;
+    animation: starTwinkle 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(218, 165, 32, 0.5));
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #daa520;
+    font-family: "Georgia", "Times New Roman", serif;
+    letter-spacing: 1px;
+  }
+
+  .brand-type {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    letter-spacing: 3px;
+    font-weight: 300;
+    margin-top: -0.2rem;
+  }
+
+  .sensory-trigger {
+    background: rgba(218, 165, 32, 0.1);
+    border: 1px solid rgba(218, 165, 32, 0.3);
+    color: #daa520;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: -3rem;
+    backdrop-filter: blur(10px);
+    animation: gentlePulse 3s ease-in-out infinite;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 2.5rem;
+    font-family: "Georgia", "Times New Roman", serif;
+    margin-top: 20px;
+  }
+
+  .title-word {
+    display: block;
+    color: #f8f8f2;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: elegantReveal 1s ease-out forwards;
+  }
+
+  .title-word:nth-child(1) {
+    animation-delay: 0.3s;
+  }
+  .title-word:nth-child(2) {
+    animation-delay: 0.6s;
+  }
+  .title-word:nth-child(3) {
+    animation-delay: 0.9s;
+  }
+
+  .title-word.signature {
+    font-weight: 600;
+    background: linear-gradient(135deg, #daa520 0%, #ffd700 50%, #b8860b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+  }
+
+  .hunger-description {
+    margin-bottom: 3rem;
+  }
+
+  .main-description {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1.2s forwards;
+  }
+
+  .temperature {
+    color: #ff6b35;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    background: rgba(255, 107, 53, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+  }
+
+  .craving-text {
+    font-size: 1.1rem;
+    color: #daa520;
+    font-style: italic;
+    font-weight: 500;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1.5s forwards;
+  }
+
+  .availability-pressure {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1.8s forwards;
+  }
+
+  .pressure-item {
+    text-align: center;
+    padding: 1.2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .pressure-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(218, 165, 32, 0.3);
+  }
+
+  .pressure-item.urgent {
+    border-color: rgba(255, 107, 53, 0.4);
+    background: rgba(255, 107, 53, 0.08);
+    animation: urgentGlow 2s ease-in-out infinite;
+  }
+
+  .pressure-item .metric {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #daa520;
+    margin-bottom: 0.3rem;
+  }
+
+  .pressure-item.urgent .metric {
+    color: #ff6b35;
+  }
+
+  .pressure-item .detail {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 2rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 2.1s forwards;
+  }
+
+  .cta-primary {
+    background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+    border: none;
+    color: #1a1a1a;
+    padding: 1.8rem 3.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(218, 165, 32, 0.3);
+  }
+
+  .cta-primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.6s;
+  }
+
+  .cta-primary:hover::before {
+    left: 100%;
+  }
+
+  .cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(218, 165, 32, 0.4);
+  }
+
+  .cta-subtitle {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 400;
+    opacity: 0.8;
+    margin-top: 0.3rem;
+  }
+
+  .cta-secondary {
+    background: transparent;
+    border: 2px solid rgba(218, 165, 32, 0.5);
+    color: #daa520;
+    padding: 1.8rem 3rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .cta-secondary:hover {
+    background: rgba(218, 165, 32, 0.1);
+    border-color: #daa520;
+    transform: translateY(-3px);
+  }
+
+  .hero-visual {
+    position: relative;
+    height: 500px;
+  }
+
+  .food-gallery {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .featured-dish {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+  }
+
+  .dish-container {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    animation: platePresentation 4s ease-in-out infinite;
+  }
+
+  .main-dish-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    filter: brightness(1.1) contrast(1.1) saturate(1.2);
+    transition: all 0.3s ease;
+  }
+
+  .dish-container:hover .main-dish-img {
+    filter: brightness(1.2) contrast(1.2) saturate(1.3);
+    transform: scale(1.05);
+  }
+
+  .dish-steam-overlay {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+  }
+
+  .dish-glow-ring {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 30px;
+    background: conic-gradient(
+      from 0deg,
+      rgba(218, 165, 32, 0.4),
+      transparent,
+      rgba(218, 165, 32, 0.4)
+    );
+    animation: plateGlow 8s linear infinite;
+    z-index: -1;
+    display: none;
+  }
+
+  .temperature-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 107, 53, 0.9);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    animation: tempPulse 2s ease-in-out infinite;
+  }
+
+  .side-dishes-gallery {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .side-dish-item {
+    position: absolute;
+    width: 170px;
+    height: 120px;
+    border-radius: 15px;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: dishOrbit 12s linear infinite;
+    animation-delay: var(--delay);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .side-dish-item:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    z-index: 2;
+  }
+
+  .side-dish-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    filter: brightness(1.05) contrast(1.05) saturate(1.1);
+    transition: all 0.3s ease;
+  }
+
+  .sizzle-overlay,
+  .fresh-overlay,
+  .steam-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    pointer-events: none;
+  }
+
+  .sizzle-overlay {
+    background: linear-gradient(45deg, rgba(255, 107, 53, 0.2), transparent);
+    animation: sizzleEffect 2s ease-in-out infinite;
+  }
+
+  .fresh-overlay {
+    background: linear-gradient(135deg, rgba(34, 139, 34, 0.2), transparent);
+    animation: freshEffect 3s ease-in-out infinite;
+  }
+
+  .steam-overlay {
+    background: linear-gradient(to top, transparent, rgba(255, 255, 255, 0.1));
+    animation: steamEffect 2.5s ease-in-out infinite;
+  }
+
+  .steam-particle {
+    position: absolute;
+    width: 3px;
+    height: 25px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.6), transparent);
+    border-radius: 2px;
+    animation: steamFloat 2.5s ease-in-out infinite;
+  }
+
+  .steam-particle:nth-child(1) {
+    left: 20px;
+    animation-delay: 0s;
+  }
+  .steam-particle:nth-child(2) {
+    left: 28px;
+    animation-delay: 0.4s;
+  }
+  .steam-particle:nth-child(3) {
+    left: 36px;
+    animation-delay: 0.8s;
+  }
+
+  .sensory-details {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .detail-card {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    animation: cardFloat 3s ease-in-out infinite;
+    transition: all 0.3s ease;
+  }
+
+  .detail-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(218, 165, 32, 0.3);
+  }
+
+  .temperature-card {
+    top: 15%;
+    right: 0;
+    animation-delay: 0s;
+  }
+
+  .freshness-card {
+    bottom: 20%;
+    left: 0;
+    animation-delay: 1.5s;
+  }
+
+  .card-icon {
+    font-size: 1.2rem;
+  }
+
+  .card-text {
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .urgency-banner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+
+    background: linear-gradient(
+      90deg,
+      rgba(218, 165, 32, 0.9),
+      rgba(184, 134, 11, 0.9)
+    );
+    color: #1a1a1a;
+    padding: 1.2rem;
+    z-index: 3;
+    backdrop-filter: blur(10px);
+  }
+
+  .banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .banner-text {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .banner-cta {
+    background: #1a1a1a;
+    color: #daa520;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .banner-cta:hover {
+    background: #2a2a2a;
+    transform: translateY(-2px);
+  }
+
+  /* Animations */
+  @keyframes plateFloat {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes steamRise {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+  }
+
+  @keyframes aromaGlow {
+    0%,
+    100% {
+      opacity: 0.05;
+    }
+    50% {
+      opacity: 0.1;
+    }
+  }
+
+  @keyframes starTwinkle {
+    0%,
+    100% {
+      transform: scale(1) rotate(0deg);
+      filter: drop-shadow(0 0 8px rgba(218, 165, 32, 0.5));
+    }
+    50% {
+      transform: scale(1.1) rotate(180deg);
+      filter: drop-shadow(0 0 12px rgba(218, 165, 32, 0.8));
+    }
+  }
+
+  @keyframes gentlePulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes elegantReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+
+  @keyframes urgentGlow {
+    0%,
+    100% {
+      box-shadow: 0 0 0 rgba(255, 107, 53, 0);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+    }
+  }
+
+  @keyframes platePresentation {
+    0%,
+    100% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(1deg);
+    }
+  }
+
+  @keyframes plateGlow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes tempPulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.9;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+  }
+
+  /* Desktop orbit animation */
+  @keyframes dishOrbit {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg)
+        translateX(var(--orbit-radius, 180px)) rotate(0deg);
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg)
+        translateX(var(--orbit-radius, 180px)) rotate(-360deg);
+      opacity: 0.7;
+    }
+  }
+
+  /* Mobile orbit animation with smaller radius */
+  @keyframes dishOrbitMobile {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg)
+        translateX(var(--orbit-radius-mobile, 60px)) rotate(0deg);
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg)
+        translateX(var(--orbit-radius-mobile, 60px)) rotate(-360deg);
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes sizzleEffect {
+    0%,
+    100% {
+      opacity: 0.2;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.4;
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes freshEffect {
+    0%,
+    100% {
+      opacity: 0.1;
+      background: linear-gradient(135deg, rgba(34, 139, 34, 0.1), transparent);
+    }
+    50% {
+      opacity: 0.3;
+      background: linear-gradient(135deg, rgba(34, 139, 34, 0.3), transparent);
+    }
+  }
+
+  @keyframes steamEffect {
+    0%,
+    100% {
+      opacity: 0.1;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 0.3;
+      transform: translateY(-2px);
+    }
+  }
+
+  @keyframes steamFloat {
+    0% {
+      opacity: 0;
+      transform: translateY(0) scale(1);
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-40px) scale(0.8);
+    }
+  }
+
+  @keyframes cardFloat {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .content-wrapper {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .hero-visual {
+      height: 300px; /* Reduced height for mobile */
+    }
+
+    .food-gallery {
+      height: 300px; /* Reduced height for mobile */
+    }
+
+    /* Smaller main dish for mobile */
+    .dish-container {
+      width: 200px; /* Reduced from 400px */
+      height: 150px; /* Reduced from 300px */
+    }
+
+    /* Smaller side dishes for mobile with mobile orbit animation */
+    .side-dish-item {
+      width: 80px; /* Reduced from 170px */
+      height: 60px; /* Reduced from 120px */
+      animation: dishOrbitMobile 12s linear infinite; /* Use mobile animation */
+      animation-delay: var(--delay);
+    }
+
+    /* Ensure sensory details don't overlap on mobile */
+    .detail-card {
+      position: relative;
+      margin: 0.5rem 0;
+      padding: 0.8rem 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .temperature-card,
+    .freshness-card {
+      position: relative;
+      top: auto;
+      right: auto;
+      bottom: auto;
+      left: auto;
+      display: inline-block;
+      margin: 0.5rem;
+    }
+
+    .sensory-details {
+      position: relative;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .brand-logo {
+      justify-content: center;
+    }
+
+    .availability-pressure {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .pressure-item {
+      padding: 1rem;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .banner-content {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .banner-text {
+      font-size: 0.9rem;
+    }
+
+    /* Adjust background elements for mobile */
+    .dish-1 {
+      width: 150px;
+      height: 150px;
+      top: 10%;
+      right: 5%;
+    }
+
+    .dish-2 {
+      width: 80px;
+      height: 80px;
+      bottom: 20%;
+      left: 10%;
+    }
+
+    .steam-lines {
+      top: 20%;
+      right: 10%;
+    }
+
+    .steam-line {
+      height: 20px;
+      margin: 0 4px;
+    }
+
+    /* Reduce padding for mobile */
+    .container {
+      padding: 0 1rem;
+    }
+
+    .main-description {
+      font-size: 1.2rem;
+    }
+
+    .sensory-trigger {
+      font-size: 0.9rem;
+      padding: 0.6rem 1.5rem;
+    }
+
+    .temperature-badge {
+      font-size: 0.8rem;
+      padding: 0.3rem 0.8rem;
+      top: 5px;
+      right: 5px;
+    }
+  }
+
+  /* Even smaller screens */
+  @media (max-width: 480px) {
+    .hero-visual {
+      height: 250px;
+    }
+
+    .food-gallery {
+      height: 250px;
+    }
+
+    .dish-container {
+      width: 160px;
+      height: 120px;
+    }
+
+    .side-dish-item {
+      width: 60px;
+      height: 45px;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .main-description {
+      font-size: 1.1rem;
+    }
+
+    .pressure-item .metric {
+      font-size: 1.1rem;
+    }
+
+    .detail-card {
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    .card-text {
+      font-size: 0.85rem;
+    }
+  }
+</style>

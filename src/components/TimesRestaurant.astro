@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Experience Timeline</title>
+  </head>
+  <body>
+    <div class="cont">
+      <div class="timeline-container">
+        <div class="timeline-line" id="timelineLine"></div>
+
+        <div class="timeline-item left hidden" data-index="0">
+          <div class="timeline-content">
+            <h3>Fine Dining</h3>
+            <p class="timeline-period">Exquisite Culinary Journey</p>
+            <p class="timeline-description">
+              Experience our chef's signature tasting menu featuring locally
+              sourced ingredients, innovative techniques, and artful
+              presentation in an intimate atmosphere perfect for special
+              occasions and memorable evenings.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item right hidden" data-index="1">
+          <div class="timeline-content">
+            <h3>Casual Dining</h3>
+            <p class="timeline-period">Comfort & Flavor</p>
+            <p class="timeline-description">
+              Enjoy our thoughtfully crafted comfort classics and seasonal
+              favorites in a relaxed setting. Perfect for family gatherings,
+              casual dates, and everyday dining with exceptional quality and
+              warm hospitality.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item left hidden" data-index="2">
+          <div class="timeline-content">
+            <h3>Bar & Lounge</h3>
+            <p class="timeline-period">Craft Cocktails & Small Plates</p>
+            <p class="timeline-description">
+              Unwind with our expertly crafted cocktails, curated wine
+              selection, and shareable small plates. The perfect spot for
+              after-work drinks, social gatherings, and late-night
+              conversations.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline nodes positioned absolutely relative to container -->
+        <div class="timeline-node" data-node="0"></div>
+        <div class="timeline-node" data-node="1"></div>
+        <div class="timeline-node" data-node="2"></div>
+      </div>
+    </div>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(
+          135deg,
+          #1a1a1a 0%,
+          #2d1810 50%,
+          #1a1a1a 100%
+        );
+        font-family: "Georgia", serif;
+        color: #f8f8f8;
+        min-height: 100vh;
+      }
+
+      .cont {
+        width: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(45, 24, 16, 0.3) 0%,
+          rgba(26, 26, 26, 0.5) 50%,
+          rgba(45, 24, 16, 0.3) 100%
+        );
+      }
+
+      .timeline-container {
+        position: relative;
+        margin: 6rem auto;
+        padding: 4rem 0;
+        width: 90%;
+        max-width: 1000px;
+        min-height: 800px;
+      }
+
+      /* Elegant restaurant gradient line with warm accents */
+      .timeline-line {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 3px;
+        height: 0;
+        background: linear-gradient(
+          180deg,
+          #e8a317 0%,
+          #d2691e 25%,
+          #8b4513 50%,
+          #d2691e 75%,
+          #e8a317 100%
+        );
+        border-radius: 4px;
+        transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1;
+        box-shadow: 0 0 20px rgba(232, 163, 23, 0.5);
+      }
+
+      /* Timeline items */
+      .timeline-item {
+        position: relative;
+        width: calc(50% - 40px);
+        margin-bottom: 4rem;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .timeline-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .timeline-item.left {
+        left: 0;
+        text-align: right;
+      }
+
+      .timeline-item.right {
+        left: calc(50% + 40px);
+        text-align: left;
+      }
+
+      .timeline-content {
+        background: linear-gradient(
+          135deg,
+          rgba(45, 24, 16, 0.95) 0%,
+          rgba(26, 26, 26, 0.95) 50%,
+          rgba(45, 24, 16, 0.95) 100%
+        );
+        backdrop-filter: blur(20px);
+        padding: 2.5rem;
+        border-radius: 16px;
+        border: 2px solid rgba(232, 163, 23, 0.3);
+        box-shadow:
+          0 25px 50px rgba(0, 0, 0, 0.6),
+          0 0 0 1px rgba(232, 163, 23, 0.2),
+          inset 0 1px 0 rgba(232, 163, 23, 0.1),
+          inset 0 -1px 0 rgba(139, 69, 19, 0.2);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .timeline-content::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(232, 163, 23, 0.7),
+          rgba(210, 105, 30, 0.5),
+          rgba(232, 163, 23, 0.7),
+          transparent
+        );
+      }
+
+      .timeline-content::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle at center,
+          rgba(232, 163, 23, 0.03) 0%,
+          transparent 70%
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow:
+          0 35px 70px rgba(0, 0, 0, 0.7),
+          0 0 50px rgba(232, 163, 23, 0.4),
+          0 0 0 1px rgba(232, 163, 23, 0.5),
+          inset 0 1px 0 rgba(232, 163, 23, 0.2),
+          inset 0 -1px 0 rgba(139, 69, 19, 0.3);
+        border-color: rgba(232, 163, 23, 0.6);
+      }
+
+      .timeline-content:hover::after {
+        opacity: 1;
+      }
+
+      .timeline-content h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+        background: linear-gradient(
+          135deg,
+          #e8a317 0%,
+          #ffd700 30%,
+          #e8a317 60%,
+          #d2691e 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-family: "Times New Roman", serif;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        letter-spacing: 1px;
+      }
+
+      .timeline-period {
+        font-size: 0.95rem;
+        color: #e8a317;
+        font-weight: 600;
+        margin-bottom: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-family: "Georgia", serif;
+        opacity: 0.9;
+      }
+
+      .timeline-description {
+        color: #f0f0f0;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        font-family: "Georgia", serif;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        font-style: italic;
+      }
+
+      /* Timeline nodes - positioned absolutely and break the line */
+      .timeline-node {
+        position: absolute;
+        left: 50%;
+        width: 32px;
+        height: 32px;
+        background: radial-gradient(circle, #1a1a1a 30%, #2d1810 70%);
+        border: 4px solid #e8a317;
+        border-radius: 50%;
+        transform: translateX(-50%) scale(0);
+        z-index: 3;
+        opacity: 0;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow:
+          0 0 0 0px rgba(232, 163, 23, 0),
+          0 0 0px rgba(232, 163, 23, 0);
+      }
+
+      .timeline-node.revealed {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+        animation: nodeBreakIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+
+      .timeline-node::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 14px;
+        height: 14px;
+        background: radial-gradient(
+          circle,
+          #ffd700 0%,
+          #e8a317 50%,
+          #d2691e 100%
+        );
+        border-radius: 50%;
+        box-shadow:
+          0 0 15px rgba(232, 163, 23, 0.9),
+          inset 0 1px 2px rgba(255, 215, 0, 0.5);
+        animation: restaurantPulse 3s ease-in-out infinite;
+      }
+
+      /* Node break-in animation with restaurant theme */
+      @keyframes nodeBreakIn {
+        0% {
+          transform: translateX(-50%) scale(0);
+          box-shadow:
+            0 0 0 0px rgba(232, 163, 23, 0),
+            0 0 0px rgba(232, 163, 23, 0);
+        }
+        50% {
+          transform: translateX(-50%) scale(1.3);
+          box-shadow:
+            0 0 0 15px rgba(232, 163, 23, 0.4),
+            0 0 40px rgba(232, 163, 23, 0.7);
+        }
+        100% {
+          transform: translateX(-50%) scale(1);
+          box-shadow:
+            0 0 0 8px rgba(232, 163, 23, 0.3),
+            0 0 25px rgba(232, 163, 23, 0.5);
+        }
+      }
+
+      @keyframes restaurantPulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+          box-shadow:
+            0 0 15px rgba(232, 163, 23, 0.9),
+            inset 0 1px 2px rgba(255, 215, 0, 0.5);
+        }
+        50% {
+          opacity: 0.8;
+          transform: translate(-50%, -50%) scale(1.15);
+          box-shadow:
+            0 0 25px rgba(232, 163, 23, 1),
+            inset 0 1px 2px rgba(255, 215, 0, 0.7);
+        }
+      }
+
+      /* Position nodes at specific heights */
+      .timeline-node[data-node="0"] {
+        top: 100px;
+      }
+      .timeline-node[data-node="1"] {
+        top: 280px;
+      }
+      .timeline-node[data-node="2"] {
+        top: 460px;
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 768px) {
+        .timeline-container {
+          margin: 4rem auto;
+          padding: 2rem 0;
+        }
+
+        .timeline-item {
+          width: calc(100% - 60px);
+          text-align: left !important;
+          left: 60px !important;
+          margin-bottom: 3rem;
+        }
+
+        .timeline-line {
+          left: 30px;
+          transform: none;
+        }
+
+        .timeline-node {
+          left: 30px;
+          transform: translateX(-50%) scale(0);
+        }
+
+        .timeline-node.revealed {
+          transform: translateX(-50%) scale(1);
+        }
+
+        .timeline-content {
+          padding: 2rem;
+          border-radius: 20px;
+        }
+
+        .timeline-content h3 {
+          font-size: 1.5rem;
+        }
+
+        .timeline-description {
+          font-size: 1rem;
+        }
+
+        /* Adjust node positions for mobile */
+        .timeline-node[data-node="0"] {
+          top: 80px;
+        }
+        .timeline-node[data-node="1"] {
+          top: 240px;
+        }
+        .timeline-node[data-node="2"] {
+          top: 400px;
+        }
+      }
+    </style>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const line = document.getElementById("timelineLine");
+        const container = document.querySelector(".timeline-container");
+        const items = document.querySelectorAll(".timeline-item");
+        const nodes = document.querySelectorAll(".timeline-node");
+
+        // Early return with proper null checks
+        if (!line || !container || !items.length || !nodes.length) {
+          console.warn("Timeline elements not found");
+          return;
+        }
+
+        // Initial state - ensure everything starts hidden
+        items.forEach((item) => {
+          if (item) item.classList.remove("visible");
+        });
+        nodes.forEach((node) => {
+          if (node) node.classList.remove("revealed");
+        });
+
+        // Initial trigger
+        handleScroll();
+
+        window.addEventListener("scroll", handleScroll);
+
+        function handleScroll() {
+          // Additional null checks inside the function
+          if (!container || !line) return;
+
+          const rect = container.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+
+          // Calculate how much of the container is visible
+          const containerTop = rect.top;
+          const containerHeight = rect.height;
+          const scrollProgress = Math.max(
+            0,
+            Math.min(
+              1,
+              (windowHeight - containerTop) / (windowHeight + containerHeight)
+            )
+          );
+
+          // Animate line height with smooth easing
+          let visibleHeight = Math.max(0, windowHeight - containerTop);
+          let maxLineHeight = containerHeight * 0.85; // Don't let line go beyond last node
+          let newHeight = Math.min(visibleHeight * 0.8, maxLineHeight);
+
+          if (newHeight > 0) {
+            line.style.height = newHeight + "px";
+          }
+
+          // Node positions relative to container (adjust these based on your content)
+          const nodePositions = [100, 280, 460]; // Position of each node from container top
+
+          // Check which nodes should be revealed/hidden based on line height and scroll position
+          nodePositions.forEach((nodePos, index) => {
+            const node = nodes[index];
+            if (!node) return;
+
+            // Calculate if this node should be visible
+            const shouldBeVisible =
+              newHeight >= nodePos - 20 && containerTop < windowHeight;
+            const currentlyVisible = node.classList.contains("revealed");
+
+            if (shouldBeVisible && !currentlyVisible) {
+              // Reveal node when line reaches its position
+              setTimeout(() => {
+                if (node && newHeight >= nodePos - 20) {
+                  node.classList.add("revealed");
+                }
+              }, index * 80);
+            } else if (!shouldBeVisible && currentlyVisible) {
+              // Hide node when scrolling back up or container out of view
+              node.classList.remove("revealed");
+            }
+          });
+
+          // Reveal items based on their position - with reset functionality
+          items.forEach((item, index) => {
+            if (!item) return;
+
+            const itemRect = item.getBoundingClientRect();
+            const triggerPoint = windowHeight - 120;
+            const resetPoint = windowHeight + 100; // Point where item goes out of view
+
+            if (itemRect.top < triggerPoint && itemRect.bottom > 0) {
+              // Item is in view - add visible class with delay if not already visible
+              if (!item.classList.contains("visible")) {
+                setTimeout(() => {
+                  if (item) {
+                    item.classList.add("visible");
+                  }
+                }, index * 150);
+              }
+            } else if (itemRect.top > resetPoint || itemRect.bottom < -100) {
+              // Item is far out of view - remove visible class to reset animation
+              item.classList.remove("visible");
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

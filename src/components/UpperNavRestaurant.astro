@@ -1,6 +1,5 @@
 ---
 const { firm, number, email, address } = Astro.props;
-
 ---
 
 <link
@@ -21,10 +20,13 @@ const { firm, number, email, address } = Astro.props;
     padding: 0 1rem;
     height: 50px;
     display: flex;
+
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 40%, #3d2414 100%);
   }
 
   .nav-component {
-    background: rgba(255, 255, 255, 0.02);
+    /* background: rgba(255, 255, 255, 0.02); */
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 40%, #3d2414 100%);
     backdrop-filter: blur(20px);
     border-radius: 12px;
     padding: 0.4rem 1.5rem;
@@ -74,7 +76,7 @@ const { firm, number, email, address } = Astro.props;
     box-shadow:
       0 35px 70px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    border-color: rgba(100, 200, 255, 0.2);
+    border-color: rgba(255, 140, 0, 0.2);
   }
 
   .nav-content {
@@ -101,24 +103,24 @@ const { firm, number, email, address } = Astro.props;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
     border-radius: 6px;
     font-size: 0.8rem;
     color: white;
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
     transition: all 0.3s ease;
     flex-shrink: 0;
   }
 
   .brand-icon:hover {
     transform: rotate(5deg) scale(1.05);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
   }
 
   .brand-text {
     font-size: 0.95rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #ffffff 0%, #64c8ff 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #ff8c42 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -182,9 +184,9 @@ const { firm, number, email, address } = Astro.props;
   .contact-item:hover {
     transform: translateY(-2px) scale(1.02);
     background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(100, 200, 255, 0.3);
-    color: #64c8ff;
-    box-shadow: 0 8px 25px rgba(100, 200, 255, 0.2);
+    border-color: rgba(255, 140, 0, 0.3);
+    color: #ff8c42;
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
   }
 
   .contact-item i {
@@ -463,7 +465,7 @@ const { firm, number, email, address } = Astro.props;
   /* Focus states for accessibility */
   .contact-item:focus,
   .social-link:focus {
-    outline: 2px solid #64c8ff;
+    outline: 2px solid #ff8c42;
     outline-offset: 2px;
   }
 </style>
@@ -473,24 +475,24 @@ const { firm, number, email, address } = Astro.props;
     <div class="nav-content">
       <div class="brand">
         <div class="brand-icon" aria-hidden="true">
-          <i class="fas fa-balance-scale"></i>
+          <i class="fas fa-utensils"></i>
         </div>
-        <h1 class="brand-text">{firm}*~~ & H. Advocates**</h1>
+        <h1 class="brand-text">{firm} Restaurant</h1>
       </div>
 
       <div class="contact-info">
         <a
-          href="tel:+254722****07*"
+          href="tel:+254722000000"
           class="contact-item"
-          aria-label="Call us at +1 234 567 890"
+          aria-label="Call us for reservations"
         >
           <i class="fas fa-phone" aria-hidden="true"></i>
           <span>{number}</span>
         </a>
         <a
-          href="mailto:hello@advocate.com"
+          href="mailto:reservations@bistro.com"
           class="contact-item"
-          aria-label="Email us at hello@advocate.com"
+          aria-label="Email us for reservations"
         >
           <i class="fas fa-envelope" aria-hidden="true"></i>
           <span>{email}</span>

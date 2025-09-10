@@ -1,3 +1,12 @@
+---
+export interface Props {
+  title: string;
+  backgroundColor?: string;
+}
+
+const { title, backgroundColor } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,9 +14,11 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Ba*~~ & H. Advocates**</title>
+    <title>{title}</title>
   </head>
-  <body>
+  <body
+    style={backgroundColor ? `background-color: ${backgroundColor}` : undefined}
+  >
     <slot />
   </body>
 </html>
@@ -30,7 +41,10 @@
       margin: 0;
       width: 100%;
       height: 100%;
-      background: var(--hero-bg);
+      body:not([style*="background-color"]) {
+    background: var(--hero-bg);
+  
+      /* background: var(--hero-bg); */
     }
   }
 

@@ -1,0 +1,63 @@
+---
+// import Nav from ".././components/Nav.astro";
+import UpperNav from "../../components/UpperNav.astro";
+import ConsultB from "../../components/ConsultB.astro";
+import HerosectionRestaurants from "../../components/HerosectionRestaurants.astro";
+import Welcome from "../../components/Welcome.astro";
+import About from "../../components/About.astro";
+// import Layout from "../../components/Layout.astro";
+import Times from "../../components/Times.astro";
+import Gravel from "../../components/Gravel.astro";
+import Fqa from "../../components/Fqa.astro";
+import Services from "../../components/Services.astro";
+import Footer from "../../components/Footer.astro";
+import Caro from "../../components/Caro.astro";
+import Herosection from "../../components/Herosection.astro";
+// import { firms } from "../../data/firmdata";
+import UpperNavRestaurant from "../../components/UpperNavRestaurant.astro";
+import NavRestaurant from "../../components/NavRestaurant.astro";
+import FoodCaroRestaurant from "../../components/FoodCaroRestaurant.astro";
+import CaroRestaurant from "../../components/CaroRestaurant.astro";
+import Nav from "../../components/Nav.astro";
+import { firms } from "../../data/firmdata";
+import Layout from "../../layouts/Layout.astro";
+import HeroRestaurant from "../../components/HeroRestaurant.astro";
+import AboutRestaurant from "../../components/AboutRestaurant.astro";
+import TimesRestaurant from "../../components/TimesRestaurant.astro";
+import ServicesRestaurant from "../../components/ServicesRestaurant.astro";
+import FqaRestaurant from "../../components/FqaRestaurant.astro";
+import FooterRestaurant from "../../components/FooterRestaurant.astro";
+import Disclaimer from "../../components/Disclaimer.astro";
+
+export async function getStaticPaths() {
+  return firms.map((firm) => ({
+    params: { restaurants: firm.firm.toLowerCase() }, // 🔹 match filename
+  }));
+}
+
+const { restaurants } = Astro.params; // 🔹 must match [restaurants].astro
+const firmData = firms.find((f) => f.firm.toLowerCase() === restaurants);
+
+if (!firmData) {
+  throw new Error("Firm not found");
+}
+---
+
+<Layout
+  title="Best Restaurant"
+  backgroundColor="linear-gradient(135deg, #1a1a1a 0%, #2d1810 40%, #3d2414 100%)"
+>
+  <!-- <UpperNav {...firmData} /> -->
+  <UpperNavRestaurant {...firmData} />
+  <NavRestaurant {...firmData} />
+  <HerosectionRestaurants {...firmData} />
+
+  <HeroRestaurant />
+  <AboutRestaurant />
+  <!-- <CaroRestaurant /> -->
+  <TimesRestaurant />
+  <ServicesRestaurant />
+  <FqaRestaurant />
+  <FooterRestaurant {...firmData} />
+  <Disclaimer />
+</Layout>

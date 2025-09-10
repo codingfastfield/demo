@@ -1,0 +1,117 @@
+---
+// DisclaimerStrip.astro
+export interface Props {
+  className?: string;
+  variant?: "default" | "minimal" | "prominent";
+}
+
+const { className = "", variant = "default" } = Astro.props;
+---
+
+<div class={`disclaimer-strip disclaimer-strip--${variant} ${className}`}>
+  <div class="disclaimer-content">
+    <p>
+      <strong>Notice:</strong> Your organization's contact information, brand name,
+      and other details obtained publicly have been incorporated into this demonstration
+      website solely to provide a realistic and practical preview of the proposed
+      design and functionality. This information is used exclusively for presentation
+      purposes and will not be stored, shared, or utilized for any other purpose
+      beyond this demonstration.
+    </p>
+  </div>
+</div>
+
+<style>
+  .disclaimer-strip {
+    width: 100%;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .disclaimer-strip--default {
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    padding: 0.75rem 0;
+  }
+
+  .disclaimer-strip--minimal {
+    background: #ffffff;
+    padding: 0.5rem 0;
+    border-top: none;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .disclaimer-strip--prominent {
+    background: #fef3c7;
+    border-color: #fbbf24;
+    padding: 1rem 0;
+  }
+
+  .disclaimer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .disclaimer-strip p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin: 0;
+    text-align: center;
+    color: #6b7280;
+  }
+
+  .disclaimer-strip--prominent p {
+    color: #92400e;
+  }
+
+  .disclaimer-strip strong {
+    color: #374151;
+    font-weight: 600;
+  }
+
+  .disclaimer-strip--prominent strong {
+    color: #78350f;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .disclaimer-content {
+      padding: 0 0.75rem;
+    }
+
+    .disclaimer-strip p {
+      font-size: 0.75rem;
+      line-height: 1.4;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .disclaimer-strip--default,
+    .disclaimer-strip--prominent {
+      padding: 0.5rem 0;
+    }
+
+    .disclaimer-content {
+      padding: 0 0.5rem;
+    }
+
+    .disclaimer-strip p {
+      font-size: 0.7rem;
+    }
+  }
+
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    .disclaimer-strip {
+      border-color: #374151;
+    }
+
+    .disclaimer-strip--default {
+      background: #ffffff;
+    }
+
+    .disclaimer-strip p {
+      color: #111827;
+    }
+  }
+</style>

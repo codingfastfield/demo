@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Services</title>
+  </head>
+  <body>
+    <section class="services">
+      <div class="container">
+        <div class="content-wrapper">
+          <div class="header-section">
+            <span class="badge">Culinary Excellence</span>
+            <h2 class="heading">
+              Our <span class="gradient-text">Services</span>
+            </h2>
+            <p class="subheading">
+              Exceptional dining experiences crafted with passion, using the
+              finest ingredients and innovative culinary techniques.
+            </p>
+          </div>
+
+          <div class="grid">
+            <div class="card" data-index="0">
+              <div class="card-background"></div>
+              <div class="card-content">
+                <div
+                  class="icon-wrapper bg-gradient-to-br from-orange-600 to-red-700"
+                >
+                  <span class="icon">🍽️</span>
+                </div>
+                <h3 class="card-title">Fine Dining</h3>
+                <p class="card-description">
+                  Exquisite multi-course meals featuring seasonal ingredients
+                  and innovative culinary artistry in an elegant atmosphere.
+                </p>
+                <div class="card-arrow">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" data-index="1">
+              <div class="card-background"></div>
+              <div class="card-content">
+                <div
+                  class="icon-wrapper bg-gradient-to-br from-emerald-600 to-teal-700"
+                >
+                  <span class="icon">🎉</span>
+                </div>
+                <h3 class="card-title">Event Catering</h3>
+                <p class="card-description">
+                  Professional catering services for weddings, corporate events,
+                  and special occasions with customized menus.
+                </p>
+                <div class="card-arrow">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" data-index="2">
+              <div class="card-background"></div>
+              <div class="card-content">
+                <div
+                  class="icon-wrapper bg-gradient-to-br from-purple-600 to-violet-700"
+                >
+                  <span class="icon">🍷</span>
+                </div>
+                <h3 class="card-title">Private Dining</h3>
+                <p class="card-description">
+                  Intimate dining experiences in our exclusive private rooms
+                  with personalized service and curated wine pairings.
+                </p>
+                <div class="card-arrow">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" data-index="3">
+              <div class="card-background"></div>
+              <div class="card-content">
+                <div
+                  class="icon-wrapper bg-gradient-to-br from-rose-600 to-pink-700"
+                >
+                  <span class="icon">🚚</span>
+                </div>
+                <h3 class="card-title">Delivery & Takeout</h3>
+                <p class="card-description">
+                  Convenient delivery and takeout options bringing our
+                  restaurant-quality dishes directly to your doorstep.
+                </p>
+                <div class="card-arrow">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+      }
+
+      .services {
+        position: relative;
+        padding: 6rem 1.5rem;
+        /* background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e293b 25%,
+          #334155 75%,
+          #475569 100%
+        ); */
+        background: transparent !important;
+        /* background: red !important; */
+        overflow: hidden;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .header-section {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 0.5rem 1.25rem;
+        background: rgba(255, 255, 255, 0.1);
+        color: #e2e8f0;
+        border-radius: 2rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        letter-spacing: 0.025em;
+        margin-bottom: 1.5rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .heading {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        color: #ffffff;
+        letter-spacing: -0.025em;
+        line-height: 1.1;
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+      }
+
+      .subheading {
+        color: #cbd5e1;
+        margin-bottom: 0;
+        font-size: 1.25rem;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+        font-weight: 400;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        padding: 0 1rem;
+      }
+
+      .card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 1.5rem;
+        padding: 0;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0.05) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+
+      .card:hover {
+        transform: translateY(-12px) scale(1.02);
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow:
+          0 25px 50px -12px rgba(0, 0, 0, 0.5),
+          0 0 0 1px rgba(255, 255, 255, 0.1);
+      }
+
+      .card:hover::before {
+        opacity: 1;
+      }
+
+      .card:hover .card-arrow {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+
+      .card:hover .icon-wrapper {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .card-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.02) 0%,
+          rgba(255, 255, 255, 0.01) 100%
+        );
+        transition: all 0.3s ease;
+      }
+
+      .card-content {
+        position: relative;
+        z-index: 2;
+        padding: 2.5rem 2rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .icon-wrapper {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .bg-gradient-to-br {
+        background: linear-gradient(to bottom right, var(--from), var(--to));
+      }
+
+      .from-orange-600 {
+        --from: #ea580c;
+        --to: #dc2626;
+      }
+
+      .from-emerald-600 {
+        --from: #059669;
+        --to: #0f766e;
+      }
+
+      .from-purple-600 {
+        --from: #9333ea;
+        --to: #7c3aed;
+      }
+
+      .from-rose-600 {
+        --from: #e11d48;
+        --to: #ec4899;
+      }
+
+      .icon-wrapper::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
+        filter: blur(20px);
+        opacity: 0.3;
+        transform: scale(1.2);
+      }
+
+      .icon {
+        font-size: 1.75rem;
+        position: relative;
+        z-index: 2;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 1rem;
+        letter-spacing: -0.025em;
+      }
+
+      .card-description {
+        color: #cbd5e1;
+        font-size: 1rem;
+        line-height: 1.7;
+        flex-grow: 1;
+        margin-bottom: 1.5rem;
+      }
+
+      .card-arrow {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 0.75rem;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #e2e8f0;
+        opacity: 0;
+        transform: translate(10px, 10px);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        margin-left: auto;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+      }
+
+      /* Animation delays for staggered effect */
+      .card[data-index="0"] {
+        animation: fadeInUp 0.6s ease-out;
+      }
+
+      .card[data-index="1"] {
+        animation: fadeInUp 0.6s ease-out 0.1s both;
+      }
+
+      .card[data-index="2"] {
+        animation: fadeInUp 0.6s ease-out 0.2s both;
+      }
+
+      .card[data-index="3"] {
+        animation: fadeInUp 0.6s ease-out 0.3s both;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive Design */
+      @media (min-width: 768px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
+          padding: 0;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .grid {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1.5rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .services {
+          padding: 4rem 1rem;
+        }
+
+        .card-content {
+          padding: 2rem 1.5rem;
+        }
+
+        .heading {
+          font-size: 2.5rem;
+        }
+
+        .subheading {
+          font-size: 1.125rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .services {
+          padding: 3rem 1rem;
+        }
+
+        .card-content {
+          padding: 1.75rem 1.25rem;
+        }
+
+        .icon-wrapper {
+          width: 3.5rem;
+          height: 3.5rem;
+        }
+
+        .icon {
+          font-size: 1.5rem;
+        }
+      }
+
+      /* Dark theme enhancements */
+      @media (prefers-color-scheme: dark) {
+        .services {
+          background: linear-gradient(
+            135deg,
+            #020617 0%,
+            #0f172a 25%,
+            #1e293b 75%,
+            #334155 100%
+          );
+        }
+
+        .card {
+          background: rgba(255, 255, 255, 0.03);
+          border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .card:hover {
+          border-color: rgba(255, 255, 255, 0.2);
+          box-shadow:
+            0 25px 50px -12px rgba(0, 0, 0, 0.7),
+            0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      /* Focus states for accessibility */
+      .card:focus-visible {
+        outline: 2px solid #60a5fa;
+        outline-offset: 4px;
+      }
+
+      /* Reduced motion support */
+      @media (prefers-reduced-motion: reduce) {
+        .card {
+          transition: none;
+        }
+
+        .card:hover {
+          transform: none;
+        }
+
+        .icon-wrapper {
+          transition: none;
+        }
+
+        .card:hover .icon-wrapper {
+          transform: none;
+        }
+
+        .card-arrow {
+          transition: none;
+        }
+
+        .card[data-index] {
+          animation: none;
+        }
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,674 @@
+---
+import ConsultBRestaurant from "./ConsultBRestaurant.astro";
+const { firm, number, email, address, brand } = Astro.props;
+---
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #f59e0b, #dc2626);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .logo:hover {
+    transform: scale(1.05);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+  }
+
+  .nav-links li {
+    position: relative;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0 0 12px 12px;
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.15),
+      0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    min-width: 220px;
+    padding: 0.75rem 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    margin-top: 0.5rem;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-menu li {
+    margin: 0;
+    opacity: 0;
+    transform: translateX(-15px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dropdown:hover .dropdown-menu li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .dropdown:hover .dropdown-menu li:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  .dropdown:hover .dropdown-menu li:nth-child(2) {
+    transition-delay: 0.15s;
+  }
+  .dropdown:hover .dropdown-menu li:nth-child(3) {
+    transition-delay: 0.2s;
+  }
+  .dropdown:hover .dropdown-menu li:nth-child(4) {
+    transition-delay: 0.25s;
+  }
+  .dropdown:hover .dropdown-menu li:nth-child(5) {
+    transition-delay: 0.3s;
+  }
+  .dropdown:hover .dropdown-menu li:nth-child(6) {
+    transition-delay: 0.35s;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: #374151;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 6px;
+    margin: 0 0.5rem;
+  }
+
+  .dropdown-menu a:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(245, 158, 11, 0.1),
+      rgba(220, 38, 38, 0.1)
+    );
+    color: #f59e0b;
+    transform: translateX(4px);
+  }
+
+  .dropdown-menu a::before {
+    display: none;
+  }
+
+  /* Mobile Dropdown Styles */
+  .mobile-dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .mobile-dropdown-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: #f59e0b;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-dropdown-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .mobile-dropdown.active .mobile-dropdown-btn {
+    transform: rotate(180deg);
+  }
+
+  .mobile-dropdown-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0 1rem;
+    border-left: 2px solid rgba(245, 158, 11, 0.2);
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-dropdown.active .mobile-dropdown-menu {
+    max-height: 300px;
+    margin-bottom: 1rem;
+  }
+
+  .mobile-dropdown-menu li {
+    margin: 0;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-dropdown.active .mobile-dropdown-menu li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .mobile-dropdown.active .mobile-dropdown-menu li:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  .mobile-dropdown.active .mobile-dropdown-menu li:nth-child(2) {
+    transition-delay: 0.15s;
+  }
+  .mobile-dropdown.active .mobile-dropdown-menu li:nth-child(3) {
+    transition-delay: 0.2s;
+  }
+  .mobile-dropdown.active .mobile-dropdown-menu li:nth-child(4) {
+    transition-delay: 0.25s;
+  }
+  .mobile-dropdown.active .mobile-dropdown-menu li:nth-child(5) {
+    transition-delay: 0.3s;
+  }
+  .mobile-dropdown.active .mobile-dropdown-menu li:nth-child(6) {
+    transition-delay: 0.35s;
+  }
+
+  .mobile-dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #6b7280;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    margin: 0.25rem 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-dropdown-menu a:hover {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+    transform: translateX(4px);
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #1f2937;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.75rem 0;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.01em;
+    font-family: "Inter", "Poppins", "Roboto", sans-serif;
+  }
+
+  .nav-links a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #f59e0b, #dc2626);
+    border-radius: 2px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-links a:hover {
+    color: #f59e0b;
+    transform: translateY(-2px);
+  }
+  .nav-container a {
+    flex: 1;
+  }
+  .nav-links {
+    flex: 1.58;
+  }
+  .consults {
+    flex: 0.5;
+  }
+
+  .nav-links a:hover::before {
+    width: 100%;
+  }
+
+  .menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .menu-btn:hover {
+    background: rgba(245, 158, 11, 0.1);
+    transform: scale(1.1);
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    width: 24px;
+    height: 18px;
+    position: relative;
+  }
+
+  .hamburger span {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(135deg, #f59e0b, #dc2626);
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+  }
+
+  .hamburger span:nth-child(1) {
+    margin-bottom: 4px;
+  }
+
+  .hamburger span:nth-child(2) {
+    margin-bottom: 4px;
+  }
+
+  .menu-btn.active .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .menu-btn.active .hamburger span:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  .menu-btn.active .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-menu.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  .mobile-menu li {
+    margin-bottom: 1.5rem;
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-menu.active li {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .mobile-menu.active li:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  .mobile-menu.active li:nth-child(2) {
+    transition-delay: 0.15s;
+  }
+  .mobile-menu.active li:nth-child(3) {
+    transition-delay: 0.2s;
+  }
+  .mobile-menu.active li:nth-child(4) {
+    transition-delay: 0.25s;
+  }
+  .mobile-menu.active li:nth-child(5) {
+    transition-delay: 0.3s;
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    color: #1f2937;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 1rem 0;
+    display: block;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-menu a:hover {
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.05);
+    padding-left: 1rem;
+    transform: translateX(8px);
+  }
+
+  /* Demo content */
+  .demo-content {
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .demo-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .demo-content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .nav-container {
+      padding: 1rem 1.5rem;
+      height: 60px;
+    }
+    .consults {
+      position: absolute;
+      right: 10px;
+    }
+    .hedsi {
+      display: none;
+      /* background: red !important; */
+    }
+
+    .logo a {
+      /* display: none; */
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .menu-btn {
+      display: block;
+      /* background: yellow; */
+      position: absolute;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+    }
+
+    .demo-content h1 {
+      font-size: 2rem;
+    }
+
+    .demo-content p {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-container {
+      padding: 0.75rem 1rem;
+    }
+    .logo a {
+      /* display: none; */
+    }
+    .mobile-menu {
+      padding: 1.5rem;
+    }
+    .hedsi {
+      /* display: none; */
+    }
+  }
+</style>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <!-- Logo / Brand -->
+    <a href="/" class="logo hedsi">{brand}</a>
+
+    <!-- Desktop Menu -->
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li class="dropdown">
+        <a href="/about">About Us</a>
+        <ul class="dropdown-menu">
+          <li><a href="/about/story">Our Story</a></li>
+          <li><a href="/about/chef">Meet the Chef</a></li>
+          <li><a href="/about/philosophy">Our Philosophy</a></li>
+          <li><a href="/about/awards">Awards & Reviews</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="/menu">Menu</a>
+        <ul class="dropdown-menu">
+          <li><a href="/menu/appetizers">Appetizers</a></li>
+          <li><a href="/menu/mains">Main Courses</a></li>
+          <li><a href="/menu/desserts">Desserts</a></li>
+          <li><a href="/menu/beverages">Beverages</a></li>
+          <li><a href="/menu/wine">Wine List</a></li>
+          <li><a href="/menu/specials">Chef's Specials</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="/dining">Dining</a>
+        <ul class="dropdown-menu">
+          <li><a href="/dining/private">Private Dining</a></li>
+          <li><a href="/dining/events">Special Events</a></li>
+          <li><a href="/dining/catering">Catering</a></li>
+          <li><a href="/dining/takeout">Takeout & Delivery</a></li>
+        </ul>
+      </li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+
+    <!-- Mobile Menu Button -->
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+
+    <div class="consults">
+      <!-- <ConsultBRestaurant {...number} /> -->
+      <ConsultBRestaurant {...Astro.props} />
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <ul class="mobile-menu" id="mobileMenu">
+    <li><a href="/">Home</a></li>
+    <li class="mobile-dropdown">
+      <div class="mobile-dropdown-header">
+        <a href="/about">About Us</a>
+        <button class="mobile-dropdown-btn">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path
+              d="M3 4.5L6 7.5L9 4.5"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+      <ul class="mobile-dropdown-menu">
+        <li><a href="/about/story">Our Story</a></li>
+        <li><a href="/about/chef">Meet the Chef</a></li>
+        <li><a href="/about/philosophy">Our Philosophy</a></li>
+        <li><a href="/about/awards">Awards & Reviews</a></li>
+      </ul>
+    </li>
+    <li class="mobile-dropdown">
+      <div class="mobile-dropdown-header">
+        <a href="/menu">Menu</a>
+        <button class="mobile-dropdown-btn">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path
+              d="M3 4.5L6 7.5L9 4.5"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+      <ul class="mobile-dropdown-menu">
+        <li><a href="/menu/appetizers">Appetizers</a></li>
+        <li><a href="/menu/mains">Main Courses</a></li>
+        <li><a href="/menu/desserts">Desserts</a></li>
+        <li><a href="/menu/beverages">Beverages</a></li>
+        <li><a href="/menu/wine">Wine List</a></li>
+        <li><a href="/menu/specials">Chef's Specials</a></li>
+      </ul>
+    </li>
+    <li class="mobile-dropdown">
+      <div class="mobile-dropdown-header">
+        <a href="/dining">Dining</a>
+        <button class="mobile-dropdown-btn">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path
+              d="M3 4.5L6 7.5L9 4.5"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+      <ul class="mobile-dropdown-menu">
+        <li><a href="/dining/private">Private Dining</a></li>
+        <li><a href="/dining/events">Special Events</a></li>
+        <li><a href="/dining/catering">Catering</a></li>
+        <li><a href="/dining/takeout">Takeout & Delivery</a></li>
+      </ul>
+    </li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</nav>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener("click", () => {
+      menuBtn.classList.toggle("active");
+      mobileMenu.classList.toggle("active");
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (
+        e.target instanceof Node &&
+        !menuBtn.contains(e.target) &&
+        !mobileMenu.contains(e.target)
+      ) {
+        menuBtn.classList.remove("active");
+        mobileMenu.classList.remove("active");
+      }
+    });
+
+    // Close mobile menu when window is resized to desktop
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        menuBtn.classList.remove("active");
+        mobileMenu.classList.remove("active");
+      }
+    });
+  }
+
+  // Mobile dropdown functionality
+  document.querySelectorAll(".mobile-dropdown-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const dropdown = btn.closest(".mobile-dropdown");
+      const isActive = dropdown?.classList.contains("active");
+
+      // Close all other dropdowns
+      document.querySelectorAll(".mobile-dropdown").forEach((dd) => {
+        if (dd !== dropdown) {
+          dd.classList.remove("active");
+        }
+      });
+
+      // Toggle current dropdown
+      if (dropdown) {
+        dropdown.classList.toggle("active", !isActive);
+      }
+    });
+  });
+
+  // Close dropdowns when clicking on mobile menu links
+  document.querySelectorAll(".mobile-dropdown-menu a").forEach((link) => {
+    link.addEventListener("click", () => {
+      document.querySelectorAll(".mobile-dropdown").forEach((dd) => {
+        dd.classList.remove("active");
+      });
+    });
+  });
+</script>
