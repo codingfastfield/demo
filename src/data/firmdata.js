@@ -154,8 +154,8 @@ export const firms = [
 
   {
     id: 16,
-    firm: "Urban Eatery",
-    brand: "Urban",
+    firm: "UrbanEatery",
+    brand: "Urban Eatery",
     number:"+254790999149",
     email:"contact@urbaneatery.co.ke",
      address:"PwC Tower, Ground Floor Delta Corner Estate, Chiromo Road, Nairobi",
@@ -164,7 +164,7 @@ export const firms = [
 
     {
     id: 17,
-    firm: "CRAVE KENYA- KILIMANI",
+    firm: "CraveKenyaKilimani",
     brand: "Crave Kenya",
     number:"+254756600600",
     email:"contact@cravekenya.co.ke",
@@ -174,7 +174,7 @@ export const firms = [
 
   {
     id: 18,
-    firm: "Harvest Restaurant",
+    firm: "HarvestRestaurant",
     brand: "Harvest",
     number:"+254732186215",
     email:"contact@harvestrestaurant.co.ke",
@@ -184,7 +184,7 @@ export const firms = [
 
     {
     id: 19,
-    firm: "Golden Stool Kitchen and Bar",
+    firm: "GoldenStoolKitchenBar",
     brand: "Golden Stool",
     number:"+254714118112",
     email:"contact@goldenstool.co.ke",
@@ -194,8 +194,8 @@ export const firms = [
 
    {
     id: 20,
-    firm: "Oliveira Restaurant",
-    brand: "Oliveira",
+    firm: "OliveiraRestaurant",
+    brand: "Oliveira Restaurant",
     number:"+254731850427",
     email:"contact@oliveira.co.ke",
     address:"Biashara Street Nairobi",
@@ -204,8 +204,8 @@ export const firms = [
 
   {
     id: 21,
-    firm: "Cultiva Farm Kenya",
-    brand: "Cultiva",
+    firm: "CultivaFarmKenya",
+    brand: "Cultiva Farm Kenya",
     number:"+254701579902",
     email:"contact@cultiva.co.ke",
     address:"Pofu Road Nairobi",
@@ -214,8 +214,8 @@ export const firms = [
 
   {
     id: 22,
-    firm: "Kilimanjaro Jamia ",
-    brand: "Kilimanjaro",
+    firm: "KilimanjaroJamia ",
+    brand: "Kilimanjaro Jamia",
     number:"+254796766808",
     email:"contact@kilimanjarojamia.co.ke",
     address:"Kimathi Street Nairobi",
@@ -224,8 +224,8 @@ export const firms = [
 
   {
     id: 23,
-    firm: "Sikia Restaurant ",
-    brand: "Sikia",
+    firm: "SikiaRestaurant ",
+    brand: "Sikia Restaurant",
     number:"+254202746000",
     email:"contact@kilimanjarojamia.co.ke",
     address:"Crowne Plaza Kanya Road Nairobi",
@@ -234,7 +234,7 @@ export const firms = [
 
   {
     id: 24,
-    firm: "La Terrazza Italin Restaurant",
+    firm: "LaTerrazzaItalinRestaurant",
     brand: "La Terrazza",
     number:"+254748101503",
     email:"contact@laterrazza.co.ke",
@@ -244,8 +244,8 @@ export const firms = [
 
   {
     id: 25,
-    firm: "Trattoria Restaurant",
-    brand: "Trattoria",
+    firm: "TrattoriaRestaurant",
+    brand: "Trattoria Restaurant",
     number:"+254799739639",
     email:"contact@trattoria.co.ke",
     address:"Town House, Kaunda Street",
@@ -254,7 +254,7 @@ export const firms = [
 
   {
     id: 26,
-    firm: "Mama Oliech Restaurant",
+    firm: "MamaOliechRestaurant",
     brand: "Mama Oliech",
     number:"+254701707070",
     email:"contact@mamaoliech.co.ke",
@@ -264,7 +264,7 @@ export const firms = [
 
   {
     id: 27,
-    firm: "Top Rise Restaurant",
+    firm: "TopRiseRestaurant",
     brand: "Top Rise",
     number:"+254715551234",
     email:"toprise22@gmail.com",
