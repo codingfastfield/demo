@@ -214,7 +214,7 @@ export const firms = [
 
   {
     id: 22,
-    firm: "KilimanjaroJamia ",
+    firm: "KilimanjaroJamia",
     brand: "Kilimanjaro Jamia",
     number:"+254796766808",
     email:"contact@kilimanjarojamia.co.ke",
@@ -224,7 +224,7 @@ export const firms = [
 
   {
     id: 23,
-    firm: "SikiaRestaurant ",
+    firm: "SikiaRestaurant",
     brand: "Sikia Restaurant",
     number:"+254202746000",
     email:"contact@kilimanjarojamia.co.ke",
