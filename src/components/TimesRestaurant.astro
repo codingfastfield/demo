@@ -4,66 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurant Experience Timeline</title>
-    <style>
-      /* Test parent with overflow-x hidden to simulate your issue */
-      .test-parent {
-        overflow-x: hidden;
-        width: 100%;
-        min-height: 100vh;
-      }
-    </style>
   </head>
   <body>
-    <!-- Simulating your parent layout with overflow-x hidden -->
-    <div class="test-parent">
-      <div class="cont">
-        <div class="timeline-container">
-          <div class="timeline-line" id="timelineLine"></div>
+    <div class="cont">
+      <div class="timeline-container">
+        <div class="timeline-line" id="timelineLine"></div>
 
-          <div class="timeline-item left hidden" data-index="0">
-            <div class="timeline-content">
-              <h3>Fine Dining</h3>
-              <p class="timeline-period">Exquisite Culinary Journey</p>
-              <p class="timeline-description">
-                Experience our chef's signature tasting menu featuring locally
-                sourced ingredients, innovative techniques, and artful
-                presentation in an intimate atmosphere perfect for special
-                occasions and memorable evenings.
-              </p>
-            </div>
+        <div class="timeline-item left hidden" data-index="0">
+          <div class="timeline-content">
+            <h3>Fine Dining</h3>
+            <p class="timeline-period">Exquisite Culinary Journey</p>
+            <p class="timeline-description">
+              Experience our chef's signature tasting menu featuring locally
+              sourced ingredients, innovative techniques, and artful
+              presentation in an intimate atmosphere perfect for special
+              occasions and memorable evenings.
+            </p>
           </div>
-
-          <div class="timeline-item right hidden" data-index="1">
-            <div class="timeline-content">
-              <h3>Casual Dining</h3>
-              <p class="timeline-period">Comfort & Flavor</p>
-              <p class="timeline-description">
-                Enjoy our thoughtfully crafted comfort classics and seasonal
-                favorites in a relaxed setting. Perfect for family gatherings,
-                casual dates, and everyday dining with exceptional quality and
-                warm hospitality.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item left hidden" data-index="2">
-            <div class="timeline-content">
-              <h3>Bar & Lounge</h3>
-              <p class="timeline-period">Craft Cocktails & Small Plates</p>
-              <p class="timeline-description">
-                Unwind with our expertly crafted cocktails, curated wine
-                selection, and shareable small plates. The perfect spot for
-                after-work drinks, social gatherings, and late-night
-                conversations.
-              </p>
-            </div>
-          </div>
-
-          <!-- Timeline nodes -->
-          <div class="timeline-node" data-node="0"></div>
-          <div class="timeline-node" data-node="1"></div>
-          <div class="timeline-node" data-node="2"></div>
         </div>
+
+        <div class="timeline-item right hidden" data-index="1">
+          <div class="timeline-content">
+            <h3>Casual Dining</h3>
+            <p class="timeline-period">Comfort & Flavor</p>
+            <p class="timeline-description">
+              Enjoy our thoughtfully crafted comfort classics and seasonal
+              favorites in a relaxed setting. Perfect for family gatherings,
+              casual dates, and everyday dining with exceptional quality and
+              warm hospitality.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item left hidden" data-index="2">
+          <div class="timeline-content">
+            <h3>Bar & Lounge</h3>
+            <p class="timeline-period">Craft Cocktails & Small Plates</p>
+            <p class="timeline-description">
+              Unwind with our expertly crafted cocktails, curated wine
+              selection, and shareable small plates. The perfect spot for
+              after-work drinks, social gatherings, and late-night
+              conversations.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline nodes positioned absolutely relative to container -->
+        <div class="timeline-node" data-node="0"></div>
+        <div class="timeline-node" data-node="1"></div>
+        <div class="timeline-node" data-node="2"></div>
       </div>
     </div>
 
@@ -84,16 +73,10 @@
         font-family: "Georgia", serif;
         color: #f8f8f8;
         min-height: 100vh;
-        /* Ensure body doesn't create issues */
-        position: relative;
-        overflow-x: visible;
       }
 
       .cont {
         width: 100%;
-        /* Force container to be visible and establish context */
-        position: relative;
-        z-index: 1;
         background: linear-gradient(
           135deg,
           rgba(45, 24, 16, 0.3) 0%,
@@ -105,23 +88,18 @@
       .timeline-container {
         position: relative;
         margin: 6rem auto;
-        padding: 4rem 2rem; /* Add horizontal padding */
-        width: 100%;
+        padding: 4rem 0;
+        width: 90%;
         max-width: 1000px;
         min-height: 800px;
-        /* Force new stacking context and containment */
-        contain: layout style;
-        z-index: 1;
       }
 
-      /* Simplified timeline line - no transforms at all */
+      /* Elegant restaurant gradient line with warm accents */
       .timeline-line {
         position: absolute;
         top: 0;
-        /* Use margin auto for centering */
-        left: 0;
-        right: 0;
-        margin: 0 auto;
+        left: 50%;
+        transform: translateX(-50%);
         width: 3px;
         height: 0;
         background: linear-gradient(
@@ -138,34 +116,28 @@
         box-shadow: 0 0 20px rgba(232, 163, 23, 0.5);
       }
 
-      /* Simplified timeline items - avoid complex positioning */
+      /* Timeline items */
       .timeline-item {
         position: relative;
-        width: 100%;
-        max-width: 450px;
+        width: calc(50% - 40px);
         margin-bottom: 4rem;
         opacity: 0;
-        /* Use simple top margin for animation */
-        padding-top: 50px;
+        transform: translateY(50px);
         transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       .timeline-item.visible {
         opacity: 1;
-        padding-top: 0;
+        transform: translateY(0);
       }
 
       .timeline-item.left {
-        /* Position to left side */
-        margin-right: auto;
-        margin-left: 0;
+        left: 0;
         text-align: right;
       }
 
       .timeline-item.right {
-        /* Position to right side */
-        margin-left: auto;
-        margin-right: 0;
+        left: calc(50% + 40px);
         text-align: left;
       }
 
@@ -188,8 +160,6 @@
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
-        /* Ensure content stays within bounds */
-        contain: layout style;
       }
 
       .timeline-content::before {
@@ -280,39 +250,36 @@
         font-style: italic;
       }
 
-      /* Simplified timeline nodes */
+      /* Timeline nodes - positioned absolutely and break the line */
       .timeline-node {
         position: absolute;
-        /* Center using margin auto */
-        left: 0;
-        right: 0;
-        margin: 0 auto;
+        left: 50%;
         width: 32px;
         height: 32px;
         background: radial-gradient(circle, #1a1a1a 30%, #2d1810 70%);
         border: 4px solid #e8a317;
         border-radius: 50%;
-        opacity: 0;
+        transform: translateX(-50%) scale(0);
         z-index: 3;
+        opacity: 0;
         transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow:
           0 0 0 0px rgba(232, 163, 23, 0),
           0 0 0px rgba(232, 163, 23, 0);
-        /* Start small, grow to normal size */
-        transform: scale(0);
       }
 
       .timeline-node.revealed {
         opacity: 1;
-        transform: scale(1);
+        transform: translateX(-50%) scale(1);
         animation: nodeBreakIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
       }
 
       .timeline-node::after {
         content: "";
         position: absolute;
-        top: 7px;
-        left: 7px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 14px;
         height: 14px;
         background: radial-gradient(
@@ -328,21 +295,22 @@
         animation: restaurantPulse 3s ease-in-out infinite;
       }
 
+      /* Node break-in animation with restaurant theme */
       @keyframes nodeBreakIn {
         0% {
-          transform: scale(0);
+          transform: translateX(-50%) scale(0);
           box-shadow:
             0 0 0 0px rgba(232, 163, 23, 0),
             0 0 0px rgba(232, 163, 23, 0);
         }
         50% {
-          transform: scale(1.3);
+          transform: translateX(-50%) scale(1.3);
           box-shadow:
             0 0 0 15px rgba(232, 163, 23, 0.4),
             0 0 40px rgba(232, 163, 23, 0.7);
         }
         100% {
-          transform: scale(1);
+          transform: translateX(-50%) scale(1);
           box-shadow:
             0 0 0 8px rgba(232, 163, 23, 0.3),
             0 0 25px rgba(232, 163, 23, 0.5);
@@ -353,14 +321,14 @@
         0%,
         100% {
           opacity: 1;
-          transform: scale(1);
+          transform: translate(-50%, -50%) scale(1);
           box-shadow:
             0 0 15px rgba(232, 163, 23, 0.9),
             inset 0 1px 2px rgba(255, 215, 0, 0.5);
         }
         50% {
           opacity: 0.8;
-          transform: scale(1.15);
+          transform: translate(-50%, -50%) scale(1.15);
           box-shadow:
             0 0 25px rgba(232, 163, 23, 1),
             inset 0 1px 2px rgba(255, 215, 0, 0.7);
@@ -372,43 +340,43 @@
         top: 100px;
       }
       .timeline-node[data-node="1"] {
-        top: 300px;
+        top: 280px;
       }
       .timeline-node[data-node="2"] {
-        top: 500px;
+        top: 460px;
       }
 
       /* Mobile responsiveness */
       @media (max-width: 768px) {
         .timeline-container {
           margin: 4rem auto;
-          padding: 2rem 1rem;
+          padding: 2rem 0;
         }
 
         .timeline-item {
-          width: 100%;
+          width: calc(100% - 60px);
           text-align: left !important;
-          margin-left: 0 !important;
-          margin-right: 0 !important;
+          left: 60px !important;
           margin-bottom: 3rem;
         }
 
         .timeline-line {
           left: 30px;
-          right: auto;
-          margin: 0;
+          transform: none;
         }
 
         .timeline-node {
-          left: 14px;
-          right: auto;
-          margin: 0;
+          left: 30px;
+          transform: translateX(-50%) scale(0);
+        }
+
+        .timeline-node.revealed {
+          transform: translateX(-50%) scale(1);
         }
 
         .timeline-content {
           padding: 2rem;
           border-radius: 20px;
-          margin-left: 60px;
         }
 
         .timeline-content h3 {
@@ -419,14 +387,15 @@
           font-size: 1rem;
         }
 
+        /* Adjust node positions for mobile */
         .timeline-node[data-node="0"] {
           top: 80px;
         }
         .timeline-node[data-node="1"] {
-          top: 260px;
+          top: 240px;
         }
         .timeline-node[data-node="2"] {
-          top: 440px;
+          top: 400px;
         }
       }
     </style>
@@ -438,98 +407,88 @@
         const items = document.querySelectorAll(".timeline-item");
         const nodes = document.querySelectorAll(".timeline-node");
 
-        console.log("Timeline initialized", {
-          line,
-          container,
-          items: items.length,
-          nodes: nodes.length,
-        });
-
         // Early return with proper null checks
         if (!line || !container || !items.length || !nodes.length) {
           console.warn("Timeline elements not found");
           return;
         }
 
-        // Force initial visibility for debugging
-        const forceVisible = () => {
-          items.forEach((item, index) => {
-            if (item && item instanceof HTMLElement) {
-              item.style.opacity = "1";
-              item.style.paddingTop = "0";
-              item.classList.add("visible");
-              console.log(`Item ${index} made visible`);
-            }
-          });
+        // Initial state - ensure everything starts hidden
+        items.forEach((item) => {
+          if (item) item.classList.remove("visible");
+        });
+        nodes.forEach((node) => {
+          if (node) node.classList.remove("revealed");
+        });
 
-          nodes.forEach((node, index) => {
-            if (node && node instanceof HTMLElement) {
-              node.style.opacity = "1";
-              node.style.transform = "scale(1)";
-              node.classList.add("revealed");
-              console.log(`Node ${index} made visible`);
-            }
-          });
-
-          if (line instanceof HTMLElement) {
-            line.style.height = "600px";
-            console.log("Line height set");
-          }
-        };
-
-        // Force visibility immediately for testing
-        forceVisible();
-
-        // Also run normal scroll handler
+        // Initial trigger
         handleScroll();
+
         window.addEventListener("scroll", handleScroll);
 
         function handleScroll() {
-          if (!container || !line || !(line instanceof HTMLElement)) return;
+          // Additional null checks inside the function
+          if (!container || !line) return;
 
           const rect = container.getBoundingClientRect();
           const windowHeight = window.innerHeight;
 
+          // Calculate how much of the container is visible
           const containerTop = rect.top;
           const containerHeight = rect.height;
+          const scrollProgress = Math.max(
+            0,
+            Math.min(
+              1,
+              (windowHeight - containerTop) / (windowHeight + containerHeight)
+            )
+          );
 
+          // Animate line height with smooth easing
           let visibleHeight = Math.max(0, windowHeight - containerTop);
-          let maxLineHeight = containerHeight * 0.85;
+          let maxLineHeight = containerHeight * 0.85; // Don't let line go beyond last node
           let newHeight = Math.min(visibleHeight * 0.8, maxLineHeight);
 
           if (newHeight > 0) {
             line.style.height = newHeight + "px";
           }
 
-          const nodePositions = [100, 300, 500];
+          // Node positions relative to container (adjust these based on your content)
+          const nodePositions = [100, 280, 460]; // Position of each node from container top
 
+          // Check which nodes should be revealed/hidden based on line height and scroll position
           nodePositions.forEach((nodePos, index) => {
             const node = nodes[index];
             if (!node) return;
 
+            // Calculate if this node should be visible
             const shouldBeVisible =
               newHeight >= nodePos - 20 && containerTop < windowHeight;
             const currentlyVisible = node.classList.contains("revealed");
 
             if (shouldBeVisible && !currentlyVisible) {
+              // Reveal node when line reaches its position
               setTimeout(() => {
                 if (node && newHeight >= nodePos - 20) {
                   node.classList.add("revealed");
                 }
               }, index * 80);
             } else if (!shouldBeVisible && currentlyVisible) {
+              // Hide node when scrolling back up or container out of view
               node.classList.remove("revealed");
             }
           });
 
+          // Reveal items based on their position - with reset functionality
           items.forEach((item, index) => {
             if (!item) return;
 
             const itemRect = item.getBoundingClientRect();
             const triggerPoint = windowHeight - 120;
-            const resetPoint = windowHeight + 100;
+            const resetPoint = windowHeight + 100; // Point where item goes out of view
 
             if (itemRect.top < triggerPoint && itemRect.bottom > 0) {
+              // Item is in view - add visible class with delay if not already visible
               if (!item.classList.contains("visible")) {
                 setTimeout(() => {
                   if (item) {
@@ -538,6 +497,7 @@
                 }, index * 150);
               }
             } else if (itemRect.top > resetPoint || itemRect.bottom < -100) {
+              // Item is far out of view - remove visible class to reset animation
               item.classList.remove("visible");
             }
           });
