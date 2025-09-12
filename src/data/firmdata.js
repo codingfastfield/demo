@@ -374,6 +374,17 @@ export const firms = [
   },
 
 
+  {
+    id: 38,
+    firm: "Aromah",
+    brand: "Aromah The Restaurant",
+    number:"+254721323238",
+    email:"info@kosewe.com",
+    address:"Kimathi Street Nairobi",
+
+  },
+
+
 
 
 
