@@ -321,7 +321,15 @@ export const firms = [
     address:"Old Loresho Shopping Center,Loresho Ridge, Nairobi",
 
   },
+{
+    id: 33,
+    firm: "CaviarRestaurant",
+    brand: "Caviar Restaurant",
+    number:"+254722884455",
+    email:"info@caviarrestaurant.com",
+    address:"Mirage Towers, Tower 3, 2nd Floor",
 
+  },
 
 
 
