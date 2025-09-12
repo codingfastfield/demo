@@ -343,6 +343,17 @@ export const firms = [
   },
 
 
+  {
+    id: 35,
+    firm: "ArborPlace",
+    brand: "Arbor Place",
+    number:"+254729400291",
+    email:"info@arborplace.com",
+    address:"Aromatics Spa,101 Manyani E Rd, Nairobi",
+
+  },
+
+
 
 
 
