@@ -272,6 +272,15 @@ export const firms = [
 
   },
 
+  {
+    id: 28,
+    firm: "NanaSwahili",
+    brand: "Nana Swahili ",
+    number:"+254712105127",
+    email:"info@nanaswahili.com",
+    address:"Greenway Westlands Rd, Nairobi",
+
+  },
 
 
 
