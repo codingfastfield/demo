@@ -312,6 +312,17 @@ export const firms = [
   },
 
 
+   {
+    id: 32,
+    firm: "Wasp & Sprout",
+    brand: "Wasp & Sprout",
+    number:"+254799873422",
+    email:"info@waspandsprout.com",
+    address:"Old Loresho Shopping Center,Loresho Ridge, Nairobi",
+
+  },
+
+
 
 
 
