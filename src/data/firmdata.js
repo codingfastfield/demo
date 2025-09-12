@@ -275,10 +275,20 @@ export const firms = [
   {
     id: 28,
     firm: "NanaSwahili",
-    brand: "Nana Swahili ",
+    brand: "Nana Swahili",
     number:"+254712105127",
     email:"info@nanaswahili.com",
     address:"Greenway Westlands Rd, Nairobi",
+
+  },
+
+   {
+    id: 29,
+    firm: "AzuriRestaurant",
+    brand: "Azuri Restaurant",
+    number:"+254720914945",
+    email:"info@azurirestaurant.com",
+    address:"Imenti House, Nairobi",
 
   },
 
