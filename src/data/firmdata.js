@@ -291,7 +291,15 @@ export const firms = [
     address:"Imenti House, Nairobi",
 
   },
+{
+    id: 30,
+    firm: "TheBranch",
+    brand: "The Branch",
+    number:"+254700224958",
+    email:"info@thebranchrestaurant.com",
+    address:"Kenya Cinema, Moi Avenue, Nairobi, Kenya",
 
+  },
 
 
 
