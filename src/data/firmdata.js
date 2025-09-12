@@ -301,6 +301,15 @@ export const firms = [
 
   },
 
+  {
+    id: 31,
+    firm: "GreenView12",
+    brand: "GreenView12",
+    number:"+254202243257",
+    email:"info@thebranchrestaurant.com",
+    address:"Jechalal Chambers Tubman Rd, Nairobi",
+
+  },
 
 
 
