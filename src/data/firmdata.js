@@ -314,7 +314,7 @@ export const firms = [
 
    {
     id: 32,
-    firm: "Wasp & Sprout",
+    firm: "WaspSprout",
     brand: "Wasp & Sprout",
     number:"+254799873422",
     email:"info@waspandsprout.com",
