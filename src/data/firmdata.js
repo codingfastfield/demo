@@ -332,6 +332,17 @@ export const firms = [
   },
 
 
+  {
+    id: 34,
+    firm: "TheNode",
+    brand: "The Node",
+    number:"+254711089000",
+    email:"info@thenode.com",
+    address:"Woodvale Close, Waiyaki Way Rd, Westlands",
+
+  },
+
+
 
 
 
