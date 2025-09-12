@@ -353,6 +353,25 @@ export const firms = [
 
   },
 
+  {
+    id: 36,
+    firm: "ArborPlace",
+    brand: "Arbor Place",
+    number:"+254729400291",
+    email:"info@arborplace.com",
+    address:"Aromatics Spa,101 Manyani E Rd, Nairobi",
+
+  },
+
+  {
+    id: 37,
+    firm: "Koseweranalo",
+    brand: "K'Osewe Ranalo Foods",
+    number:"+254721323238",
+    email:"info@kosewe.com",
+    address:"Kimathi Street Nairobi",
+
+  },
 
 
 
