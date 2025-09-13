@@ -1,10 +1,10 @@
 ---
 export interface Props {
   title: string;
-  backgroundColor?: string;
+  background?: string;
 }
 
-const { title, backgroundColor } = Astro.props;
+const { title, background } = Astro.props;
 ---
 
 <!doctype html>
@@ -16,9 +16,7 @@ const { title, backgroundColor } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body
-    style={backgroundColor ? `background-color: ${backgroundColor}` : undefined}
-  >
+  <body style={background ? `background: ${background}` : undefined}>
     <slot />
   </body>
 </html>
