@@ -227,7 +227,7 @@ export const firms = [
     firm: "SikiaRestaurant",
     brand: "Sikia Restaurant",
     number:"+254202746000",
-    email:"contact@kilimanjarojamia.co.ke",
+    email:"contact@sikia.co.ke",
     address:"Crowne Plaza Kanya Road Nairobi",
 
   },
@@ -355,11 +355,11 @@ export const firms = [
 
   {
     id: 36,
-    firm: "ArborPlace",
-    brand: "Arbor Place",
-    number:"+254729400291",
-    email:"info@arborplace.com",
-    address:"Aromatics Spa,101 Manyani E Rd, Nairobi",
+    firm: "TheView",
+    brand: "The View",
+    number:"+254709548183",
+    email:"info@theview.com",
+    address:"Movenpick Nairobi Hotel & Residences",
 
   },
 
@@ -394,6 +394,18 @@ export const firms = [
     address:"Junction Mall Next to AFA, Nairobi City",
 
   },
+
+
+  {
+    id: 40,
+    firm: "7Degrees",
+    brand: "7 Degrees",
+    number:"+254704782214",
+    email:"info@7degrees.com",
+    address:"Junction Mall Next to AFA, Nairobi City",
+
+  },
+
 
 
 
