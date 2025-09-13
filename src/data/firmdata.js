@@ -385,6 +385,16 @@ export const firms = [
   },
 
 
+  {
+    id: 39,
+    firm: "7 Degrees",
+    brand: "7 Degrees",
+    number:"+254704782214",
+    email:"info@7degrees.com",
+    address:"Junction Mall Next to AFA, Nairobi City",
+
+  },
+
 
 
 
