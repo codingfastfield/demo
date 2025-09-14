@@ -418,6 +418,17 @@ export const firms = [
 
   },
 
+  
+
+  {
+    id: 42,
+    firm: "Region",
+    brand: "Region",
+    number:"+254717111962",
+    email:"info@region.com",
+    address:"Mpaka Road",
+
+  },
 
 
 
