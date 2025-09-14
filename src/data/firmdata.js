@@ -408,6 +408,15 @@ export const firms = [
 
 
 
+  {
+    id: 41,
+    firm: "ForYouChinese",
+    brand: "For You Chinese",
+    number:"+254735536090",
+    email:"info@foryouchinese.com",
+    address:"Gitanga Rd, Nairobi City",
+
+  },
 
 
 
