@@ -431,5 +431,34 @@ export const firms = [
   },
 
 
+{
+    id: 43,
+    firm: "AsianGardens",
+    brand: "Asian Gardens",
+    number:"+254712848770",
+    email:"info@asiangardens.com",
+    address:"Warwick Center Nairobi",
+
+  },
+
+  {
+    id: 44,
+    firm: "KayRestaurant",
+    brand: "Key Restaurant",
+    number:"+254777402017",
+    email:"info@keyrestaurant.com",
+    address:"PR8C+FV2, Nairobi"
+
+  },
+
+    {
+    id: 44,
+    firm: "SwahiliPlate",
+    brand: "Swahili Plate",
+    number:"+254772435765",
+    email:"info@swahiliplate.com",
+    address:"Marcos Hair and beauty Salon Nairobi CBD"
+
+  },
 
 ]
