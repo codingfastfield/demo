@@ -463,6 +463,19 @@ export const firms = [
   },
 
 
+  {
+    id: 44,
+    firm: "ShokudoJapanese",
+    brand: "SHOKUDO JAPANESE",
+    number:"+254722305701",
+    email:"info@shokudojapanese.com",
+    address:"Lenana Road Astrol Petrol Station, Nairobi"
+
+  },
+
+
+
+
 
 
 ]
