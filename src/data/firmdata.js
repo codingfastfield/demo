@@ -474,6 +474,17 @@ export const firms = [
   },
 
 
+  {
+    id: 46,
+    firm: "Highlands",
+    brand: "Highlands",
+    number:"+254722632548",
+    email:"info@highlands.com",
+    address:"Moi Avenue, Nairobi"
+
+  },
+
+
 
 
 
