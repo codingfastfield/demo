@@ -431,15 +431,6 @@ export const firms = [
   },
 
 
-{
-    id: 43,
-    firm: "AsianGardens",
-    brand: "Asian Gardens",
-    number:"+254712848770",
-    email:"info@asiangardens.com",
-    address:"Warwick Center Nairobi",
-
-  },
 
   {
     id: 44,
@@ -460,5 +451,18 @@ export const firms = [
     address:"Marcos Hair and beauty Salon Nairobi CBD"
 
   },
+
+  {
+    id: 44,
+    firm: "GardenSquareByAshaki",
+    brand: "Garden Square By Ashaki",
+    number:"+254722305701",
+    email:"info@gardensquare.com",
+    address:"Ashaki Grill CBD, City Hall Way"
+
+  },
+
+
+
 
 ]
