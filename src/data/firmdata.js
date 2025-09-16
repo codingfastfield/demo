@@ -556,6 +556,19 @@ export const firms = [
 
   },
 
+  {
+    id: 52,
+    firm: "TajSultan",
+    brand: "Taj Sultan",
+    number:"+254705777773",
+    email:"info@tajsultan.com",
+    address:"Nairobi"
+
+  },
+
+
+
+
 
 
 
