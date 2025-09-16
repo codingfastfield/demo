@@ -566,6 +566,29 @@ export const firms = [
 
   },
 
+  {
+    id: 52,
+    firm: "Lazarus",
+    brand: "Lazarus",
+    number:"+254705777773",
+    email:"info@tajsultan.com",
+    address:"Nairobi"
+
+  },
+
+{
+    id: 52,
+    firm: "FrelasRestaurant",
+    brand: "Frelas Restaurant",
+    number:"+25479520488090",
+    email:"info@frelas.com",
+    address:"Lonrho House, Nairobi"
+
+  },
+
+
+
+
 
 
 
