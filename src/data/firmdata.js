@@ -504,6 +504,17 @@ export const firms = [
 
   },
 
+  {
+    id: 49,
+    firm: "Millenium",
+    brand: "Millenim",
+    number:"+254707622010",
+    email:"inf@millenium.com",
+    address:"Moi Avenue Nairobi"
+
+  },
+
+
 
 
 
