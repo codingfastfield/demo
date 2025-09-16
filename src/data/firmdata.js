@@ -578,8 +578,8 @@ export const firms = [
 
 {
     id: 52,
-    firm: "FrelasRestaurant",
-    brand: "Frelas Restaurant",
+    firm: "Frelas",
+    brand: "Frelas",
     number:"+25479520488090",
     email:"info@frelas.com",
     address:"Lonrho House, Nairobi"
