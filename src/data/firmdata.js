@@ -536,6 +536,17 @@ export const firms = [
   },
 
 
+  {
+    id: 51,
+    firm: "MisonoJapanese",
+    brand: "Misono Japanese",
+    number:"+254722511229",
+    email:"info@misono.com",
+    address:"Kilimani Adams"
+
+  },
+
+
 
 
 
