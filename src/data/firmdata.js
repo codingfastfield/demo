@@ -546,6 +546,17 @@ export const firms = [
 
   },
 
+  {
+    id: 51,
+    firm: "LabonaPronto",
+    brand: "Labona Pronto",
+    number:"+254796822227",
+    email:"info@labanapronto.com",
+    address:"Capital Heights Matumbato CI"
+
+  },
+
+
 
 
 
