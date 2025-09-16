@@ -515,6 +515,28 @@ export const firms = [
   },
 
 
+  {
+    id: 50,
+    firm: "Travellers",
+    brand: "Travellers",
+    number:"+2547",
+    email:"inf@millenium.com",
+    address:"Moi Avenue Nairobi"
+
+  },
+
+  {
+    id: 50,
+    firm: "Fritaz",
+    brand: "Fritaz",
+    number:"+254745397164",
+    email:"info@mfritaz.com",
+    address:"Moi Avenue Nairobi"
+
+  },
+
+
+
 
 
 
