@@ -484,6 +484,15 @@ export const firms = [
 
   },
 
+  {
+    id: 47,
+    firm: "MukutanGardenCafe",
+    brand: "Mukutan Garden Cafe",
+    number:"+254202881000",
+    email:"info@makutangarden.com",
+    address:" Bishops Rd, In the Fairview Hotel Nairobi, Nairobi"
+
+  },
 
 
 
