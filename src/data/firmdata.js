@@ -494,6 +494,16 @@ export const firms = [
 
   },
 
+    {
+    id: 48,
+    firm: "AtriumGarden",
+    brand: "Atrium Garden",
+    number:"+254202887000",
+    email:"info@atriumgarden.com",
+    address:"Laico Regency Hotel Loita Street CBD"
+
+  },
+
 
 
 
