@@ -577,14 +577,15 @@ export const firms = [
   },
 
 {
-    id: 52,
-    firm: "Frelas",
-    brand: "Frelas",
-    number:"+25479520488090",
-    email:"info@frelas.com",
-    address:"Lonrho House, Nairobi"
-
+    id: 53,
+    firm: "CityGava",
+    brand: "City Gava",
+    number:"+254721800653",
+    email:"info@citygava.com",
+    address:"Koinange Street/Parliament Lane"
   },
+
+  
 
 
 
