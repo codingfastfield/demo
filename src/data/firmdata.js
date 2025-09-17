@@ -628,7 +628,7 @@ export const firms = [
   }
 
   {
-    firm:"MamaOliech",
+    firm:"Mamaoliech",
     brand:"Mama Oliech",
     email:"info@mamaoliech.com",
     number:"0701707070",
