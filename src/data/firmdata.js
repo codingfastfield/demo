@@ -609,6 +609,14 @@ export const firms = [
     address: "Rhapta Rd / Liza Apartments area, Nairobi"
   },
 
+  {
+    firm: "ChineseCorner",
+    brand:"Chinese Corner",
+    email:"info@chinesecorner.com",
+    number: "+254716601667",
+    address: "Ngong Road / Garden City Mall area"
+  },
+
 
 
 
