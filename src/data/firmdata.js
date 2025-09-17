@@ -1,3 +1,5 @@
+import { number } from "astro:schema";
+
 export const firms = [
   {
     id: 1,
@@ -617,6 +619,13 @@ export const firms = [
     address: "Ngong Road / Garden City Mall area"
   },
 
+  {
+    firm:"DoubleDragon",
+    brand:"Double Dragon",
+    email:"info@doubledragon.com",
+    number:"0722730143",
+    address:"The Junction Mall"
+  }
 
 
 
