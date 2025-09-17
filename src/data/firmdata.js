@@ -625,7 +625,7 @@ export const firms = [
     email:"info@doubledragon.com",
     number:"0722730143",
     address:"The Junction Mall"
-  }
+  },
 
   {
     firm:"MamaOliech",
