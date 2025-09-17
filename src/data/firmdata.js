@@ -585,7 +585,13 @@ export const firms = [
     address:"Koinange Street/Parliament Lane"
   },
 
-  
+  {
+    firm: "Beirut",
+     brand: "Beirut",
+    number: "+254722103969",
+    email:"info@bairut.com",
+    address: "Banda St (near Jamia Mosque), Nairobi CBD"
+  },
 
 
 
