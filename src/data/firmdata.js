@@ -593,6 +593,13 @@ export const firms = [
     address: "Banda St (near Jamia Mosque), Nairobi CBD"
   },
 
+  {
+    firm: "OzoneGrill",
+    brand:"Ozone Grill",
+    number: "+254757074877",
+    email:"info@ozonegrill.com",
+    address: "George Padmore Lane,off Kindaruma Road"
+  },
 
 
 
