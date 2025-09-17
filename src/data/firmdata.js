@@ -627,6 +627,13 @@ export const firms = [
     address:"The Junction Mall"
   }
 
+  {
+    firm:"MamaOliech",
+    brand:"Mama Oliech",
+    email:"info@mamaoliech.com",
+    number:"0701707070",
+    address:"Marcus Garley Rd, North"
+  }
 
 
 
