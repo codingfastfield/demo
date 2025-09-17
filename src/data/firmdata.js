@@ -601,6 +601,14 @@ export const firms = [
     address: "George Padmore Lane,off Kindaruma Road"
   },
 
+   {
+    firm: "EasternGarden",
+    brand:"Eastern Garden",
+    email:"info@easterngrill.com",
+    number: "+254203875224",
+    address: "Rhapta Rd / Liza Apartments area, Nairobi"
+  },
+
 
 
 
