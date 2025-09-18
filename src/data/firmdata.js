@@ -650,6 +650,15 @@ export const firms = [
     number:"+254724767666",
     address:"Queensway House, Mama Ngina"
   }
+  ,
+
+  {
+    firm:"PorkSpareRibs",
+    brand:"Pork Spare Ribs",
+    email:"info@wporkperribs.com",
+    number:"+254704361129",
+    address:"Ngong Road Opp Meterorological Center"
+  }
 
 
 
