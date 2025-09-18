@@ -658,7 +658,16 @@ export const firms = [
     email:"info@wporkperribs.com",
     number:"+254704361129",
     address:"Ngong Road Opp Meterorological Center"
+  },
+
+  {
+    firm:"NyamaMama",
+    brand:"Nyama Mama KE",
+    email:"info@nyamamama.com",
+    number:"+254704567567",
+    address:"Westlands, Chiromo Rd, Nairobi"
   }
+
 
 
 
