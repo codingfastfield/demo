@@ -639,8 +639,16 @@ export const firms = [
     firm:"SilverSpoon",
     brand:"Silver Spoon",
     email:"info@silverspoon.com",
-    number:"254773247599",
+    number:"+254773247599",
     address:"Ground Floor, Digo Rd"
+  },
+
+  {
+    firm:"WapekDelicacies",
+    brand:"Wapek Delicacies",
+    email:"info@wapekdelicaces.com",
+    number:"+254724767666",
+    address:"Queensway House, Mama Ngina"
   }
 
 
