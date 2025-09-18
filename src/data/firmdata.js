@@ -633,6 +633,14 @@ export const firms = [
     email:"info@mamaoliech.com",
     number:"0701707070",
     address:"Marcus Garley Rd, North"
+  },
+
+    {
+    firm:"SilverSpoon",
+    brand:"Silver Spoon",
+    email:"info@silverspoon.com",
+    number:"254773247599",
+    address:"Ground Floor, Digo Rd"
   }
 
 
