@@ -666,6 +666,14 @@ export const firms = [
     email:"info@nyamamama.com",
     number:"+254704567567",
     address:"Westlands, Chiromo Rd, Nairobi"
+  },
+
+  {
+    firm:"JavaHouseUniafric",
+    brand:"Java House Uniafric",
+    email:"info@javahouseuniafric.com",
+    number:"+254722233112",
+    address:"Uniafric House1| CBD, Nairobi"
   }
 
 
