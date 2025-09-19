@@ -708,6 +708,14 @@ export const firms = [
     address:"Eastleigh Nairobi"
   },
 
+  {
+    firm:"JhxChinese",
+    brand:"Jhx Chinese",
+    email:"info@jhxchinese.com",
+    number:"+254713259999",
+    address:"Argwings Kodhek Rd"
+  },
+
 
 
 
