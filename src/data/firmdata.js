@@ -674,6 +674,14 @@ export const firms = [
     email:"info@javahouseuniafric.com",
     number:"+254722233112",
     address:"Uniafric House1| CBD, Nairobi"
+  },
+
+  {
+    firm:"Medallion",
+    brand:"Medallion Steakhouse",
+    email:"info@medallion.com",
+    number:"+254724594204",
+    address:"Development House,Moi Avenue, Nairobi"
   }
 
 
