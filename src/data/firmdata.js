@@ -695,10 +695,22 @@ export const firms = [
   
     firm:"SonfordFish&Chips",
     brand:"Sonford Fish & Chips",
-    email:"info@stanford.com",
+    email:"info@sonford.com",
     number:"+254202213128",
     address:"New East Gate, Moi Avenue, Starehe"
-  }
+  },
+
+  {
+    firm:"TajSultan",
+    brand:"Taj Sultan",
+    email:"info@tajsultan.com",
+    number:"+254705777773",
+    address:"Eastleigh Nairobi"
+  },
+
+
+
+
 
 
 
