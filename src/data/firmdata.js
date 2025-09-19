@@ -682,7 +682,17 @@ export const firms = [
     email:"info@medallion.com",
     number:"+254724594204",
     address:"Development House,Moi Avenue, Nairobi"
+  },
+    {
+    firm:"Le-Vans",
+    brand:"Le-Vans",
+    email:"info@levans.com",
+    number:"+254706689952",
+    address:"Uhuru Highway, Nairobi"
   }
+
+ 
+
 
 
 
