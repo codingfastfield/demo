@@ -689,7 +689,20 @@ export const firms = [
     email:"info@levans.com",
     number:"+254706689952",
     address:"Uhuru Highway, Nairobi"
+  },
+
+  {
+  
+    firm:"SonfordFish&Chips",
+    brand:"Sonford Fish & Chips",
+    email:"info@stanford.com",
+    number:"+254202213128",
+    address:"New East Gate, Moi Avenue, Starehe"
   }
+
+
+
+
 
  
 
