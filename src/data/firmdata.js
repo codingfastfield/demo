@@ -732,6 +732,13 @@ export const firms = [
     address:"West Mall, Muhoho Ave"
   },
 
+  {
+    firm:"SunSweetCenter",
+    brand:"Sun Sweet Center",
+    email:"info@sunsweetcenter.com",
+    number:"+254202224177",
+    address:"Ngariama Rd, Nairobi"
+  },
 
 
 
