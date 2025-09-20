@@ -724,6 +724,14 @@ export const firms = [
     address:"Ngong Rd, Nairobi"
   },
 
+  {
+    firm:"Ricocaribbean",
+    brand:"Ricocaribbean",
+    email:"info@ricocaribbean.com",
+    number:"+254720815368",
+    address:"West Mall, Muhoho Ave"
+  },
+
 
 
 
