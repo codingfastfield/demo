@@ -716,6 +716,14 @@ export const firms = [
     address:"Argwings Kodhek Rd"
   },
 
+  {
+    firm:"Talisman",
+    brand:"Talisman",
+    email:"info@talisman.com",
+    number:"+254705999997",
+    address:"Ngong Rd, Nairobi"
+  },
+
 
 
 
