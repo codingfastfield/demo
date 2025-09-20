@@ -763,6 +763,15 @@ export const firms = [
     number:"+254703028000",
     address:"Sankara Hotel Parking Lot, Parklands"
   },
+
+
+  {
+    firm:"GoldArk",
+    brand:"Gold Ark",
+    email:"info@tsavoroad.com",
+    number:"+254746580167",
+    address:"Tsavo Road, Nairobi"
+  },
     
 
 
