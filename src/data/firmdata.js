@@ -740,6 +740,14 @@ export const firms = [
     address:"Ngariama Rd, Nairobi"
   },
 
+  {
+    firm:"SeaPrincess",
+    brand:"Sea Princess",
+    email:"info@seaprincess.com",
+    number:"+254733746888",
+    address:" Nairobi"
+  },
+
 
 
 
