@@ -774,7 +774,7 @@ export const firms = [
   },
 
   {
-    firm:"Chel’C",
+    firm:"ChelC",
     brand:"Chel’C",
     email:"info@Chelc.com",
     number:"+254716667440",
