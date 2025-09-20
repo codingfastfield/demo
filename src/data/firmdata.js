@@ -772,7 +772,16 @@ export const firms = [
     number:"+254746580167",
     address:"Tsavo Road, Nairobi"
   },
+
+  {
+    firm:"Chel’C",
+    brand:"Chel’C",
+    email:"info@Chelc.com",
+    number:"+254716667440",
+    address:"Green Park Bus Terminus, Nairobi"
+  },
     
+ 
 
 
 
