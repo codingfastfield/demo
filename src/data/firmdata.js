@@ -748,6 +748,16 @@ export const firms = [
     address:" Nairobi"
   },
 
+    {
+    firm:"Shaam-E-Bahaar",
+    brand:"Shaam-E-Bahaar",
+    email:"info@shaam-E-Bahaar.com",
+    number:"+254721460474",
+    address:"Fidelity House, Kaunda Ave"
+  },
+
+  
+
 
 
 
