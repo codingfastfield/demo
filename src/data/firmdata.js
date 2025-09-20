@@ -756,7 +756,15 @@ export const firms = [
     address:"Fidelity House, Kaunda Ave"
   },
 
-  
+  {
+    firm:"Artisan",
+    brand:"Artisan",
+    email:"info@artisan.com",
+    number:"+254703028000",
+    address:"Sankara Hotel Parking Lot, Parklands"
+  },
+    
+
 
 
 
