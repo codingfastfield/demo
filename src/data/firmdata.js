@@ -789,6 +789,14 @@ export const firms = [
     address:"Rehema House Kaunda Street, Nairobi"
   },
 
+  {
+    firm:"SwiftUrban",
+    brand:"Swift Urban",
+    email:"info@swifturban.com",
+    number:"+254713870746",
+    address:"Railways, Nairobi"
+  },
+
 
 
     
