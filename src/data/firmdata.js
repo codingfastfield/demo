@@ -780,6 +780,17 @@ export const firms = [
     number:"+254716667440",
     address:"Green Park Bus Terminus, Nairobi"
   },
+
+  {
+    firm:"Tanager",
+    brand:"Tanager",
+    email:"info@tanager.com",
+    number:"+254703224771",
+    address:"Rehema House Kaunda Street, Nairobi"
+  },
+
+
+
     
  
 
