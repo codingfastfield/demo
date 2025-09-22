@@ -894,6 +894,14 @@ export const firms = [
     address:"PR4C+W48, Nairobi"
   },
 
+{
+    firm:"Pixo",
+    brand:"Pixo",
+    email:"info@pixo.com",
+    number:"+254704095860",
+    address:"Ukulima Co-Operative House, Nairobi"
+  },
+
 
 
 
