@@ -844,6 +844,14 @@ export const firms = [
     number:"+254723481113",
     address:"Nairobi Central County Rd County"
   },
+
+  {
+    firm:"kailashParbat",
+    brand:"kailash Parbat",
+    email:"info@kailashparbat.com",
+    number:"+254110008335",
+    address:"The Oval, Ring Road, Nairobi"
+  },
  
 
 
