@@ -869,6 +869,14 @@ export const firms = [
     address:"PR5C+5QG, Nairobi"
   },
 
+    {
+    firm:"Taamam",
+    brand:"Taamam",
+    email:"info@taamam.com",
+    number:"+254701003579",
+    address:"Kenya Builders, Nairobi"
+  },
+
 
 
 
