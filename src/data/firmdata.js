@@ -823,7 +823,7 @@ export const firms = [
   },
 
   {
-    firm:"24/7Fryz&Chicken",
+    firm:"Fryz&Chicken",
     brand:"24/7 Fryz & Chicken",
     email:"info@fryzandchicken.com",
     number:"+254711498048",
