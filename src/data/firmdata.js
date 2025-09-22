@@ -814,6 +814,14 @@ export const firms = [
     address:"Riverside Drive, Nairobi Kenya"
   },
 
+  {
+    firm:"2Palms",
+    brand:"2Palms",
+    email:"info@2palms.com",
+    number:"+254769300439",
+    address:"PR5C+8F,Nairobi"
+  },
+
     
  
 
