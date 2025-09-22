@@ -879,9 +879,9 @@ export const firms = [
 
 
   {
-    firm:"StaversDen",
-    brand:"Stavers Den",
-    email:"info@staversden.com",
+    firm:"StarversDen",
+    brand:"Starvers Den",
+    email:"info@starversden.com",
     number:"+254728794742",
     address:"Starvers Den, Nairobi"
   },
