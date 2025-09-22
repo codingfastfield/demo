@@ -902,6 +902,14 @@ export const firms = [
     address:"Ukulima Co-Operative House, Nairobi"
   },
 
+  {
+    firm:"VillaParkSprings",
+    brand:"Villa Park Springs",
+    email:"info@villapark.com",
+    number:"+254723884244",
+    address:"Nairobi Western Bypass"
+  },
+
 
 
 
