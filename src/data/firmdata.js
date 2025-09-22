@@ -822,6 +822,13 @@ export const firms = [
     address:"PR5C+8F,Nairobi"
   },
 
+  {
+    firm:"24/7Fryz&Chicken",
+    brand:"24/7 Fryz & Chicken",
+    email:"info@fryzandchicken.com",
+    number:"+254711498048",
+    address:"Muhoho Ave, Nairobi"
+  },
     
  
 
