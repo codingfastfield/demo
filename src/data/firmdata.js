@@ -853,6 +853,13 @@ export const firms = [
     address:"The Oval, Ring Road, Nairobi"
   },
  
+  {
+    firm:"MpambeDishes",
+    brand:"Mpambe Dishes",
+    email:"info@mpambedishes.com",
+    number:"+254720827436",
+    address:"Haile Selassie Avenue, Nairobi"
+  },
 
 
 
