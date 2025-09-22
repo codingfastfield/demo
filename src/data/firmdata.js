@@ -797,6 +797,14 @@ export const firms = [
     address:"Railways, Nairobi"
   },
 
+  {
+    firm:"EdensPot",
+    brand:"Edens Pot",
+    email:"info@edenspot.com",
+    number:"+254725722225",
+    address:"Nelson Awori Center, Nairobi"
+  },
+
 
 
     
