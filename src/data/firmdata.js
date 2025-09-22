@@ -837,6 +837,13 @@ export const firms = [
     address:"Green Park Terminus, Nairobi"
   },
     
+  {
+    firm:"Pados",
+    brand:"Pados",
+    email:"info@pados.com",
+    number:"+254723481113",
+    address:"Nairobi Central County Rd County"
+  },
  
 
 
