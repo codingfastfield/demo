@@ -886,6 +886,16 @@ export const firms = [
     address:"Starvers Den, Nairobi"
   },
 
+  {
+    firm:"Fanaka",
+    brand:"Fanaka",
+    email:"info@fanaka.com",
+    number:"+254722419068",
+    address:"PR4C+W48, Nairobi"
+  },
+
+
+
 
 
 
