@@ -806,6 +806,13 @@ export const firms = [
   },
 
 
+{
+    firm:"Pots&Palms",
+    brand:"Pots & Palms",
+    email:"info@potsandpalms.com",
+    number:"+254722600606",
+    address:"Riverside Drive, Nairobi Kenya"
+  },
 
     
  
