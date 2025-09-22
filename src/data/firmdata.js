@@ -861,6 +861,14 @@ export const firms = [
     address:"Haile Selassie Avenue, Nairobi"
   },
 
+  {
+    firm:"KomGrill",
+    brand:"Kom Grill",
+    email:"info@komgrill.com",
+    number:"+254746906552",
+    address:"PR5C+5QG, Nairobi"
+  },
+
 
 
 
