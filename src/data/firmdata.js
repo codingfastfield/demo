@@ -910,6 +910,13 @@ export const firms = [
     address:"Nairobi Western Bypass"
   },
 
+  {
+    firm:"NewFace",
+    brand:"NewFace",
+    email:"info@newface.com",
+    number:"+254727027942",
+    address:"Pipeline Kware Nairobi"
+  },
 
 
 
