@@ -829,6 +829,13 @@ export const firms = [
     number:"+254711498048",
     address:"Muhoho Ave, Nairobi"
   },
+  {
+    firm:"Kijani",
+    brand:"Kijani",
+    email:"info@kijani.com",
+    number:"+254792096521",
+    address:"Green Park Terminus, Nairobi"
+  },
     
  
 
