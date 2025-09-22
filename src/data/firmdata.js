@@ -878,6 +878,14 @@ export const firms = [
   },
 
 
+  {
+    firm:"StaversDen",
+    brand:"Stavers Den",
+    email:"info@staversden.com",
+    number:"+254728794742",
+    address:"Starvers Den, Nairobi"
+  },
+
 
 
 
