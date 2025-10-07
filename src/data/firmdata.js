@@ -920,7 +920,7 @@ export const firms = [
 
 
    {
-    firm:"Co-opKwaJirani",
+    firm:"CoopKwaJirani",
     brand:"Co-op Kwa Jirani Midland",
     email:"info@co-opkwajirani.com",
     number:"+254722632548",
