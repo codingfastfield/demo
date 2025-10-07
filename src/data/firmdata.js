@@ -1,5 +1,3 @@
-import { number } from "astro:schema";
-
 export const firms = [
   {
     id: 1,
@@ -1089,7 +1087,7 @@ export const firms = [
   },
 
 
-      ,
+      
         {
     firm:"SmokeYardGrill",
     brand:"Smoke Yard Grill",
@@ -1099,7 +1097,7 @@ export const firms = [
   },
 
 
-      ,
+      
         {
     firm:"SimbaSaloon",
     brand:"Simba Saloon",
@@ -1108,7 +1106,7 @@ export const firms = [
     address:"Carnivore Restaurant"
   },
 
-       ,
+       
         {
     firm:"Nerkwo",
     brand:"Nerkwo",
@@ -1117,7 +1115,7 @@ export const firms = [
     address:"Athi River"
   },
 
-        ,
+        
         {
     firm:"PorkPit",
     brand:"PorkPit",
@@ -1127,7 +1125,7 @@ export const firms = [
   },
 
 
-       ,
+       
         {
     firm:"mamarocksgourmetburgers",
     brand:"Mama Rocks Gourmet",
@@ -1136,7 +1134,7 @@ export const firms = [
     address:"Alchemist Parklands Road"
   },
 
-      ,
+      
         {
     firm:"tamasha",
     brand:"Tamasha",
@@ -1146,7 +1144,7 @@ export const firms = [
   },
 
 
-       ,
+       
         {
     firm:"Anghiti",
     brand:"Anghiti",
@@ -1155,7 +1153,7 @@ export const firms = [
     address:"Rhapta Road Nairobi"
   },
 
-       ,
+       
         {
     firm:"PwaniDishes",
     brand:"Pwani Dishes",
@@ -1164,7 +1162,7 @@ export const firms = [
     address:"Atimtiaz Ali Sunni"
   },
 
-         ,
+         
         {
     firm:"torontofoodcourt",
     brand:"Toronto Food Court",
@@ -1174,7 +1172,7 @@ export const firms = [
   },
 
 
-      ,
+      
         {
     firm:"torontofoodcourt",
     brand:"Toronto Food Court",
@@ -1183,7 +1181,7 @@ export const firms = [
     address:"Pioneer Koinange Street"
   },
 
-      ,
+      
         {
     firm:"polo",
     brand:"Polo",
@@ -1192,7 +1190,7 @@ export const firms = [
     address:"Tom Mboya Street"
   },
  
-       ,
+       
         {
     firm:"polorestaurant",
     brand:"Polo",
@@ -1201,7 +1199,7 @@ export const firms = [
     address:"Tom Mboya Street"
   },
 
-        ,
+        
         {
     firm:"zaman",
     brand:"Polo",
@@ -1211,7 +1209,7 @@ export const firms = [
   },
 
 
-       ,
+       
         {
     firm:"dhaba",
     brand:"dhaba",
@@ -1221,7 +1219,7 @@ export const firms = [
   },
 
 
-        ,
+        
         {
     firm:"redginger",
     brand:"Red Ginger",
@@ -1231,7 +1229,7 @@ export const firms = [
   },
 
 
-      ,
+      
         {
     firm:"redginger",
     brand:"Red Ginger",
@@ -1240,7 +1238,7 @@ export const firms = [
     address:"Nairobi"
   },
 
-      ,
+      
         {
     firm:"BiryaniDarbar",
     brand:"Biryani Darbar",
@@ -1249,7 +1247,7 @@ export const firms = [
     address:"Lotus Plaza, Chiromo Lane"
   },
 
-   ,
+   
         {
     firm:"SecretGarden",
     brand:"Secret Garden",
@@ -1258,7 +1256,7 @@ export const firms = [
     address:"Nairobi"
   },
 
-  ,
+  
         {
     firm:"SecretGarden",
     brand:"Secret Garden",
@@ -1267,7 +1265,7 @@ export const firms = [
     address:"14 Riverside, Nairobi"
   },
 
-  ,
+  
         {
     firm:"Sunsetandbeats",
     brand:"Sunset and Beats",
@@ -1276,13 +1274,22 @@ export const firms = [
     address:"Nairobi"
   },
 
-  ,
+  
         {
     firm:"SlushCoffeeWorld",
     brand:"Slush Coffee World",
     email:"info@slushcoffeeworld.com",
     number:"+254716042461",
     address:"Parklands Rd, Nairobi"
+  },
+
+  
+        {
+    firm:"MakutanoGrill",
+    brand:"Makutano Grill",
+    email:"info@makutanogrill.com",
+    number:"+254722808193",
+    address:"Lang'ata South Rd, Nairobi"
   },
 
 
