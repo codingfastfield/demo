@@ -919,6 +919,402 @@ export const firms = [
   },
 
 
+   {
+    firm:"Co-opKwaJirani",
+    brand:"Co-op Kwa Jirani Midland",
+    email:"info@co-opkwajirani.com",
+    number:"+254722632548",
+    address:"River Road, Nairobi"
+  },
+
+     {
+    firm:"HashmiBarbecue",
+    brand:"Hashmi Barbecue",
+    email:"info@hashmibarbecue.com",
+    number:"+254704587817",
+    address:"Broadwalk Mall,3rd Floor Ojijo"
+  },
+
+
+   {
+    firm:"RibRacksBBQKaren",
+    brand:"Rib Racks BBQ Karen",
+    email:"info@ribsrackbbq.com",
+    number:"+254701634775",
+    address:"Nairobi"
+  },
+
+     {
+    firm:"RibRacksBBQKaren",
+    brand:"Rib Racks BBQ Karen",
+    email:"info@ribsrackbbq.com",
+    number:"+254701634775",
+    address:"Nairobi"
+  },
+  
+       {
+    firm:"RibRacksBBQKamakis",
+    brand:"Rib Racks BBQ Kamakis",
+    email:"info@ribsrackbbq.com",
+    number:"+254710536693",
+    address:"Nairobi"
+  },
+
+         {
+    firm:"RibRacksBBQKiambu",
+    brand:"Rib Racks BBQ Kiambu",
+    email:"info@ribsrackbbq.com",
+    number:"+254112199429",
+    address:"Nairobi"
+  },
+
+   {
+    firm:"HornbillClub",
+    brand:"Hornbill Club",
+    email:"info@hornbillclub.com",
+    number:"+254705011002",
+    address:"Musoleum House, Mumias Rd, Nairobi"
+  },
+
+  {
+    firm:"HbPubUmoja",
+    brand:"Hb Pub Umoja",
+    email:"info@hbpubumoja.com",
+    number:"+254727078637",
+    address:"Moi Avenue, Nairobi"
+  },
+
+   {
+    firm:"Hornbillsportsbar",
+    brand:"Hornbill Sports Bar",
+    email:"info@hornbillsports.com",
+    number:"+254742578545",
+    address:"Buruburu Nairobi, Kenya"
+  },
+
+
+  
+   {
+    firm:"JiwekeTavern",
+    brand:"Jiweke Tavern",
+    email:"info@jiweketavern.com",
+    number:"+254728333985",
+    address:"Moi Drive, Innercore, Nairobi, Kenya"
+  },
+
+     {
+    firm:"JiwekeTavern",
+    brand:"Jiweke Tavern",
+    email:"info@jiweketavern.com",
+    number:"+254728333985",
+    address:"Moi Drive, Innercore, Nairobi, Kenya"
+  },
+
+
+      {
+    firm:"Harryspub",
+    brand:"Harry's Pub",
+    email:"info@harryspub.com",
+    number:"+254722813515",
+    address:"Ruira, Eastern Bypass"
+  },
+
+  
+      {
+    firm:"Harrys Tavern Pub",
+    brand:"Harry's Tavern Pub",
+    email:"info@harrystavern.com",
+    number:"+254722255986",
+    address:"Nairobi"
+  },
+
+
+      {
+    firm:"JojenButchery&MeatSuppliers",
+    brand:"Jojen Butchery & Meat Suppliers",
+    email:"info@harrystavern.com",
+    number:"+254723495854",
+    address:"Jojen House, Dagoretti Corner"
+  },
+
+
+      {
+    firm:"Butcher&Sauce",
+    brand:"Butcher & Sauce",
+    email:"info@butcherandsource.com",
+    number:"+254795999555",
+    address:"Ngong Road"
+  }
+  ,
+
+       {
+    firm:"ArtisanButcher&Deli",
+    brand:"Artisan Butcher & Deli",
+    email:"info@artisanandbutcher.com",
+    number:"+254114411146",
+    address:"Rotterdam Mall, Ngong Road"
+  }
+,
+  
+       {
+    firm:"HarvestRestaurant",
+    brand:"Harvest Restaurant",
+    email:"info@artisanandbutcher.com",
+    number:"+254730886000",
+    address:"Limuru Road, The Village Market"
+  }
+  ,
+        {
+    firm:"BabaNyamaChoma",
+    brand:"Baba Nyama Choma",
+    email:"info@babanyamachoma.com",
+    number:"+254722481592",
+    address:"Limuru Road, The Village Market"
+  }
+  ,
+        {
+    firm:"ChomaZoneRegen",
+    brand:"Choma Zone Regen",
+    email:"info@chomazoneregen.com",
+    number:"+254727676556",
+    address:"Waiyaki way, Nairobi"
+  }
+    ,
+        {
+    firm:"NyumbaniRestaurant",
+    brand:"Nyumbani Restaurant",
+    email:"info@nyumbanirestaurant.com",
+    number:"+254741119972",
+    address:"Diani Rd, Nairobi"
+  },
+
+
+      ,
+        {
+    firm:"SmokeYardGrill",
+    brand:"Smoke Yard Grill",
+    email:"info@smokeyardgrill.com",
+    number:"+254728148933",
+    address:"Syokimau"
+  },
+
+
+      ,
+        {
+    firm:"SimbaSaloon",
+    brand:"Simba Saloon",
+    email:"info@simbasaloon.com",
+    number:"+254733611608",
+    address:"Carnivore Restaurant"
+  },
+
+       ,
+        {
+    firm:"Nerkwo",
+    brand:"Nerkwo",
+    email:"info@nerkwo.com",
+    number:"+254721541206",
+    address:"Athi River"
+  },
+
+        ,
+        {
+    firm:"PorkPit",
+    brand:"PorkPit",
+    email:"info@porkpit.com",
+    number:"+254706110000",
+    address:"Limuru Road"
+  },
+
+
+       ,
+        {
+    firm:"mamarocksgourmetburgers",
+    brand:"Mama Rocks Gourmet",
+    email:"info@mamarocks.com",
+    number:"+254705801230",
+    address:"Alchemist Parklands Road"
+  },
+
+      ,
+        {
+    firm:"tamasha",
+    brand:"Tamasha",
+    email:"info@tamasha.com",
+    number:"+254717933685",
+    address:"Bogani Road Nairobi"
+  },
+
+
+       ,
+        {
+    firm:"Anghiti",
+    brand:"Anghiti",
+    email:"info@anghiti",
+    number:"+254734320330",
+    address:"Rhapta Road Nairobi"
+  },
+
+       ,
+        {
+    firm:"PwaniDishes",
+    brand:"Pwani Dishes",
+    email:"info@pwanidishes",
+    number:"+254722555483",
+    address:"Atimtiaz Ali Sunni"
+  },
+
+         ,
+        {
+    firm:"torontofoodcourt",
+    brand:"Toronto Food Court",
+    email:"info@pwanidishes",
+    number:"+254790639611",
+    address:"Pioneer Koinange Street"
+  },
+
+
+      ,
+        {
+    firm:"torontofoodcourt",
+    brand:"Toronto Food Court",
+    email:"info@pwanidishes",
+    number:"+254790639611",
+    address:"Pioneer Koinange Street"
+  },
+
+      ,
+        {
+    firm:"polo",
+    brand:"Polo",
+    email:"info@polo.com",
+    number:"+254707599266",
+    address:"Tom Mboya Street"
+  },
+ 
+       ,
+        {
+    firm:"polorestaurant",
+    brand:"Polo",
+    email:"info@polo.com",
+    number:"+254729224693",
+    address:"Tom Mboya Street"
+  },
+
+        ,
+        {
+    firm:"zaman",
+    brand:"Polo",
+    email:"info@polo.com",
+    number:"+254729224693",
+    address:"Tom Mboya Street"
+  },
+
+
+       ,
+        {
+    firm:"dhaba",
+    brand:"dhaba",
+    email:"info@dhaba.com",
+    number:"+254104000104",
+    address:"Rooftop, Sarit, Westlands"
+  },
+
+
+        ,
+        {
+    firm:"redginger",
+    brand:"Red Ginger",
+    email:"info@redginger.com",
+    number:"+254758344444",
+    address:"Nairobi"
+  },
+
+
+      ,
+        {
+    firm:"redginger",
+    brand:"Red Ginger",
+    email:"info@redginger.com",
+    number:"+254758344444",
+    address:"Nairobi"
+  },
+
+      ,
+        {
+    firm:"BiryaniDarbar",
+    brand:"Biryani Darbar",
+    email:"info@buryanidarbar.com",
+    number:"+254794111000",
+    address:"Lotus Plaza, Chiromo Lane"
+  },
+
+   ,
+        {
+    firm:"SecretGarden",
+    brand:"Secret Garden",
+    email:"info@secretgarden.com",
+    number:"+254716983889",
+    address:"Nairobi"
+  },
+
+  ,
+        {
+    firm:"SecretGarden",
+    brand:"Secret Garden",
+    email:"info@secretgarden.com",
+    number:"+254132222373",
+    address:"14 Riverside, Nairobi"
+  },
+
+  ,
+        {
+    firm:"Sunsetandbeats",
+    brand:"Sunset and Beats",
+    email:"info@sunsetsandbeats.com",
+    number:"+254791249359",
+    address:"Nairobi"
+  },
+
+  ,
+        {
+    firm:"SlushCoffeeWorld",
+    brand:"Slush Coffee World",
+    email:"info@slushcoffeeworld.com",
+    number:"+254716042461",
+    address:"Parklands Rd, Nairobi"
+  },
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
