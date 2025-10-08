@@ -927,7 +927,7 @@ export const firms = [
 
      {
     firm:"HashmiBarbecue",
-    brand:"Hashmi Barbecue",
+    brand:"Hashmi Barbecue", 
     email:"info@hashmibarbecue.com",
     number:"+254704587817",
     address:"Broadwalk Mall,3rd Floor Ojijo"
@@ -1019,7 +1019,7 @@ export const firms = [
 
   
       {
-    firm:"Harrys Tavern Pub",
+    firm:"HarrysTavernPub",
     brand:"Harry's Tavern Pub",
     email:"info@harrystavern.com",
     number:"+254722255986",
