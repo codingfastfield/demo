@@ -1,0 +1,542 @@
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .gradient-orb-1 {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 384px;
+    height: 384px;
+    background: #bfdbfe;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+    filter: blur(64px);
+    opacity: 0.3;
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  .gradient-orb-2 {
+    position: absolute;
+    top: 33%;
+    right: 25%;
+    width: 384px;
+    height: 384px;
+    background: #c7d2fe;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+    filter: blur(64px);
+    opacity: 0.3;
+    animation: pulse 4s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+
+  .hero-section {
+    position: relative;
+    width: 100%;
+    /* min-height: 50vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    z-index: 1;
+    /* background: red; */
+    max-height: 80vh;
+  }
+
+  .hero-header {
+    text-align: center;
+    margin-bottom: 60px;
+    z-index: 10;
+  }
+
+  .hero-title {
+    font-size: 64px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+
+  .hero-title-gradient {
+    background: linear-gradient(to right, #2563eb, #4f46e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: 20px;
+    color: #4b5563;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+
+  .cta-button {
+    padding: 16px 48px;
+    background: linear-gradient(to right, #2563eb, #4f46e5);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 40px rgba(37, 99, 235, 0.3);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 50px rgba(37, 99, 235, 0.4);
+    background: linear-gradient(to right, #1d4ed8, #4338ca);
+  }
+
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    perspective: 2000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 80px;
+  }
+
+  .carousel {
+    position: relative;
+    width: 350px;
+    height: 500px;
+    transform-style: preserve-3d;
+  }
+
+  .phone-card {
+    position: absolute;
+    width: 320px;
+    /* height: 500px; */
+    height: 400px;
+    /* background: rgba(255, 255, 255, 0.8); */
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 30px;
+    transition: all 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backface-visibility: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(219, 234, 254, 0.6);
+    /* background: red; */
+  }
+
+  .phone-image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    /* background: yellow; */
+  }
+
+  .phone-mockup {
+    /* width: 180px;
+        height: 360px; */
+    width: 200px;
+    height: 200px;
+    /* height: 140px; */
+    background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.3);
+    border: 8px solid #f3f4f6;
+    overflow: hidden;
+  }
+
+  .phone-notch {
+    width: 100px;
+    height: 25px;
+    background: #1f2937;
+    border-radius: 0 0 15px 15px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: none;
+  }
+
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    background: linear-gradient(180deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .phone-info {
+    text-align: center;
+  }
+
+  .phone-name {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    background: linear-gradient(to right, #2563eb, #4f46e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .phone-tagline {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 15px;
+  }
+
+  .phone-price {
+    font-size: 24px;
+    font-weight: 600;
+    color: #f59e0b;
+  }
+
+  .phone-card.pos-0 {
+    transform: translateX(-500px) translateZ(-400px) rotateY(25deg) scale(0.7);
+    opacity: 0.3;
+    z-index: 1;
+  }
+
+  .phone-card.pos-1 {
+    transform: translateX(-220px) translateZ(-150px) rotateY(18deg) scale(0.82);
+    opacity: 0.6;
+    z-index: 2;
+  }
+
+  .phone-card.pos-2 {
+    transform: translateX(0) translateZ(150px) rotateY(0deg) scale(1);
+    opacity: 1;
+    z-index: 3;
+    box-shadow: 0 30px 80px rgba(37, 99, 235, 0.15);
+  }
+
+  .phone-card.pos-3 {
+    transform: translateX(220px) translateZ(-150px) rotateY(-18deg) scale(0.82);
+    opacity: 0.6;
+    z-index: 2;
+  }
+
+  .phone-card.pos-4 {
+    transform: translateX(500px) translateZ(-400px) rotateY(-25deg) scale(0.7);
+    opacity: 0.3;
+    z-index: 1;
+  }
+
+  .navigation {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 10;
+  }
+
+  .nav-btn {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 2px solid #dbeafe;
+    border-radius: 50%;
+    color: #2563eb;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+  }
+
+  .nav-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: #2563eb;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+  }
+
+  .nav-btn:active {
+    transform: scale(0.95);
+    transition: all 0.2s ease;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 36px;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+    }
+
+    .carousel {
+      width: 250px;
+      height: 400px;
+    }
+
+    .phone-card {
+      width: 240px;
+      height: 400px;
+      padding: 30px 20px;
+    }
+
+    .phone-mockup {
+      /* width: 140px;
+          height: 280px; */
+      /* height: 140px; */
+      /* background: red; */
+      width: 200px;
+      height: 200px;
+    }
+
+    .phone-card.pos-0 {
+      transform: translateX(-320px) translateZ(-300px) rotateY(25deg)
+        scale(0.65);
+    }
+
+    .phone-card.pos-1 {
+      transform: translateX(-140px) translateZ(-100px) rotateY(18deg)
+        scale(0.78);
+    }
+
+    .phone-card.pos-3 {
+      transform: translateX(140px) translateZ(-100px) rotateY(-18deg)
+        scale(0.78);
+    }
+
+    .phone-card.pos-4 {
+      transform: translateX(320px) translateZ(-300px) rotateY(-25deg)
+        scale(0.65);
+    }
+  }
+</style>
+
+<div class="gradient-orb-1"></div>
+<div class="gradient-orb-2"></div>
+
+<main class="hero-section">
+  <div class="carousel-container">
+    <section
+      class="carousel"
+      id="carousel"
+      aria-label="Simu za Lipa Mdogo Mdogo Collection"
+    >
+      <article class="phone-card pos-0" data-position="0">
+        <div class="phone-image-container">
+          <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="/2.jpeg" alt="Samsung A07 - Lipa Mdogo Mdogo Phone" />
+            </div>
+          </div>
+        </div>
+        <div class="phone-info">
+          <h2 class="phone-name">Samsung A07</h2>
+          <p class="phone-tagline">Lipa Pole Pole</p>
+          <p class="phone-price">Deposit Ksh 4200</p>
+        </div>
+      </article>
+
+      <article class="phone-card pos-1" data-position="1">
+        <div class="phone-image-container">
+          <div
+            class="phone-mockup"
+            style="background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%); box-shadow: 0 20px 60px rgba(236, 72, 153, 0.3);"
+          >
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="/3.jpeg" alt="Infinix Hot60i - Lipa Mos Mos" />
+            </div>
+          </div>
+        </div>
+        <div class="phone-info">
+          <h2 class="phone-name">Infinix Hot60i</h2>
+          <p class="phone-tagline">Lipa Pole</p>
+          <p class="phone-price">Deposit Ksh 4500</p>
+        </div>
+      </article>
+
+      <article class="phone-card pos-2" data-position="2">
+        <div class="phone-image-container">
+          <div
+            class="phone-mockup"
+            style="background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%); box-shadow: 0 20px 60px rgba(6, 182, 212, 0.3);"
+          >
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img
+                src="/4.jpeg"
+                alt="Infinix Hot60i Pro - Simu za Lipa Mdogo Mdogo"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="phone-info">
+          <h2 class="phone-name">Infinix Hot60i Pro</h2>
+          <p class="phone-tagline">Lipa Mos Mos</p>
+          <p class="phone-price">Deposit Ksh 6800</p>
+        </div>
+      </article>
+
+      <article class="phone-card pos-3" data-position="3">
+        <div class="phone-image-container">
+          <div
+            class="phone-mockup"
+            style="background: linear-gradient(135deg, #f59e0b 0%, #eab308 100%); box-shadow: 0 20px 60px rgba(245, 158, 11, 0.3);"
+          >
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img
+                src="/1.jpeg"
+                alt="Tecno Spark 40 Pro - Lipa Mdogo Mdogo Phones"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="phone-info">
+          <h2 class="phone-name">Tecno Spark 40 Pro</h2>
+          <p class="phone-tagline">Lipa Mdogo Mdogo</p>
+          <p class="phone-price">Deposit Ksh 6000</p>
+        </div>
+      </article>
+
+      <article class="phone-card pos-4" data-position="4">
+        <div class="phone-image-container">
+          <div
+            class="phone-mockup"
+            style="background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%); box-shadow: 0 20px 60px rgba(16, 185, 129, 0.3);"
+          >
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img
+                src="/5.jpeg"
+                alt="Tecno Spark 40 - Samsung A05 Alternative"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="phone-info">
+          <h2 class="phone-name">Tecno Spark 40</h2>
+          <p class="phone-tagline">Lipa Mdogo Mdogo</p>
+          <p class="phone-price">Deposit Ksh 3900</p>
+        </div>
+      </article>
+    </section>
+
+    <nav class="navigation" aria-label="Carousel navigation">
+      <button class="nav-btn" id="prevBtn" aria-label="Previous phone"
+        >&lsaquo;</button
+      >
+
+      <button class="nav-btn" id="nextBtn" aria-label="Next phone"
+        >&rsaquo;</button
+      >
+    </nav>
+  </div>
+</main>
+
+<script>
+  const cards = document.querySelectorAll(".phone-card");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
+  let currentPositions = [0, 1, 2, 3, 4];
+  let autoRotateInterval;
+
+  function updateCardPositions() {
+    cards.forEach((card, index) => {
+      const pos = currentPositions[index];
+      card.className = `phone-card pos-${pos}`;
+      card.setAttribute("data-position", pos);
+    });
+  }
+
+  function rotateNext() {
+    currentPositions = currentPositions.map((pos) => (pos + 1) % 5);
+    updateCardPositions();
+  }
+
+  function rotatePrev() {
+    currentPositions = currentPositions.map((pos) => (pos - 1 + 5) % 5);
+    updateCardPositions();
+  }
+
+  function startAutoRotate() {
+    autoRotateInterval = setInterval(rotateNext, 6000);
+  }
+
+  function stopAutoRotate() {
+    clearInterval(autoRotateInterval);
+  }
+
+  function resetAutoRotate() {
+    stopAutoRotate();
+    startAutoRotate();
+  }
+
+  nextBtn.addEventListener("click", () => {
+    rotateNext();
+    resetAutoRotate();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    rotatePrev();
+    resetAutoRotate();
+  });
+
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const currentPos = parseInt(card.getAttribute("data-position"));
+      if (currentPos === 2) return;
+
+      let steps = 2 - currentPos;
+      if (steps < 0) steps += 5;
+
+      for (let i = 0; i < steps; i++) {
+        setTimeout(() => rotateNext(), i * 200);
+      }
+      resetAutoRotate();
+    });
+  });
+
+  startAutoRotate();
+
+  const carousel = document.getElementById("carousel");
+  carousel.addEventListener("mouseenter", stopAutoRotate);
+  carousel.addEventListener("mouseleave", startAutoRotate);
+</script>

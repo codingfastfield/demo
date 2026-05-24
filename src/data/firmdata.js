@@ -1202,8 +1202,8 @@ export const firms = [
         
         {
     firm:"zaman",
-    brand:"Polo",
-    email:"info@polo.com",
+    brand:"zaman",
+    email:"info@zaman.com",
     number:"+254729224693",
     address:"Tom Mboya Street"
   },
@@ -1293,6 +1293,70 @@ export const firms = [
   },
 
 
+  {
+    firm:"Kipepeo",
+    brand:"Kipepeo",
+    email:"info@kipepeo.com",
+    number:"+254732876091",
+    address:"Kenyatta Avenue, Nairobi"
+  },
+
+
+{
+    firm:"Supreme",
+    brand:"Supreme Eatery",
+    email:"info@supremeeatery.com",
+    number:"+254722154269",
+    address:"Nairobi"
+  },
+
+  {
+    firm:"boonsupreme",
+    brand:"Boon Supreme",
+    email:"info@boonsupreme.com",
+    number:"+254734516782",
+    address:"TRM Drive, Nairobi"
+  },
+
+
+   
+
+  
+  {
+    firm:"boonsupreme",
+    brand:"Boon Supreme",
+    email:"info@boonsupreme.com",
+    number:"+254796789104",
+    address:"TRM Drive, Nairobi"
+  },
+
+
+  {
+    firm:"chickeinburuburu",
+    brand:"Chicken Inn Buruburu",
+    email:"info@chickeninnbuuburu.com",
+    number:"+254700323323",
+    address:"Rubis, Buruburu, Rabai Rd, Nairobi"
+  },
+ 
+
+
+  {
+    firm:"chickeinn",
+    brand:"Chicken Inn",
+    email:"info@chickeninn.com",
+    number:"+254720828087",
+    address:"Githurai, Nairobi"
+  },
+ 
+  {
+    firm:"chickeinn",
+    brand:"Chicken Inn",
+    email:"info@chickeninn.com",
+    number:"+254723021782",
+    address:"Savannah Rd, Nairobi"
+  },
+ 
 
 
 
